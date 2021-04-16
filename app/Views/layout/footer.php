@@ -12,6 +12,7 @@
             <a href="#"><i class="fab fa-facebook ml-auto text-white"></i></a>
             <a href="#"><i class="fab fa-twitter ml-5 text-white"></i></a>
             <a href="#"><i class="fab fa-instagram ml-5 text-white"></i></a>
+            <a href="#"><i class="fab fa-whatsapp ml-5 text-white"></i></a>
         </div>
     </div>
 </footer>
