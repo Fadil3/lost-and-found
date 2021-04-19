@@ -10,7 +10,7 @@ class Pages extends BaseController
         $data = [
             'title' => 'Home | LostandFound'
         ];
-        return view('pages/home');
+        return view('pages/home',$data);
     }
 
     public function login()
@@ -19,7 +19,7 @@ class Pages extends BaseController
         $data = [
             'title' => 'Login | LostandFound'
         ];
-        return view('pages/login');
+        return view('pages/login',$data);
     }
 
     public function register()
@@ -28,7 +28,7 @@ class Pages extends BaseController
         $data = [
             'title' => 'Register | LostandFound'
         ];
-        return view('pages/register');
+        return view('pages/register',$data);
     }
 
     public function cari_laporan()
@@ -37,6 +37,15 @@ class Pages extends BaseController
         $data = [
             'title' => 'Cari Laporan | LostandFound'
         ];
-        return view('pages/cari_laporan');
+        return view('pages/cari_laporan',$data);
+    }
+
+    public function buat_laporan()
+    {
+        
+        $data = [
+            'title' => 'Buat Laporan | LostandFound'
+        ];
+        return view('pages/buat_laporan',$data);
     }
 }
