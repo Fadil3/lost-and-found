@@ -23,6 +23,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Buat Laporan</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cari_laporan">Cari Laporan</a>
+                </li>
             </ul>
             <div class="navbar-nav ml-auto">
                 <a class="nav-item nav-link" href="/login">Login</a>

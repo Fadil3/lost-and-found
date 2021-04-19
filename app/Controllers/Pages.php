@@ -30,4 +30,13 @@ class Pages extends BaseController
         ];
         return view('pages/register');
     }
+
+    public function cari_laporan()
+    {
+        
+        $data = [
+            'title' => 'Cari Laporan | LostandFound'
+        ];
+        return view('pages/cari_laporan');
+    }
 }
