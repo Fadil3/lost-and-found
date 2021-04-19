@@ -21,7 +21,7 @@
                     <a class="nav-link" href="#">Laporan Penemuan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Buat Laporan</a>
+                    <a class="nav-link" href="/buat_laporan">Buat Laporan</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/cari_laporan">Cari Laporan</a>
