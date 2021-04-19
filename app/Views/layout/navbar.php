@@ -29,5 +29,5 @@
                 <a class="nav-item nav-link" href="/register">Register</a>
             </div>
         </div>
+    </div>
 </nav>
-</div>
