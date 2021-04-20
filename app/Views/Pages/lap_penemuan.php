@@ -3,7 +3,7 @@
 <?= $this->section('content'); ?>
 <div class="container">
     <h3 class="mt-5 sub-title font-weight-bold text-center">
-        Laporan Kehilangan
+        Laporan Penemuan
     </h3>
     <section class="hero">
         <div class="row mt-5">
