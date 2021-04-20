@@ -15,10 +15,10 @@
                     <a class="nav-link" href="/about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Laporan Kehilangan</a>
+                    <a class="nav-link" href="/lap_kehilangan">Laporan Kehilangan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Laporan Penemuan</a>
+                    <a class="nav-link" href="/lap_penemuan">Laporan Penemuan</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/buat_laporan">Buat Laporan</a>
