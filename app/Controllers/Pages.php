@@ -48,4 +48,13 @@ class Pages extends BaseController
         ];
         return view('pages/buat_laporan',$data);
     }
+
+    public function about()
+    {
+        
+        $data = [
+            'title' => 'About | LostandFound'
+        ];
+        return view('pages/about',$data);
+    }
 }
