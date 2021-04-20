@@ -84,4 +84,13 @@ class Pages extends BaseController
         ];
         return view('pages/profile',$data);
     }
+
+    public function detail_lap_penemuan()
+    {
+        
+        $data = [
+            'title' => 'Laporan Penemuan | LostandFound'
+        ];
+        return view('pages/detail_lap_penemuan',$data);
+    }
 }

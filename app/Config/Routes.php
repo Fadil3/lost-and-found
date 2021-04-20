@@ -41,6 +41,7 @@ $routes->get('/about','Pages::about');
 $routes->get('/lap_kehilangan','Pages::lap_kehilangan');
 $routes->get('/lap_penemuan','Pages::lap_penemuan');
 $routes->get('/profile','Pages::profile');
+$routes->get('/detail_lap_penemuan','Pages::detail_lap_penemuan');
 
 /*
  * --------------------------------------------------------------------
