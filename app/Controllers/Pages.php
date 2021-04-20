@@ -57,4 +57,13 @@ class Pages extends BaseController
         ];
         return view('pages/about',$data);
     }
+
+    public function lap_kehilangan()
+    {
+        
+        $data = [
+            'title' => 'Laporan Kehilangan | LostandFound'
+        ];
+        return view('pages/lap_kehilangan',$data);
+    }
 }
