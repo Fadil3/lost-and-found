@@ -38,6 +38,7 @@ $routes->get('/register', 'Pages::register');
 $routes->get('/cari_laporan', 'Pages::cari_laporan');
 $routes->get('/buat_laporan', 'Pages::buat_laporan');
 $routes->get('/about','Pages::about');
+$routes->get('/lap_kehilangan','Pages::lap_kehilangan');
 
 /*
  * --------------------------------------------------------------------
