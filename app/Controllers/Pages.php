@@ -75,4 +75,13 @@ class Pages extends BaseController
         ];
         return view('pages/lap_penemuan',$data);
     }
+
+    public function profile()
+    {
+        
+        $data = [
+            'title' => 'My Profile | LostandFound'
+        ];
+        return view('pages/profile',$data);
+    }
 }
