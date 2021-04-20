@@ -76,6 +76,7 @@ class Pages extends BaseController
         return view('pages/lap_penemuan',$data);
     }
 
+
     public function detail_lap_kehilangan()
     {
         
@@ -83,5 +84,15 @@ class Pages extends BaseController
             'title' => 'Detail Laporan Kehilangan | LostandFound'
         ];
         return view('pages/lap_kehilangan',$data);
+    }
+
+    public function profile()
+    {
+
+        $data = [
+            'title' => 'My Profile | LostandFound'
+        ];
+        return view('pages/profile',$data);
+
     }
 }
