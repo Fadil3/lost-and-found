@@ -28,7 +28,7 @@ class Pages extends BaseController
         $data = [
             'title' => 'Register | LostandFound'
         ];
-        return view('pages/register',$data);
+        return view('pages/register');
     }
 
     public function cari_laporan()
