@@ -7,18 +7,18 @@
         <div class="text-center row-padding">
             <article class="card-body mx-auto" style="max-width: 400px;">
                 <h4 class="card-title mt-3 text-center">Create Account</h4>
-                <form>
+                <form action="/register/save" method="post">
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                         </div>
-                        <input name="" class="form-control" placeholder="Full name" type="text">
+                        <input name="name" class="form-control" placeholder="Full name" type="text">
                     </div> <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                         </div>
-                        <input name="" class="form-control" placeholder="Email address" id="name" type="email">
+                        <input name="email" class="form-control" placeholder="Email address" id="name" type="email">
                     </div> <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
@@ -30,13 +30,13 @@
                             <option value="2">+64</option>
                             <option value="3">+65</option>
                         </select>
-                        <input name="" class="form-control" placeholder="Phone number" type="text">
+                        <input name="no_telepon" class="form-control" placeholder="Phone number" type="text">
                     </div> <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                         </div>
-                        <input class="form-control" placeholder="Create password" id="pw" type="password">
+                        <input name="password" class="form-control" placeholder="Create password" id="pw" type="password">
                     </div>
                     <p>Media Sosial</p>
                     <div class="form-group input-group">
