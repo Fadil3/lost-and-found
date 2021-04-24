@@ -104,4 +104,13 @@ class Pages extends BaseController
         ];
         return view('pages/detail_lap_penemuan',$data);
     }
+
+    public function daftar_klaim()
+    {
+        
+        $data = [
+            'title' => 'Daftar Klaim | LostandFound'
+        ];
+        return view('pages/daftar_klaim',$data);
+    }
 }

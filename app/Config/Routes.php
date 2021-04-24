@@ -44,6 +44,7 @@ $routes->get('/lap_penemuan','Pages::lap_penemuan');
 $routes->get('/detail_lap_kehilangan','Pages::detail_lap_kehilangan');
 $routes->get('/profile','Pages::profile');
 $routes->get('/detail_lap_penemuan','Pages::detail_lap_penemuan');
+$routes->get('/daftar_klaim','Pages::daftar_klaim');
 
 /*
  * --------------------------------------------------------------------
