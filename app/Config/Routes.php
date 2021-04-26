@@ -39,8 +39,14 @@ $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'auth']);
 $routes->get('/cari_laporan', 'Pages::cari_laporan' ,['filter' => 'auth']);
 $routes->get('/buat_laporan', 'Pages::buat_laporan' ,['filter' => 'auth']);
 $routes->get('/about','Pages::about');
-$routes->get('/lap_kehilangan','Pages::lap_kehilangan');
-$routes->get('/lap_penemuan','Pages::lap_penemuan');
+
+//barang
+$routes->get('/lap_kehilangan','Barang::index');
+$routes->get('/lap_penemuan','Barang::index');
+
+//detail barang
+$routes->get('/barang/(:any)', 'Barang::detail/$1');
+
 $routes->get('/detail_lap_kehilangan','Pages::detail_lap_kehilangan');
 $routes->get('/profile','Pages::profile');
 $routes->get('/detail_lap_penemuan','Pages::detail_lap_penemuan');
