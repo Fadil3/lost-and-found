@@ -23,11 +23,28 @@ class Barang extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Barang',
+            'title' => 'Laporan Kehilangan',
             'barang' => $this->barangModel->getBarang()
         ];
         // dd($data);
         return view('Pages/lap_kehilangan', $data);
+    }
+
+    public function detail($id)
+    {
+
+        $data = [
+            'title' => 'Detail Barang ',
+            'barang' => $this->barangModel->getBarang($id)
+        ];
+        
+        //jika barang tidak ada
+
+        if (empty($data['barang'])) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Barang tidak ditemukan');
+        }
+        // dd($data);
+        return view('Pages/detail_lap_kehilangan', $data);
     }
 }
 

@@ -11,16 +11,11 @@ class BarangModel extends Model
     protected $allowedFields = ['id_barang', 'id_korban', 'id_penemu', 'nama_barang', 'jenis_barang','waktu_barang','lokasi_barang','deskripsi_barang','foto_barang'];
 
 
-    public function getBarang($slug = false)
+    public function getBarang($id = false)
     {
+        if ($id == false) {
             return $this->findAll();
+        }
+        return $this->where(['id_barang' => $id])->first();
     }
-
-    // public function getKomik($slug = false)
-    // {
-    //     if ($slug == false) {
-    //         return $this->findAll();
-    //     }
-    //     return $this->where(['slug' => $slug])->first();
-    // }
 }
