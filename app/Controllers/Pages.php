@@ -113,4 +113,13 @@ class Pages extends BaseController
         ];
         return view('pages/daftar_klaim',$data);
     }
+
+    public function admin_lap_selesai()
+    {
+        
+        $data = [
+            'title' => 'Admin Laporan Selesai | LostandFound'
+        ];
+        return view('pages/admin_lap_selesai',$data);
+    }
 }
