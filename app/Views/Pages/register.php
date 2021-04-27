@@ -43,13 +43,13 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-instagram"></i> </span>
                         </div>
-                        <input name="instagram" class="form-control" placeholder="Instagram" type="text">
+                        <input name="" class="form-control" placeholder="Instagram" type="text">
                     </div>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-facebook"></i> </span>
                         </div>
-                        <input name="facebook" class="form-control" placeholder="Facebook" type="text">
+                        <input name="" class="form-control" placeholder="Facebook" type="text">
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block" value="Register" onclick="store()">
