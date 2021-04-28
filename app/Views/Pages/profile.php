@@ -13,16 +13,16 @@
                     </div>
                     <div class="col-md-3">
                         <div class="card-body text-left">
-                            <p class="card-text">Fadhlirrahman</p>
-                            <p class="card-text">+6281323131212</p>
-                            <p class="card-text">Sukajadi, Bandung</p>
+                            <p class="card-text"><?= $user['user_name'] ?></p>
+                            <p class="card-text"><?= $user['user_no_telepon'] ?></p>
+                            <p class="card-text"><?= $user['user_alamat'] ?></p>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="card-body text-left">
                             <h5>Social Media</h5>
-                            <p class="card-text"><i class="fab fa-instagram mr-2">&nbsp;</i>fadhlii</p>
-                            <p class="card-text"><i class="fab fa-facebook mr-2">&nbsp;</i>fadhlii</p>
+                            <p class="card-text"><i class="fab fa-instagram mr-2">&nbsp;</i><?= $user['user_instagram'] ?></p>
+                            <p class="card-text"><i class="fab fa-facebook mr-2">&nbsp;</i><?= $user['user_facebook'] ?></p>
                         </div>
                     </div>
                     <div class="col-md-2 mt-5 mb-3">

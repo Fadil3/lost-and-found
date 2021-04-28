@@ -7,6 +7,10 @@ class Dashboard extends Controller
     public function index()
     {
         $session = session();
-        echo view('/pages/profile');
+        $data = [
+            'title'     => 'Profile | LostandFound',
+            'nama_user' => $session->user_nama
+        ];
+        return view('pages/profile',$data);
     }
 }
