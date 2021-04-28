@@ -52,6 +52,7 @@ $routes->get('/profile','Pages::profile');
 $routes->get('/detail_lap_penemuan','Pages::detail_lap_penemuan');
 $routes->get('/daftar_klaim','Pages::daftar_klaim');
 $routes->get('/admin_lap_penemuan','Pages::admin_lap_penemuan');
+$routes->get('/admin_lap_kehilangan','Pages::admin_lap_kehilangan');
 
 /*
  * --------------------------------------------------------------------
