@@ -9,7 +9,9 @@ class Register extends Controller
     {
         //include helper form
         helper(['form']);
-        $data = [];
+        $data = [
+            'title' => 'Register | LostandFound'
+        ];
         echo view('/pages/register', $data);
     }
  

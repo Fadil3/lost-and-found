@@ -11,7 +11,7 @@
             integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
         <script src="https://kit.fontawesome.com/ea7e5979df.js" crossorigin="anonymous"></script>
-        <title><//?= $title; ?></title>
+        <title><?= $title; ?></title>
     </head>
 
     <body>

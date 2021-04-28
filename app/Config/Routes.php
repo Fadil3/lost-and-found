@@ -34,15 +34,15 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Pages::index');
 $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'auth']);
-// $routes->get('/login', 'Pages::login');
-// $routes->get('/register', 'Pages::register');
+$routes->get('/login', 'Pages::login');
+$routes->get('/register', 'Register::index');
 $routes->get('/cari_laporan', 'Pages::cari_laporan' ,['filter' => 'auth']);
 $routes->get('/buat_laporan', 'Pages::buat_laporan' ,['filter' => 'auth']);
 $routes->get('/about','Pages::about');
 
 //barang
-$routes->get('/lap_kehilangan','Barang::index'); 
-$routes->get('/lap_penemuan','Barang::index');
+$routes->get('/lap_kehilangan','Barang::kehilangan', ['filter' => 'auth']); 
+$routes->get('/lap_penemuan','Barang::penemuan', ['filter' => 'auth']);
 
 //detail barang
 $routes->get('/barang/(:any)', 'Barang::detail/$1');

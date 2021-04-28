@@ -12,7 +12,7 @@
                     <select name="status" class="custom-select" id="inputGroupSelect01">
                         <option selected>Jenis Laporan...</option>
                         <option value="1">Laporan Penemuan</option>
-                        <option value="0">Laporan Pencarian</option>
+                        <option value="0">Laporan Kehilangan</option>
                     </select>
                 </div>
             </div>
