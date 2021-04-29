@@ -30,7 +30,6 @@
             <div class="navbar-nav ml-auto">
                 <?php if (session()->has('user_id')) : ?>
                 <a class="nav-item nav-link" href="/login/logout">Logout</a>
-                <?php elseif (isset($_SESSION['role']) !=0): ?>
                 <a class="nav-item nav-link" href="/profile">MyProfile</a>
                 <?php endif; ?>
                 <?php if(isset($_SESSION['user_id']) == null) : ?>
