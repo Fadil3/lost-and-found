@@ -19,7 +19,7 @@
 
     <body>
 
-        <?= $this->include('layout/navbar'); ?>
+        <?= $this->include('layout/navbarAdmin'); ?>
 
         <?= $this->renderSection('content'); ?>
 

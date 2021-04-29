@@ -8,34 +8,19 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin_lap_kehilangan">Laporan Kehilangan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about">About</a>
+                    <a class="nav-link" href="/admin_lap_penemuan">Laporan Penemuan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/lap_kehilangan">Laporan Kehilangan</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/lap_penemuan">Laporan Penemuan</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/buat_laporan">Buat Laporan</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/cari_laporan">Cari Laporan</a>
+                    <a class="nav-link" href="/admin_lap_selesai">Laporan yang telah selesai</a>
                 </li>
             </ul>
             <div class="navbar-nav ml-auto">
                 <?php if (session()->has('user_id')) : ?>
                 <a class="nav-item nav-link" href="/login/logout">Logout</a>
-                <?php elseif (isset($_SESSION['role']) !=0): ?>
-                <a class="nav-item nav-link" href="/profile">MyProfile</a>
-                <?php endif; ?>
-                <?php if(isset($_SESSION['user_id']) == null) : ?>
-                <a class="nav-item nav-link" href="/login">Login</a>
-                <a class="nav-item nav-link" href="/register">Register</a>
                 <?php endif; ?>
             </div>
         </div>
