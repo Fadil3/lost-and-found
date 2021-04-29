@@ -65,7 +65,7 @@
                         <button type="submit" class="btn btn-primary btn-block" value="Register" onclick="store()">
                             Create Account </button>
                     </div>
-                    <p class="text-center">Have an account? <a href="login.html">Log In</a> </p>
+                    <p class="text-center">Have an account? <a href="/login">Log In</a> </p>
                 </form>
             </article>
         </div>
