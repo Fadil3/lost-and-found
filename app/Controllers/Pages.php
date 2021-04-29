@@ -137,6 +137,6 @@ class Pages extends BaseController
         $data = [
             'title' => 'Admin Laporan Kehilangan | LostandFound'
         ];
-        return view('pages/admin_laporan_kehilangan',$data);
+        return view('pages/admin_lap_kehilangan',$data);
     }
 }

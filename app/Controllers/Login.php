@@ -18,16 +18,25 @@ class Login extends Controller
         $email = $this->request->getVar('email');
         $password = $this->request->getVar('password');
         $data = $model->where('user_email', $email)->first();
+        // dd($data);
         if($data){
             $pass = $data['user_password'];
             $verify_pass = password_verify($password, $pass);
             if($verify_pass){
                 $ses_data = [
                     'user_id'       => $data['user_id'],
+                    'role'          => $data['user_role'],
                     'logged_in'     => TRUE
                 ];
                 $session->set($ses_data);
-                return redirect()->to('/profile');
+                // dd($data);
+                //kalau role nya admin / 0
+                if ($data['user_role'] == 0) {
+                    return redirect()->to('/admin_lap_selesai');
+                }
+                else {
+                    return redirect()->to('/profile');
+                }
 
             }else{
                 $session->setFlashdata('msg', 'Wrong Password');
