@@ -7,6 +7,9 @@
         <div class="text-center row-padding">
             <article class="card-body mx-auto" style="max-width: 400px;">
                 <h4 class="card-title mt-3 text-center">Create Account</h4>
+                <?php if (isset($validation)) : ?>
+                <div class="alert alert-danger"><?= $validation->listErrors() ?></div>
+                <?php endif; ?>
                 <form action="/register/save" method="post">
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
@@ -42,7 +45,8 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                         </div>
-                        <input name="password" class="form-control" placeholder="Create password" id="pw" type="password">
+                        <input name="password" class="form-control" placeholder="Create password" id="pw"
+                            type="password">
                     </div>
                     <p>Media Sosial</p>
                     <div class="form-group input-group">
@@ -61,7 +65,7 @@
                         <button type="submit" class="btn btn-primary btn-block" value="Register" onclick="store()">
                             Create Account </button>
                     </div>
-                    <p class="text-center">Have an account? <a href="login.html">Log In</a> </p>
+                    <p class="text-center">Have an account? <a href="/login">Log In</a> </p>
                 </form>
             </article>
         </div>

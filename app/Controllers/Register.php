@@ -2,7 +2,8 @@
  
 use CodeIgniter\Controller;
 use App\Models\UserModel;
- 
+use PHPUnit\Util\Xml\Validator;
+
 class Register extends Controller
 {
     public function index()
@@ -48,7 +49,8 @@ class Register extends Controller
         }else{
 
             $data = [
-                'title' => 'Register | LostandFound'
+                'title' => 'Register | LostandFound',
+                'validation' => $this->validator
             ];
             return view('/pages/register', $data);
         }
