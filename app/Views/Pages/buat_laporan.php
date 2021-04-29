@@ -4,15 +4,15 @@
 
 <div class="container mt-5">
     <h2 class="text-center mb-5">Buat Laporan</h2>
-    <form action="#" method="POST" enctype="multipart/form-data">
+    <form action="/barang/add" method="post" enctype="multipart/form-data">
         <div class="form-group row">
             <label for="inputJenis" class="col-sm-2 col-form-label">Jenis Laporan :</label>
             <div class="col-sm-10">
                 <div class="input-group mb-3">
-                    <select class="custom-select" id="inputGroupSelect01">
+                    <select name="status" class="custom-select" id="inputGroupSelect01">
                         <option selected>Jenis Laporan...</option>
                         <option value="1">Laporan Penemuan</option>
-                        <option value="2">Laporan Pencarian</option>
+                        <option value="0">Laporan Kehilangan</option>
                     </select>
                 </div>
             </div>
@@ -21,10 +21,10 @@
             <label for="inputKategori" class="col-sm-2 col-form-label">Kategori Barang :</label>
             <div class="col-sm-10">
                 <div class="input-group mb-3">
-                    <select class="custom-select" id="inputGroupSelect01">
+                    <select name="kategori" class="custom-select" id="inputGroupSelect01">
                         <option selected>Kategori barang ...</option>
-                        <option value="1">Elektronik</option>
-                        <option value="2">Dokumen</option>
+                        <option value="Elektronik">Elektronik</option>
+                        <option value="Dokumen">Dokumen</option>
                     </select>
                 </div>
             </div>
@@ -33,20 +33,20 @@
             <label for="inputKategori" class="col-sm-2 col-form-label">Nama Barang :</label>
             <div class="col-sm-10">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" id="inputLokasi" placeholder="Nama Barang" required>
+                    <input type="text" class="form-control" name="name" id="inputLokasi" placeholder="Nama Barang" required>
                 </div>
             </div>
         </div>
         <div class="form-group row">
             <label for="inputWaktu" class="col-sm-2 col-form-label">Waktu :</label>
             <div class="col-sm-10">
-                <input type="date" class="form-control" id="inputWaktu" placeholder="Waktu Hilang" required>
+                <input type="date" name="time" class="form-control" id="inputWaktu" placeholder="Waktu Hilang" required>
             </div>
         </div>
         <div class="form-group row">
             <label for="inputLokasi" class="col-sm-2 col-form-label">Lokasi :</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputLokasi" placeholder="lokasi" required>
+                <input type="text" name="location" class="form-control" id="inputLokasi" placeholder="lokasi" required>
             </div>
         </div>
         <!--  -->
@@ -57,7 +57,7 @@
             </div>
             <div class="col-sm-8">
                 <div class="custom-file">
-                    <input type="file" id="sampul" name="sampul" onchange="previewImg()">
+                    <input type="file" id="sampul" name="image" onchange="previewImg()">
                     <label class="custom-file-label " for="sampul">Upload gambar...</label>
                 </div>
             </div>
@@ -68,13 +68,13 @@
             <label for="inputCiri" class="col-sm-2 col-form-label">Ciri - Ciri :</label>
             <div class="col-sm-10">
                 <div class="form-group">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
             </div>
         </div>
         <div class="form-group row text-center">
             <div class="col-sm-12 mt-5">
-                <button type="submit" class="btn btn-primary">Buat Laporan Barang</button>
+                <button type="submit" class="btn btn-primary" name="btn" value="Save">Buat Laporan Barang</button>
             </div>
         </div>
     </form>

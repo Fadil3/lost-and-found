@@ -16,12 +16,6 @@
                     </div> <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-                        </div>
-                        <input name="email" class="form-control" placeholder="Email address" id="name" type="email">
-                    </div> <!-- form-group// -->
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
                         </div>
                         <select class="custom-select" style="max-width: 120px;">
@@ -34,6 +28,18 @@
                     </div> <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-home"></i> </span>
+                        </div>
+                        <input name="address" class="form-control" placeholder="Address" type="text">
+                    </div> <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                        </div>
+                        <input name="email" class="form-control" placeholder="Email address" id="name" type="email">
+                    </div> <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                         </div>
                         <input name="password" class="form-control" placeholder="Create password" id="pw" type="password">
@@ -43,13 +49,13 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-instagram"></i> </span>
                         </div>
-                        <input name="" class="form-control" placeholder="Instagram" type="text">
+                        <input name="instagram" class="form-control" placeholder="Instagram" type="text">
                     </div>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-facebook"></i> </span>
                         </div>
-                        <input name="" class="form-control" placeholder="Facebook" type="text">
+                        <input name="facebook" class="form-control" placeholder="Facebook" type="text">
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block" value="Register" onclick="store()">

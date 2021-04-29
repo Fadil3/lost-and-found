@@ -34,21 +34,21 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Pages::index');
 $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'auth']);
-// $routes->get('/login', 'Pages::login');
-// $routes->get('/register', 'Pages::register');
+$routes->get('/login', 'Pages::login');
+$routes->get('/register', 'Register::index');
 $routes->get('/cari_laporan', 'Pages::cari_laporan' ,['filter' => 'auth']);
 $routes->get('/buat_laporan', 'Pages::buat_laporan' ,['filter' => 'auth']);
 $routes->get('/about','Pages::about');
 
 //barang
-$routes->get('/lap_kehilangan','Barang::index');
-$routes->get('/lap_penemuan','Barang::index');
+$routes->get('/lap_kehilangan','Barang::kehilangan');
+$routes->get('/lap_penemuan','Barang::penemuan');
 
 //detail barang
 $routes->get('/barang/(:any)', 'Barang::detail/$1');
 
 $routes->get('/detail_lap_kehilangan','Pages::detail_lap_kehilangan');
-$routes->get('/profile','Pages::profile');
+$routes->get('/profile','Profile::index');
 $routes->get('/detail_lap_penemuan','Pages::detail_lap_penemuan');
 $routes->get('/daftar_klaim','Pages::daftar_klaim');
 $routes->get('/admin_lap_selesai','Pages::admin_lap_selesai');
