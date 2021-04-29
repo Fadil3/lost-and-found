@@ -1,3 +1,6 @@
+<?php 
+    $session = session();
+?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand font-weight-bold" href="/">Lost and Found</a>
@@ -28,8 +31,14 @@
                 </li>
             </ul>
             <div class="navbar-nav ml-auto">
+                <?php if (session()->has('user_id')) : ?>
+                <a class="nav-item nav-link" href="/login/logout">Logout</a>
+                <a class="nav-item nav-link" href="/profile">MyProfile</a>
+                <?php endif; ?>
+                <?php if(isset($_SESSION['user_id']) == null) : ?>
                 <a class="nav-item nav-link" href="/login">Login</a>
                 <a class="nav-item nav-link" href="/register">Register</a>
+                <?php endif; ?>
             </div>
         </div>
     </div>
