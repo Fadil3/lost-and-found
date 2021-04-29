@@ -34,7 +34,7 @@
                     </div>
                     <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="check()">Sign
                         in</button>
-                    <p class="m-3 mb-5 sub-title">Dont Have an Account ? <a href="register.html">Register</a>
+                    <p class="m-3 mb-5 sub-title">Dont Have an Account ? <a href="/register">Register</a>
                     </p>
                 </form>
             </div>
