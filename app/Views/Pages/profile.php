@@ -21,8 +21,10 @@
                     <div class="col-md-3">
                         <div class="card-body text-left">
                             <h5>Social Media</h5>
-                            <p class="card-text"><i class="fab fa-instagram mr-2">&nbsp;</i><?= $user['user_instagram'] ?></p>
-                            <p class="card-text"><i class="fab fa-facebook mr-2">&nbsp;</i><?= $user['user_facebook'] ?></p>
+                            <p class="card-text"><i
+                                    class="fab fa-instagram mr-2">&nbsp;</i><?= $user['user_instagram'] ?></p>
+                            <p class="card-text"><i class="fab fa-facebook mr-2">&nbsp;</i><?= $user['user_facebook'] ?>
+                            </p>
                         </div>
                     </div>
                     <div class="col-md-2 mt-5 mb-3">
@@ -40,15 +42,15 @@
                     <div class="col-md-12">
                         <div class="card-body text-center font-weight-bold">
                             <p class="card-text">Laporan yang telah disetujui oleh admin</p>
-                            <a href="#" class="btn btn-success mt-5">Cek Laporan</a>
+                            <a href="/lap_acc_user" class="btn btn-success mt-5">Cek Laporan</a>
                         </div>
                     </div>
                 </div>
                 <div class="card">
                     <div class="col-md-12">
                         <div class="card-body text-center font-weight-bold">
-                            <p class="card-text">Laporan yang telah disetujui oleh admin</p>
-                            <a href="#" class="btn btn-success mt-5">Cek Laporan</a>
+                            <p class="card-text">Laporan yang belum disetujui oleh admin</p>
+                            <a href="/lap_x_acc_user" class="btn btn-success mt-5">Cek Laporan</a>
                         </div>
                     </div>
                 </div>
