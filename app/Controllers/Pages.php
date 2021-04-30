@@ -139,4 +139,22 @@ class Pages extends BaseController
         ];
         return view('pages/admin_lap_kehilangan',$data);
     }
+
+    public function lap_acc_user()
+    {
+        
+        $data = [
+            'title' => 'laporan yang sudah diterima | LostandFound'
+        ];
+        return view('pages/lap_acc_user',$data);
+    }
+
+    public function lap_x_acc_user()
+    {
+        
+        $data = [
+            'title' => 'Laporan yang belum diterima | LostandFound'
+        ];
+        return view('pages/lap_x_acc_user',$data);
+    }
 }

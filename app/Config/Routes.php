@@ -54,7 +54,8 @@ $routes->get('/daftar_klaim','Pages::daftar_klaim');
 $routes->get('/admin_lap_selesai','Pages::admin_lap_selesai');
 $routes->get('/admin_lap_penemuan','Pages::admin_lap_penemuan');
 $routes->get('/admin_lap_kehilangan','Pages::admin_lap_kehilangan');
-
+$routes->get('/lap_acc_user','Pages::lap_acc_user');
+$routes->get('/lap_x_acc_user','Pages::lap_x_acc_user');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
