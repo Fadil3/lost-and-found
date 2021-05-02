@@ -3,7 +3,7 @@
 namespace CodeIgniter;
 namespace App\Controllers;
 
-use CodeIgniter\Controller;
+// use CodeIgniter\Controller;
 use App\Models\BarangModel;
 use App\Models\StatusBarangModel;
 use App\Models\KorbanModel;
@@ -19,6 +19,7 @@ class Barang extends BaseController
 	 *
 	 * @var HTTP\IncomingRequest
 	 */
+	protected $request;
 	protected $barangModel;
     protected $korban_model;
     protected $penemu_model;
@@ -93,11 +94,37 @@ class Barang extends BaseController
             'kategori'      => 'required',
             'time'          => 'required',
             'location'      => 'required',
-            'description'   => 'required'
+            'description'   => 'required',
+            'sampul' => [
+                'rules' => 'max_size[sampul,1024]|is_image[sampul]|mime_in[sampul,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'max_size' => 'ukuran gambar max 1MB',
+                    'is_image' => 'file yang anda upload bukan gambar',
+                    'mime_in' => 'file yang anda upload bukan gambar'
+                ]
+            ]
         ];
+
         
-        //jika sudah tervalidasi
-        if($this->validate($rules)){
+        
+            //jika sudah tervalidasi
+            if($this->validate($rules)){
+            
+                //ambil gambar
+            $fileSampul = $this->request->getFile('sampul');
+            
+            // apakah tidak ada gamabr yang diupload
+            if ($fileSampul->getError() == 4) {
+                $namaSampul = 'default.png';
+            } else {
+            
+                //generate nama sampul random
+                $namaSampul = $fileSampul->getRandomName();
+                
+                //pindah file ke folder img
+                $fileSampul->move('images', $namaSampul);
+            
+            }
             
             //maka ditentukan data yang akan diinput ke dalam database
             //key dengan valuenya
@@ -107,7 +134,7 @@ class Barang extends BaseController
                 'waktu_barang'     => $this->request->getVar('time'),
                 'lokasi_barang'    => $this->request->getVar('location'),
                 'deskripsi_barang' => $this->request->getVar('description'),
-                'foto_barang'      => 'default.jpg'
+                'foto_barang'      => $namaSampul
             ];
 
             //memanggil method save dari model barang model
@@ -218,11 +245,20 @@ class Barang extends BaseController
             
         }else{
             //jika ada data yang belum diisi, akan ada permintaan validasi
-            $data['validation'] = $this->validator;
+            $data = [
+                'title' => 'Buat Laporan | LostandFound',
+                'validation' => $this->validator,
+            ];
             //dilempar kembali ke menu laporan
             echo view('/pages/buat_laporan', $data);
         }
     }
 }
+
+
+// class Barang extends BaseController
+// {
+	
+// }
 
 ?>

@@ -33,7 +33,8 @@
             <label for="inputKategori" class="col-sm-2 col-form-label">Nama Barang :</label>
             <div class="col-sm-10">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="name" id="inputLokasi" placeholder="Nama Barang" required>
+                    <input type="text" class="form-control" name="name" id="inputLokasi" placeholder="Nama Barang"
+                        required>
                 </div>
             </div>
         </div>
@@ -53,12 +54,13 @@
         <div class="form-group row">
             <label for="sampul" class="col-sm-2 col-form-label">Gambar :</label>
             <div class="col-sm-2">
-                <img src="/img/default.png" class="img-thumbnail img-preview">
+                <img src="/images/default.png" class="img-thumbnail img-preview">
             </div>
             <div class="col-sm-8">
                 <div class="custom-file">
-                    <input type="file" id="sampul" name="image" onchange="previewImg()">
+                    <input type="file" id="sampul" name="sampul" onchange="previewImg()">
                     <label class="custom-file-label " for="sampul">Upload gambar...</label>
+
                 </div>
             </div>
         </div>
@@ -68,7 +70,8 @@
             <label for="inputCiri" class="col-sm-2 col-form-label">Ciri - Ciri :</label>
             <div class="col-sm-10">
                 <div class="form-group">
-                    <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" name="description" id="exampleFormControlTextarea1"
+                        rows="3"></textarea>
                 </div>
             </div>
         </div>
