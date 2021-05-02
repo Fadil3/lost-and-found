@@ -86,15 +86,45 @@ class Barang extends BaseController
     {   
         //include helper form
         helper(['form']);
-        
-        //rules untuk validasi data yang akan masuk
-        $rules = [
-            'name'          => 'required',
-            'status'        => 'required',
-            'kategori'      => 'required',
-            'time'          => 'required',
-            'location'      => 'required',
-            'description'   => 'required',
+
+
+        if (!$this->validate([
+            'name'          => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                ]
+            ],
+            'status'          => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                ]
+            ],
+            'kategori'          => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                ]
+            ],
+            'time'          => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                ]
+            ],
+            'location'          => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                ]
+            ],
+            'description'          => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                ]
+            ],
             'sampul' => [
                 'rules' => 'max_size[sampul,1024]|is_image[sampul]|mime_in[sampul,image/jpg,image/jpeg,image/png]',
                 'errors' => [
@@ -103,14 +133,13 @@ class Barang extends BaseController
                     'mime_in' => 'file yang anda upload bukan gambar'
                 ]
             ]
-        ];
-
-        
+        ])) {
+            return redirect()->to('/pages/buat_laporan')->withInput();
+        }
         
             //jika sudah tervalidasi
-            if($this->validate($rules)){
             
-                //ambil gambar
+            //ambil gambar
             $fileSampul = $this->request->getFile('sampul');
             
             // apakah tidak ada gamabr yang diupload
@@ -125,7 +154,18 @@ class Barang extends BaseController
                 $fileSampul->move('images', $namaSampul);
             
             }
+
+            if ($this->request->getVar('status') == "Jenis Laporan...") {
+                session()->setFlashdata('msg2', 'Jenis laporan belum dipilih');
+                return redirect()->to('/pages/buat_laporan')->withInput();
+            }
             
+            if ($this->request->getVar('kategori') == "Kategori barang ...") {
+                session()->setFlashdata('msg2', 'Kategori barang belum dipilih');
+                return redirect()->to('/pages/buat_laporan')->withInput();
+            }
+            
+
             //maka ditentukan data yang akan diinput ke dalam database
             //key dengan valuenya
             $data = [
@@ -136,6 +176,7 @@ class Barang extends BaseController
                 'deskripsi_barang' => $this->request->getVar('description'),
                 'foto_barang'      => $namaSampul
             ];
+
 
             //memanggil method save dari model barang model
             //save langsung secara otomatis menginput ke dalam database
@@ -241,17 +282,9 @@ class Barang extends BaseController
                 'barang' => $this->barangModel->getBarang()
             ];
             // dd($data);
-            return view('Pages/lap_kehilangan', $data);
+            session()->setFlashdata('msg', 'Data berhasil ditambah');
+            return redirect()->to('/pages/buat_laporan');
             
-        }else{
-            //jika ada data yang belum diisi, akan ada permintaan validasi
-            $data = [
-                'title' => 'Buat Laporan | LostandFound',
-                'validation' => $this->validator,
-            ];
-            //dilempar kembali ke menu laporan
-            echo view('/pages/buat_laporan', $data);
-        }
     }
 }
 ?>
