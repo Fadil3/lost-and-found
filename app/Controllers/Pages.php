@@ -44,7 +44,8 @@ class Pages extends BaseController
     {
         
         $data = [
-            'title' => 'Buat Laporan | LostandFound'
+            'title' => 'Buat Laporan | LostandFound',
+            'validation' => \Config\Services::validation()
         ];
         return view('pages/buat_laporan',$data);
     }

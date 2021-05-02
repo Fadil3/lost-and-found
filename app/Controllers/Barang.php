@@ -3,7 +3,7 @@
 namespace CodeIgniter;
 namespace App\Controllers;
 
-use CodeIgniter\Controller;
+// use CodeIgniter\Controller;
 use App\Models\BarangModel;
 use App\Models\StatusBarangModel;
 use App\Models\KorbanModel;
@@ -19,6 +19,7 @@ class Barang extends BaseController
 	 *
 	 * @var HTTP\IncomingRequest
 	 */
+	protected $request;
 	protected $barangModel;
     protected $korban_model;
     protected $penemu_model;
@@ -85,20 +86,86 @@ class Barang extends BaseController
     {   
         //include helper form
         helper(['form']);
+
+
+        if (!$this->validate([
+            'name'          => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                ]
+            ],
+            'status'          => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                ]
+            ],
+            'kategori'          => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                ]
+            ],
+            'time'          => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                ]
+            ],
+            'location'          => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                ]
+            ],
+            'description'          => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                ]
+            ],
+            'sampul' => [
+                'rules' => 'max_size[sampul,1024]|is_image[sampul]|mime_in[sampul,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'max_size' => 'ukuran gambar max 1MB',
+                    'is_image' => 'file yang anda upload bukan gambar',
+                    'mime_in' => 'file yang anda upload bukan gambar'
+                ]
+            ]
+        ])) {
+            return redirect()->to('/pages/buat_laporan')->withInput();
+        }
         
-        //rules untuk validasi data yang akan masuk
-        $rules = [
-            'name'          => 'required',
-            'status'        => 'required',
-            'kategori'      => 'required',
-            'time'          => 'required',
-            'location'      => 'required',
-            'description'   => 'required'
-        ];
-        
-        //jika sudah tervalidasi
-        if($this->validate($rules)){
+            //jika sudah tervalidasi
             
+            //ambil gambar
+            $fileSampul = $this->request->getFile('sampul');
+            
+            // apakah tidak ada gamabr yang diupload
+            if ($fileSampul->getError() == 4) {
+                $namaSampul = 'default.png';
+            } else {
+            
+                //generate nama sampul random
+                $namaSampul = $fileSampul->getRandomName();
+                
+                //pindah file ke folder img
+                $fileSampul->move('images', $namaSampul);
+            
+            }
+
+            if ($this->request->getVar('status') == "Jenis Laporan...") {
+                session()->setFlashdata('msg2', 'Jenis laporan belum dipilih');
+                return redirect()->to('/pages/buat_laporan')->withInput();
+            }
+            
+            if ($this->request->getVar('kategori') == "Kategori barang ...") {
+                session()->setFlashdata('msg2', 'Kategori barang belum dipilih');
+                return redirect()->to('/pages/buat_laporan')->withInput();
+            }
+            
+
             //maka ditentukan data yang akan diinput ke dalam database
             //key dengan valuenya
             $data = [
@@ -107,8 +174,9 @@ class Barang extends BaseController
                 'waktu_barang'     => $this->request->getVar('time'),
                 'lokasi_barang'    => $this->request->getVar('location'),
                 'deskripsi_barang' => $this->request->getVar('description'),
-                'foto_barang'      => 'default.jpg'
+                'foto_barang'      => $namaSampul
             ];
+
 
             //memanggil method save dari model barang model
             //save langsung secara otomatis menginput ke dalam database
@@ -214,15 +282,9 @@ class Barang extends BaseController
                 'barang' => $this->barangModel->getBarang()
             ];
             // dd($data);
-            return view('Pages/lap_kehilangan', $data);
+            session()->setFlashdata('msg', 'Data berhasil ditambah');
+            return redirect()->to('/pages/buat_laporan');
             
-        }else{
-            //jika ada data yang belum diisi, akan ada permintaan validasi
-            $data['validation'] = $this->validator;
-            //dilempar kembali ke menu laporan
-            echo view('/pages/buat_laporan', $data);
-        }
     }
 }
-
 ?>
