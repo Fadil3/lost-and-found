@@ -254,11 +254,4 @@ class Barang extends BaseController
         }
     }
 }
-
-
-// class Barang extends BaseController
-// {
-	
-// }
-
 ?>
