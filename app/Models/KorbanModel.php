@@ -11,4 +11,5 @@ class KorbanModel extends Model{
     public function getRowIdUser($id_user){
         return $this->where(['id_user' => $id_user])->first();
     }
+    
 }

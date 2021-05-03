@@ -1,9 +1,32 @@
 <?php
 
+namespace CodeIgniter;
 namespace App\Controllers;
 
+// use CodeIgniter\Controller;
+use App\Models\BarangModel;
+use App\Models\StatusBarangModel;
+use App\Models\KorbanModel;
+use App\Models\PenemuModel;
+
 class Pages extends BaseController
-{
+{   
+    protected $request;
+	protected $barangModel;
+    protected $korban_model;
+    protected $penemu_model;
+    protected $statusModel;
+    protected $session;
+
+    public function __construct()
+    {
+        $this->barangModel  = new BarangModel();
+        $this->korban_model = new KorbanModel();
+        $this->penemu_model = new PenemuModel();
+        $this->statusModel  = new StatusBarangModel();
+        $this->session      = session();
+    }
+    
     public function index()
     {
         
@@ -125,37 +148,66 @@ class Pages extends BaseController
     }
 
     public function admin_lap_penemuan()
-    {
-        
+    {  
         $data = [
-            'title' => 'Admin Laporan Penemuan | LostandFound'
+            'title' => 'Admin Laporan Penemuan | LostandFound',
+            'barangPenemuan'   => $this->barangModel->getBarangPenemuanAdmin()
         ];
         return view('pages/admin_lap_penemuan',$data);
     }
+
     public function admin_lap_kehilangan()
     {
-        
         $data = [
-            'title' => 'Admin Laporan Kehilangan | LostandFound'
+            'title'              => 'Admin Laporan Kehilangan | LostandFound',
+            'barangKehilangan'   => $this->barangModel->getBarangKehilanganAdmin(),
         ];
         return view('pages/admin_lap_kehilangan',$data);
     }
 
     public function lap_acc_user()
     {
-        
-        $data = [
-            'title' => 'laporan yang sudah diterima | LostandFound'
+        $row_korban = $this->korban_model->getRowIdUser($this->session->user_id);
+        $row_penemu = $this->penemu_model->getRowIdUser($this->session->user_id);
+
+        $data_korban = [
+            'id' => $row_korban['id_korban']
         ];
+
+        $data_penemu = [
+            'id' => $row_penemu['id_penemu']
+        ];
+
+        $data = [
+            'title'              => 'laporan yang sudah diterima | LostandFound',
+            'barangKehilangan'   => $this->barangModel->getBarangKehilanganSelf($data_korban),
+            'barangPenemuan'     => $this->barangModel->getBarangPenemuanSelf($data_penemu),
+            'sess'               => $this->session->user_name
+        ];
+
         return view('pages/lap_acc_user',$data);
     }
 
     public function lap_x_acc_user()
     {
-        
-        $data = [
-            'title' => 'Laporan yang belum diterima | LostandFound'
+        $row_korban = $this->korban_model->getRowIdUser($this->session->user_id);
+        $row_penemu = $this->penemu_model->getRowIdUser($this->session->user_id);
+
+        $data_korban = [
+            'id' => $row_korban['id_korban']
         ];
-        return view('pages/lap_x_acc_user',$data);
+
+        $data_penemu = [
+            'id' => $row_penemu['id_penemu']
+        ];
+
+        $data = [
+            'title'              => 'laporan yang belum diterima | LostandFound',
+            'barangKehilangan'   => $this->barangModel->getBarangKehilanganNotApp($data_korban),
+            'barangPenemuan'     => $this->barangModel->getBarangPenemuanNotApp($data_penemu),
+            'sess'               => $this->session->user_name
+        ];
+
+        return view('pages/lap_acc_user',$data);
     }
 }

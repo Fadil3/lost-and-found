@@ -169,6 +169,8 @@ class Barang extends BaseController
             //maka ditentukan data yang akan diinput ke dalam database
             //key dengan valuenya
             $data = [
+                'kd_hilang'        => 'ST-00',
+                'kd_approve'       => 'AP-00',
                 'nama_barang'      => $this->request->getVar('name'),
                 'kategori_barang'  => $this->request->getVar('kategori'),
                 'waktu_barang'     => $this->request->getVar('time'),
@@ -187,15 +189,6 @@ class Barang extends BaseController
             //id barang yang baru saja ditambahkan
             $barang_id = $this->barangModel->getInsertID();
             $status_barang = $this->request->getVar('status');
-
-            //lalu mengisi data yang nantinya diinputkan ke dalam data status barang
-            $data = [
-                'id_barang' => $barang_id
-            ];
-            //instasiasi model status
-            //memanggil method save sama seperti hal tadi
-            $this->statusModel->save($data);
-
 
             //------------------------CLEAR------------------------
             //murni inputan pasti ditambahkan tidak mungkin ada data yang sama
