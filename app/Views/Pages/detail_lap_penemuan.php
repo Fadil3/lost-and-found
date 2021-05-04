@@ -29,6 +29,7 @@
                     <p>Ciri-ciri Barang : <?= $barang['deskripsi_barang']; ?></p>
                     <p>Pemilik Barang : <?= $penemu['user_name']; ?></p>
                     <p>Hubungi penemu melalui</p>
+                    <?php if (session()->has('user_id')) : ?>
                     <a href="https://api.whatsapp.com/send?phone=<?= $penemu['user_no_telepon']; ?>&text=<?= urlencode($formatWA); ?>"
                         target="_blank" class="btn btn-success mt-2 mr-5"><i
                             class="fab fa-whatsapp mr-1"></i>Whatsapp</a>
@@ -38,11 +39,19 @@
                         class="btn btn-primary mt-2"><i class="fab fa-facebook-f mr-1"></i>Facebook</a>
                     <a href="https://www.instagram.com/<?= $penemu['user_instagram']; ?>/" target="_blank"
                         class="btn btn-secondary mt-2"><i class="fab fa-instagram mr-1"></i>Instagram</a>
+                    <?php endif; ?>
+
+                    <?php if(isset($_SESSION['user_id']) == null) : ?>
+                    <p class="font-weight-bold">Silahkan <a href="/login">Login</a> untuk melihat kontak penemu barang
+                    </p>
+                    <?php endif; ?>
+
                 </div>
             </div>
         </section>
     </div>
 
+    <?php if(isset($_SESSION['user_id']) != null) : ?>
     <div class="container">
         <p class="text-center mt-5">Sudah kontak penemu dan memastikan itu adalah barang kamu ?
         </p>
@@ -56,7 +65,7 @@
             </button>
         </div>
     </div>
-
+    <?php endif; ?>
 
     <div class="container">
         <div class="col-md-8 mx-auto text-center">

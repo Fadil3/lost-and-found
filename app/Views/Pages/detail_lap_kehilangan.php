@@ -29,6 +29,8 @@
                     <p>Ciri-ciri Barang : <?= $barang['deskripsi_barang']; ?></p>
                     <p>Pemilik Barang : <?= $pencari['user_name']; ?></p>
                     <p>Hubungi Pencari melalui</p>
+
+                    <?php if (session()->has('user_id')) : ?>
                     <a href="https://api.whatsapp.com/send?phone=<?= $pencari['user_no_telepon']; ?>&text=<?= urlencode($formatWA); ?>"
                         class="btn btn-success mt-2 mr-5"><i class="fab fa-whatsapp mr-1"></i>Whatsapp</a>
                     <a href="mailto:<?= $pencari['user_email']; ?>&subject=<?= urlencode($formatEmail_subject); ?>body=<?= urlencode($formatEmail_body); ?>"
@@ -37,11 +39,18 @@
                         class="btn btn-primary mt-2"><i class="fab fa-facebook-f mr-1"></i>Facebook</a>
                     <a href="https://www.instagram.com/<?= $pencari['user_instagram']; ?>/"
                         class="btn btn-secondary mt-2"><i class="fab fa-instagram mr-1"></i>Instagram</a>
+                    <?php endif; ?>
+
+                    <?php if(isset($_SESSION['user_id']) == null) : ?>
+                    <p class="font-weight-bold">Silahkan <a href="/login">Login</a> untuk melihat kontak pencari barang
+                    </p>
+                    <?php endif; ?>
                 </div>
             </div>
         </section>
     </div>
 
+    <?php if(isset($_SESSION['user_id']) != null) : ?>
     <div class="container">
         <p class="text-center mt-5">Sudah kontak pencari dan memastikan itu adalah barang pencari ?</p>
         <p class="text-center mb-4">Jika sudah, silahkan tekan tombol di bawah !</p>
@@ -54,7 +63,7 @@
             </button>
         </div>
     </div>
-
+    <?php endif; ?>
 
     <div class="container">
         <div class="col-md-8 mx-auto text-center">
