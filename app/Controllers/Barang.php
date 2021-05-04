@@ -78,8 +78,12 @@ class Barang extends BaseController
         if (empty($data['barang'])) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Barang tidak ditemukan');
         }
-        // dd($data);
-        return view('Pages/detail_lap_kehilangan', $data);
+        if($data['barang']['id_penemu'] == null && $data['barang']['id_korban'] != null){
+            return view('Pages/detail_lap_kehilangan', $data);
+        }
+        else if ($data['barang']['id_penemu'] != null && $data['barang']['id_korban'] == null) {
+            return view('Pages/detail_lap_penemuan', $data);
+        }
     }
 
     public function add()

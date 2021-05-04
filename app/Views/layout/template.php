@@ -58,7 +58,7 @@
             inputc.select();
             document.execCommand('copy');
             inputc.parentNode.removeChild(inputc);
-            alert("URL Copied.");
+            alert("URL telah dicopy.");
         }
         </script>
 
