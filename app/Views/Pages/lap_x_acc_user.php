@@ -8,6 +8,7 @@
             Laporan Penemuan Saya
         </h4>
         <div class="row mt-3">
+        <?php foreach($barangPenemuan as $b) : ?>
             <div class="col-md-10 mt-5 mx-auto text-center">
                 <div class="card ">
                     <div class="row g-0">
@@ -16,9 +17,9 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card-body text-left">
-                                <p class="card-text">Ilham</p>
-                                <p class="card-text">+62899378233</p>
-                                <p class="card-text">20 Maret 2021</p>
+                                <p class="card-text"><?= $b->nama_barang; ?></p>
+                                <p class="card-text"><?= $sess; ?></p>
+                                <p class="card-text"><?= $b->waktu_barang; ?></p>
                             </div>
                         </div>
                         <div class="col-md-4 mt-xl-5 mt-4 mb-3">
@@ -28,6 +29,7 @@
                     </div>
                 </div>
             </div>
+        <?php endforeach; ?>  
         </div>
     </section>
     <section class="hero">
@@ -35,6 +37,7 @@
             Laporan Kehilangan Saya
         </h4>
         <div class="row mt-3">
+        <?php foreach($barangKehilangan as $b) : ?>
             <div class="col-md-10 mt-5 mx-auto text-center">
                 <div class="card ">
                     <div class="row g-0">
@@ -43,9 +46,9 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card-body text-left">
-                                <p class="card-text">Ilham</p>
-                                <p class="card-text">+62899378233</p>
-                                <p class="card-text">20 Maret 2021</p>
+                                <p class="card-text"><?= $b->nama_barang; ?></p>
+                                <p class="card-text"><?= $sess; ?></p>
+                                <p class="card-text"><?= $b->waktu_barang; ?></p>
                             </div>
                         </div>
                         <div class="col-md-4 mt-xl-5 mt-4 mb-3">
@@ -54,7 +57,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>\
+        <?php endforeach; ?>     
         </div>
     </section>
 </div>
