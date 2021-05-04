@@ -8,6 +8,7 @@ use App\Models\BarangModel;
 use App\Models\StatusBarangModel;
 use App\Models\KorbanModel;
 use App\Models\PenemuModel;
+use App\Models\UserModel;
 
 /**
  * Class Controller
@@ -23,6 +24,8 @@ class Barang extends BaseController
 	protected $barangModel;
     protected $korban_model;
     protected $penemu_model;
+    protected $statusModel;
+    protected $userModel;
     protected $session;
 
     public function __construct()
@@ -30,24 +33,39 @@ class Barang extends BaseController
         $this->barangModel  = new BarangModel();
         $this->korban_model = new KorbanModel();
         $this->penemu_model = new PenemuModel();
+        $this->statusModel  = new StatusBarangModel();
+        $this->userModel = new UserModel();
         $this->session      = session();
     }
 
     public function detail($id)
     {
+        $barang = $this->barangModel->getBarang($id);
+        $penemu = (int)$barang['id_penemu'];
+        $pencari = (int)$barang['id_korban'];
+        $userPencari =  $this->korban_model->getID($pencari);
+        $userPenemu =  $this->penemu_model->getID($penemu);
+        $getPencari = $userPencari !=null ? $this->userModel->getUser($userPencari['id_user']) :   null ;
+        $getPenemu = $userPenemu != null ? $this->userModel->getUser($userPenemu['id_user']) : null;
+        // dd($getPencari);
 
         $data = [
             'title' => 'Detail Barang ',
-            'barang' => $this->barangModel->getBarang($id)
+            'barang' => $barang,
+            'pencari' => $getPencari,
+            'penemu' => $getPenemu,
         ];
         
         //jika barang tidak ada
-
         if (empty($data['barang'])) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Barang tidak ditemukan');
         }
-        // dd($data);
-        return view('Pages/detail_lap_kehilangan', $data);
+        if($data['barang']['id_penemu'] == null && $data['barang']['id_korban'] != null){
+            return view('Pages/detail_lap_kehilangan', $data);
+        }
+        else if ($data['barang']['id_penemu'] != null && $data['barang']['id_korban'] == null) {
+            return view('Pages/detail_lap_penemuan', $data);
+        }
     }
 
     public function add()
