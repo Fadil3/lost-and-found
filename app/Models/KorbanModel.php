@@ -16,3 +16,4 @@ class KorbanModel extends Model{
         return $this->where(['id_korban' => $id])->first();
     }
 }
+    

@@ -14,18 +14,18 @@
                 <div class="card">
                     <div class="row g-0">
                         <div class="col-md-4 m-3">
-                            <img src="images/<?= $b['foto_barang']; ?>" class="align-item-center" alt="..."
+                            <img src="images/<?= $b->foto_barang; ?>" class="align-item-center" alt="..."
                                 style="max-width: 150px;">
                         </div>
                         <div class="col-md-4">
                             <div class="card-body">
-                                <p class="card-text"><?= $b['nama_barang']; ?></p>
-                                <p class="card-text"><?= $b['lokasi_barang']; ?></p>
-                                <p class="card-text"><?= $b['waktu_barang']; ?></p>
+                                <p class="card-text"><?= $b->nama_barang; ?></p>
+                                <p class="card-text"><?= $b->lokasi_barang; ?></p>
+                                <p class="card-text"><?= $b->waktu_barang; ?></p>
                             </div>
                         </div>
                         <div class="col-md-2 mt-5 mb-2">
-                            <td><a href="/barang/<?= $b['id_barang']; ?>" class="btn btn-primary">Detail</a></td>
+                            <td><a href="/barang/<?= $b->id_barang; ?>" class="btn btn-primary">Detail</a></td>
                         </div>
                     </div>
                 </div>

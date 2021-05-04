@@ -25,9 +25,12 @@ class Login extends Controller
             if($verify_pass){
                 $ses_data = [
                     'user_id'       => $data['user_id'],
+                    'user_name'     => $data['user_name'],
+                    'no_telp'       => $data['user_no_telepon'],
                     'role'          => $data['user_role'],
                     'logged_in'     => TRUE
                 ];
+
                 $session->set($ses_data);
                 // dd($data);
                 //kalau role nya admin / 0

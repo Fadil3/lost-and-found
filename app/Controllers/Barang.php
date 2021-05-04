@@ -38,36 +38,6 @@ class Barang extends BaseController
         $this->session      = session();
     }
 
-
-    //untuk menampilkan barang
-    //semua barang
-    public function index()
-    {
-        $data = [
-            'title' => 'Laporan Kehilangan',
-            'barang' => $this->barangModel->getBarang()
-        ];
-        return view('Pages/lap_kehilangan', $data);
-    }
-
-    public function kehilangan()
-    {
-        $data = [
-            'title' => 'Laporan Kehilangan',
-            'barang' => $this->barangModel->getBarangKehilangan()
-        ];
-        return view('Pages/lap_kehilangan', $data);
-    }
-
-    public function penemuan()
-    {
-        $data = [
-            'title' => 'Laporan Kehilangan',
-            'barang' => $this->barangModel->getBarangPenemuan()
-        ];
-        return view('Pages/lap_penemuan', $data);
-    }
-
     public function detail($id)
     {
         $barang = $this->barangModel->getBarang($id);
@@ -185,6 +155,8 @@ class Barang extends BaseController
             //maka ditentukan data yang akan diinput ke dalam database
             //key dengan valuenya
             $data = [
+                'kd_hilang'        => 'ST-00',
+                'kd_approve'       => 'AP-00',
                 'nama_barang'      => $this->request->getVar('name'),
                 'kategori_barang'  => $this->request->getVar('kategori'),
                 'waktu_barang'     => $this->request->getVar('time'),
@@ -203,15 +175,6 @@ class Barang extends BaseController
             //id barang yang baru saja ditambahkan
             $barang_id = $this->barangModel->getInsertID();
             $status_barang = $this->request->getVar('status');
-
-            //lalu mengisi data yang nantinya diinputkan ke dalam data status barang
-            $data = [
-                'id_barang' => $barang_id
-            ];
-            //instasiasi model status
-            //memanggil method save sama seperti hal tadi
-            $this->statusModel->save($data);
-
 
             //------------------------CLEAR------------------------
             //murni inputan pasti ditambahkan tidak mungkin ada data yang sama
@@ -301,6 +264,16 @@ class Barang extends BaseController
             session()->setFlashdata('msg', 'Data berhasil ditambah');
             return redirect()->to('/pages/buat_laporan');
             
+    }
+
+    public function delete($id){
+        $this->barangModel->deleteBarangPermintaan($id);
+    }
+
+    public function update($data_id){
+        $this->barangModel->updateBarangPermintaan($data_id);
+
+        return redirect()->to('/pages/admin_lap_kehilangan');
     }
 }
 ?>

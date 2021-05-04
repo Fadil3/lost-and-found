@@ -41,11 +41,11 @@ $routes->get('/buat_laporan', 'Pages::buat_laporan' ,['filter' => 'auth']);
 $routes->get('/about','Pages::about');
 
 //barang
-$routes->get('/lap_kehilangan','Barang::kehilangan');
-$routes->get('/lap_penemuan','Barang::penemuan');
+$routes->get('/lap_kehilangan','Pages::lap_kehilangan');
+$routes->get('/lap_penemuan','Pages::lap_penemuan');
 
 //detail barang
-$routes->get('/barang/(:any)', 'Barang::detail/$1');
+$routes->get('/barang/detail/(:any)', 'Barang::detail/$1');
 
 $routes->get('/detail_lap_kehilangan','Pages::detail_lap_kehilangan');
 $routes->get('/profile','Profile::index');
