@@ -26,8 +26,8 @@
                             </div>
                         </div>
                         <div class="col-md-2 mt-2">
-                            <a href="#" class="btn btn-primary">Details</a>
-                            <a href="#" class="btn btn-success mt-2">Terima</a>
+                            <a href="/barang/detail/<?= $b->id_barang; ?>" class="btn btn-primary">Details</a>
+                            <a href="/barang/update/<?= $b->id_barang; ?>" class="btn btn-success mt-2">Terima</a>
                             <a href="#" class="btn btn-danger mt-2">Tolak</a>
                         </div>
                     </div>

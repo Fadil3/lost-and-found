@@ -23,7 +23,6 @@ class Barang extends BaseController
 	protected $barangModel;
     protected $korban_model;
     protected $penemu_model;
-    protected $statusModel;
     protected $session;
 
     public function __construct()
@@ -31,38 +30,7 @@ class Barang extends BaseController
         $this->barangModel  = new BarangModel();
         $this->korban_model = new KorbanModel();
         $this->penemu_model = new PenemuModel();
-        $this->statusModel  = new StatusBarangModel();
         $this->session      = session();
-    }
-
-
-    //untuk menampilkan barang
-    //semua barang
-    public function index()
-    {
-        $data = [
-            'title' => 'Laporan Kehilangan',
-            'barang' => $this->barangModel->getBarang()
-        ];
-        return view('Pages/lap_kehilangan', $data);
-    }
-
-    public function kehilangan()
-    {
-        $data = [
-            'title' => 'Laporan Kehilangan',
-            'barang' => $this->barangModel->getBarangKehilangan()
-        ];
-        return view('Pages/lap_kehilangan', $data);
-    }
-
-    public function penemuan()
-    {
-        $data = [
-            'title' => 'Laporan Kehilangan',
-            'barang' => $this->barangModel->getBarangPenemuan()
-        ];
-        return view('Pages/lap_penemuan', $data);
     }
 
     public function detail($id)
@@ -278,6 +246,16 @@ class Barang extends BaseController
             session()->setFlashdata('msg', 'Data berhasil ditambah');
             return redirect()->to('/pages/buat_laporan');
             
+    }
+
+    public function delete($id){
+        $this->barangModel->deleteBarangPermintaan($id);
+    }
+
+    public function update($data_id){
+        $this->barangModel->updateBarangPermintaan($data_id);
+
+        return redirect()->to('/pages/admin_lap_kehilangan');
     }
 }
 ?>

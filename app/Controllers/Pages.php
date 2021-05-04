@@ -83,21 +83,21 @@ class Pages extends BaseController
     }
 
     public function lap_kehilangan()
-    {
-        
+    {  
         $data = [
-            'title' => 'Laporan Kehilangan | LostandFound'
+            'title' => 'Laporan Kehilangan',
+            'barang' => $this->barangModel->getBarangKehilangan()
         ];
-        return view('pages/lap_kehilangan',$data);
+        return view('Pages/lap_kehilangan', $data);
     }
 
     public function lap_penemuan()
     {
-        
         $data = [
-            'title' => 'Laporan Penemuan | LostandFound'
+            'title' => 'Laporan Kehilangan',
+            'barang' => $this->barangModel->getBarangPenemuan()
         ];
-        return view('pages/lap_penemuan',$data);
+        return view('Pages/lap_penemuan', $data);
     }
 
 

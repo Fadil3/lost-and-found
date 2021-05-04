@@ -27,11 +27,33 @@ class BarangModel extends Model
     }
 
     public function getBarangKehilangan(){
-        return $this->where('id_korban is NOT NULL')->findAll();
+        $db      = \Config\Database::connect();
+        $builder = $db->table($this->table);
+
+        $null = NULL;
+        $where = [
+            'id_penemu'  => $null,
+            'kd_approve' => 'AP-01',
+            'kd_hilang'  => 'ST-00'
+        ];
+
+        $query = $builder->getWhere($where);
+        return $query->getResult();
     }
 
     public function getBarangPenemuan(){
-        return $this->where('id_penemu is NOT NULL')->findAll();
+        $db      = \Config\Database::connect();
+        $builder = $db->table($this->table);
+
+        $null = NULL;
+        $where = [
+            'id_korban'  => $null,
+            'kd_approve' => 'AP-01',
+            'kd_hilang'  => 'ST-00'
+        ];
+
+        $query = $builder->getWhere($where);
+        return $query->getResult();
     }
 
     public function getBarangKehilanganSelf($row){
@@ -118,5 +140,25 @@ class BarangModel extends Model
 
         $query = $builder->getWhere($where);
         return $query->getResult();
+    }
+
+    public function deleteBarangPermintaan($id){
+        $db      = \Config\Database::connect();
+        $builder = $db->table($this->table);
+
+        $query = $builder->delete(['id' => $id]);
+        $query->getResult();
+    }
+
+    public function updateBarangPermintaan($id){
+        $db      = \Config\Database::connect();
+        $builder = $db->table($this->table);
+
+        $data = [
+            'kd_approve' => 'AP-01'
+        ];
+
+        $builder->where('id_barang', $id);
+        $builder->update($data);
     }
 }
