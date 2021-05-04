@@ -1,6 +1,14 @@
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('content'); ?>
+<?php  
+    $twitter ="[DITEMUKAN] ".$barang['nama_barang']."\nLokasi hilang : ".$barang['lokasi_barang']."\nCiri-ciri : ".$barang['deskripsi_barang'];
+    $url = current_url();
+    $formatWA = "Halo, saya adalah pemilik barang yang anda temukan.\n Nama Barang : ".$barang['nama_barang'];
+    $formatEmail_subject = "Penemuan ".$barang['nama_barang'];
+    $formatEmail_body = "Halo, saya adalah pemilik barang yang anda temukan.\n Nama Barang : ".$barang['nama_barang'];
+    $tes = "http://mrayhanfadil.cehiji.com/";
+?>
 <div class="container">
     <div class="container">
         <h3 class="mt-5 sub-title font-weight-bold text-center">
@@ -19,12 +27,17 @@
                     <p>Waktu Hilang : <?= $barang['waktu_barang']; ?></p>
                     <p>Lokasi Hilang : <?= $barang['lokasi_barang']; ?></p>
                     <p>Ciri-ciri Barang : <?= $barang['deskripsi_barang']; ?></p>
-                    <p>Pemilik Barang : xxxxxxx</p>
-                    <p>Hubungi Penemu melalui</p>
-                    <a href="#" class="btn btn-success mt-2 mr-5"><i class="fab fa-whatsapp mr-1"></i>Whatsapp</a>
-                    <a href="#" class="btn btn-danger mt-2 mr-5"><i class="far fa-envelope mr-1"></i>E-Mail</a>
-                    <a href="#" class="btn btn-primary mt-2"><i class="fab fa-facebook-f mr-1"></i>Facebook</a>
-                    <a href="#" class="btn btn-secondary mt-2"><i class="fab fa-instagram mr-1"></i>Instagram</a>
+                    <p>Pemilik Barang : <?= $penemu['user_name']; ?></p>
+                    <p>Hubungi penemu melalui</p>
+                    <a href="https://api.whatsapp.com/send?phone=<?= $penemu['user_no_telepon']; ?>&text=<?= urlencode($formatWA); ?>"
+                        target="_blank" class="btn btn-success mt-2 mr-5"><i
+                            class="fab fa-whatsapp mr-1"></i>Whatsapp</a>
+                    <a href="mailto:<?= $penemu['user_email']; ?>&subject=<?= urlencode($formatEmail_subject); ?>body=<?= urlencode($formatEmail_body); ?>"
+                        target="_blank" class="btn btn-danger mt-2 mr-5"><i class="far fa-envelope mr-1"></i>E-Mail</a>
+                    <a href="https://www.facebook.com/<?= $penemu['user_facebook']; ?>/" target="_blank"
+                        class="btn btn-primary mt-2"><i class="fab fa-facebook-f mr-1"></i>Facebook</a>
+                    <a href="https://www.instagram.com/<?= $penemu['user_instagram']; ?>/" target="_blank"
+                        class="btn btn-secondary mt-2"><i class="fab fa-instagram mr-1"></i>Instagram</a>
                 </div>
             </div>
         </section>
@@ -44,11 +57,7 @@
         </div>
     </div>
 
-    <?php  
-    $twitter ="[DITEMUKAN] ".$barang['nama_barang']."\nLokasi hilang : ".$barang['lokasi_barang']."\nCiri-ciri : ".$barang['deskripsi_barang'];
-    $url = current_url();
-    $tes = "http://mrayhanfadil.cehiji.com/";
-    ?>
+
     <div class="container">
         <div class="col-md-8 mx-auto text-center">
             <p class="font-weight-bold">Share Laporan ini ke sosial media</p>

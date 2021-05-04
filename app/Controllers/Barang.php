@@ -75,8 +75,8 @@ class Barang extends BaseController
         $pencari = (int)$barang['id_korban'];
         $userPencari =  $this->korban_model->getID($pencari);
         $userPenemu =  $this->penemu_model->getID($penemu);
-        $getPencari = $this->userModel->getUser($userPencari['id_user']);
-        $getPenemu = $this->userModel->getUser($userPenemu);
+        $getPencari = $userPencari !=null ? $this->userModel->getUser($userPencari['id_user']) :   null ;
+        $getPenemu = $userPenemu != null ? $this->userModel->getUser($userPenemu['id_user']) : null;
         // dd($getPencari);
 
         $data = [
