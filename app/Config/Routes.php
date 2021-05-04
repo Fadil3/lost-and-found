@@ -56,6 +56,8 @@ $routes->get('/admin_lap_penemuan','Pages::admin_lap_penemuan');
 $routes->get('/admin_lap_kehilangan','Pages::admin_lap_kehilangan');
 $routes->get('/lap_acc_user','Pages::lap_acc_user');
 $routes->get('/lap_x_acc_user','Pages::lap_x_acc_user');
+$routes->get('/success','Pages::success');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -158,4 +158,13 @@ class Pages extends BaseController
         ];
         return view('pages/lap_x_acc_user',$data);
     }
+
+    public function success()
+    {
+        
+        $data = [
+            'title' => 'Klaim Barang Sukses | LostandFound'
+        ];
+        return view('pages/success',$data);
+    }
 }
