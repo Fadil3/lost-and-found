@@ -20,9 +20,9 @@
     <body>
 
         <?= $this->include('layout/navbar'); ?>
-
-        <?= $this->renderSection('content'); ?>
-
+        <div class="content">
+            <?= $this->renderSection('content'); ?>
+        </div>
         <?= $this->include('layout/footer'); ?>
         <!-- Optional JavaScript; choose one of the two! -->
 

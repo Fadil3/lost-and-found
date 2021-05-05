@@ -1,6 +1,9 @@
 <?= $this->extend('layout/templateAdmin'); ?>
 
 <?= $this->section('content'); ?>
+<?php 
+$i=0;
+?>
 <div class="container">
     <h3 class="mt-5 sub-title font-weight-bold">
         Admin Panel
@@ -9,7 +12,7 @@
         Laporan Penemuan
     </h3>
     <section class="hero">
-    <?php foreach($barangPenemuan as $b) : ?>
+        <?php foreach($barangPenemuan as $b) : ?>
         <div class="row mt-5">
             <div class="col-md-3 mt-5 text-center">
             </div>
@@ -37,6 +40,9 @@
             </div>
         </div>
         <?php endforeach; ?>
+        <?php if($barangPenemuan == null) : ?>
+        <h3 class="mt-5 text-center text-secondary">Tidak ada data</h3>
+        <?php endif ?>
     </section>
 </div>
 </div>
