@@ -18,7 +18,7 @@
             <div class="row mt-5">
                 <div class="col-md-6 mt-5 text-center">
                     <div class="col-md-4 m-3">
-                        <img src="../images/<?= $barang['foto_barang']; ?>" class="align-item-center" alt="..."
+                        <img src="/images/<?= $barang['foto_barang']; ?>" class="align-item-center" alt="..."
                             style="max-width: 275px;">
                     </div>
                 </div>

@@ -17,6 +17,33 @@ class BarangModel extends Model
     {
         return $this->db->table('barang')->where(["id_barang" => $id])->set($data)->update();
     }
+
+    public function deleteBarangPermintaan($id){
+        $db      = \Config\Database::connect();
+        $builder = $db->table($this->table);
+
+        $builder->delete(['id_barang' => $id]);
+    }
+
+    public function updateBarangPermintaan($id){
+        $db      = \Config\Database::connect();
+        $builder = $db->table($this->table);
+
+        $data = [
+            'kd_approve' => 'AP-01'
+        ];
+
+        $builder->where('id_barang', $id);
+        $builder->update($data);
+    }
+
+    public function updateBarang($id, $data){
+        $db      = \Config\Database::connect();
+        $builder = $db->table($this->table);
+
+        $builder->where('id_barang', $id);
+        $builder->update($data);
+    }
     
     public function getBarang($id = false)
     {
@@ -24,6 +51,15 @@ class BarangModel extends Model
             return $this->findAll();
         }
         return $this->where(['id_barang' => $id])->first();
+    }
+
+    public function getBarangById($id)
+    {
+        $db      = \Config\Database::connect();
+        $builder = $db->table($this->table);
+
+        $query = $builder->getWhere(['id_barang' => $id]);
+        return $query->getResult();
     }
 
     public function getBarangKehilangan(){
@@ -140,25 +176,5 @@ class BarangModel extends Model
 
         $query = $builder->getWhere($where);
         return $query->getResult();
-    }
-
-    public function deleteBarangPermintaan($id){
-        $db      = \Config\Database::connect();
-        $builder = $db->table($this->table);
-
-        $query = $builder->delete(['id' => $id]);
-        $query->getResult();
-    }
-
-    public function updateBarangPermintaan($id){
-        $db      = \Config\Database::connect();
-        $builder = $db->table($this->table);
-
-        $data = [
-            'kd_approve' => 'AP-01'
-        ];
-
-        $builder->where('id_barang', $id);
-        $builder->update($data);
     }
 }
