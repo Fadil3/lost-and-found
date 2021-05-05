@@ -9,7 +9,7 @@
         Laporan Kehilangan
     </h3>
     <section class="hero">
-    <?php foreach($barangKehilangan as $b):?>
+        <?php foreach($barangKehilangan as $b):?>
         <div class="row mt-5">
             <div class="col-md-3 mt-5 text-center">
             </div>
@@ -36,8 +36,11 @@
             <div class="col-md-3 mt-5 text-center">
             </div>
         </div>
-    <?php endforeach; ?>    
+        <?php endforeach; ?>
     </section>
+    <?php if($barangKehilangan == null) : ?>
+    <h3 class="mt-5 text-center text-secondary">Tidak ada data</h3>
+    <?php endif ?>
 </div>
 </div>
 

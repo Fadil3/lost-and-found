@@ -1,6 +1,6 @@
 <?= $this->extend('layout/template'); ?>
 
-<?= $this->section('content'); ?> 
+<?= $this->section('content'); ?>
 <div class="container">
     <h3 class="text-center mt-5">Laporan yang belum diterima</h3>
     <section class="hero">
@@ -9,9 +9,9 @@
         </h4>
 
         <div class="row mt-3">
-        <?php foreach($barangPenemuan as $b) : ?>
+            <?php foreach($barangPenemuan as $b) : ?>
             <div class="col-md-12 mt-5 mx-auto text-center">
-            
+
                 <div class="card ">
                     <div class="row g-0">
                         <div class="col-md-3 m-3">
@@ -35,8 +35,11 @@
                     </div>
                 </div>
             </div>
-        <?php endforeach; ?>    
+            <?php endforeach; ?>
         </div>
+        <?php if($barangPenemuan == null) : ?>
+        <h3 class="mt-5 text-center text-secondary">Tidak ada data</h3>
+        <?php endif ?>
     </section>
     <section class="hero">
         <h4 class="mt-5 sub-title font-weight-bold text-left">
@@ -44,7 +47,7 @@
         </h4>
 
         <div class="row mt-3">
-        <?php foreach($barangKehilangan as $b) : ?>
+            <?php foreach($barangKehilangan as $b) : ?>
             <div class="col-md-12 mt-5 mx-auto text-center">
                 <div class="card ">
                     <div class="row g-0">
@@ -69,8 +72,11 @@
                     </div>
                 </div>
             </div>
-        <?php endforeach; ?> 
+            <?php endforeach; ?>
         </div>
+        <?php if($barangKehilangan == null) : ?>
+        <h3 class="mt-5 text-center text-secondary">Tidak ada data</h3>
+        <?php endif ?>
     </section>
 </div>
 
