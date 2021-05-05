@@ -25,7 +25,7 @@
                             </div>
                         </div>
                         <div class="col-md-2 mt-5 mb-2">
-                            <td><a href="/barang/<?= $b->id_barang; ?>" class="btn btn-primary">Detail</a></td>
+                            <td><a href="/barang/detail/<?= $b->id_barang; ?>" class="btn btn-primary">Detail</a></td>
                         </div>
                     </div>
                 </div>
