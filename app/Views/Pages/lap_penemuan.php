@@ -5,12 +5,24 @@
     <h3 class="mt-5 sub-title font-weight-bold text-center">
         Laporan Penemuan
     </h3>
-    <section class="hero">
-        <?php foreach($barang as $b) : ?>
-        <div class="row mt-2">
-            <div class="col-md-3 mt-5 text-center">
+    <section class="search">
+        <div class="row">
+            <div class="col-md-12 mx-auto">
+                <!-- <input class="mt-3 form-control" id="namesearch" type="text" name="namabarang"
+                    placeholder="Nama Barang"> -->
+                <section class="d-flex justify-content-around mt-5">
+                    <input class="form-control mr-sm-2" id="namesearch" name="namabarang" type="search"
+                        placeholder="Cari nama barang" aria-label="Search">
+                    <button id="btn-search" class="btn btn-outline-success my-2 my-sm-0">Search</button>
+                </section>
+                <a class=" d-flex justify-content-center mt-3" href="/lap_penemuan">Reset Pencarian</a>
             </div>
-            <div class="col-md-6 mt-5 text-center">
+        </div>
+    </section>
+    <section class="hero" id="listBarang">
+        <?php foreach($barang as $b) : ?>
+        <div class="row mt-2 list">
+            <div class="col-md-6 mt-5 text-center mx-auto">
                 <div class="card">
                     <div class="row g-0">
                         <div class="col-md-4 m-3">
@@ -19,7 +31,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card-body">
-                                <p class="card-text"><?= $b->nama_barang; ?></p>
+                                <p class="card-text nama"><?= $b->nama_barang; ?></p>
                                 <p class="card-text"><?= $b->lokasi_barang; ?></p>
                                 <p class="card-text"><?= $b->waktu_barang; ?></p>
                             </div>
@@ -33,7 +45,7 @@
         </div>
         <?php endforeach; ?>
 
-
+        <script src="js/search.js"></script>
     </section>
 </div>
 <?= $this->endSection(); ?>
