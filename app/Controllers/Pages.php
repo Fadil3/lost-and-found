@@ -67,10 +67,21 @@ class Pages extends BaseController
     {
         
         $data = [
-            'title' => 'Buat Laporan | LostandFound',
+            'title'      => 'Buat Laporan | LostandFound',
             'validation' => \Config\Services::validation()
         ];
         return view('pages/buat_laporan',$data);
+    }
+
+    public function edit_laporan($id_barang)
+    {
+        $data = [
+            'title'      => 'Buat Laporan | LostandFound',
+            'validation' => \Config\Services::validation(),
+            'barang'     => $this->barangModel->getBarang($id_barang)
+        ];
+        
+        return view('pages/edit_laporan',$data);
     }
 
     public function about()
@@ -170,22 +181,36 @@ class Pages extends BaseController
         $row_korban = $this->korban_model->getRowIdUser($this->session->user_id);
         $row_penemu = $this->penemu_model->getRowIdUser($this->session->user_id);
 
-        $data_korban = [
-            'id' => $row_korban['id_korban']
-        ];
+        if($row_korban && $row_penemu){
+            $data_korban = [
+                'id' => $row_korban['id_korban']
+            ];
 
-        $data_penemu = [
-            'id' => $row_penemu['id_penemu']
-        ];
+            $data_penemu = [
+                'id' => $row_penemu['id_penemu']
+            ];
 
-        $data = [
-            'title'              => 'laporan yang sudah diterima | LostandFound',
-            'barangKehilangan'   => $this->barangModel->getBarangKehilanganSelf($data_korban),
-            'barangPenemuan'     => $this->barangModel->getBarangPenemuanSelf($data_penemu),
-            'sess'               => $this->session->user_name
-        ];
+            $data = [
+                'title'              => 'laporan yang sudah diterima | LostandFound',
+                'barangKehilangan'   => $this->barangModel->getBarangKehilanganSelf($data_korban),
+                'barangPenemuan'     => $this->barangModel->getBarangPenemuanSelf($data_penemu),
+                'sess'               => $this->session->user_name
+            ];
 
-        return view('pages/lap_acc_user',$data);
+            return view('pages/lap_acc_user',$data);
+
+        }else{
+
+            $data = [
+                'title'              => 'laporan yang sudah diterima | LostandFound',
+                'barangKehilangan'   => '',
+                'barangPenemuan'     => '',
+                'sess'               => $this->session->user_name
+            ];
+
+            return view('pages/lap_acc_user',$data);
+        }
+
     }
 
     public function lap_x_acc_user()
@@ -193,22 +218,34 @@ class Pages extends BaseController
         $row_korban = $this->korban_model->getRowIdUser($this->session->user_id);
         $row_penemu = $this->penemu_model->getRowIdUser($this->session->user_id);
 
-        $data_korban = [
-            'id' => $row_korban['id_korban']
-        ];
+        if($row_korban && $row_penemu){
+            $data_korban = [
+                'id' => $row_korban['id_korban']
+            ];
 
-        $data_penemu = [
-            'id' => $row_penemu['id_penemu']
-        ];
+            $data_penemu = [
+                'id' => $row_penemu['id_penemu']
+            ];
 
-        $data = [
-            'title'              => 'laporan yang belum diterima | LostandFound',
-            'barangKehilangan'   => $this->barangModel->getBarangKehilanganNotApp($data_korban),
-            'barangPenemuan'     => $this->barangModel->getBarangPenemuanNotApp($data_penemu),
-            'sess'               => $this->session->user_name
-        ];
+            $data = [
+                'title'              => 'laporan yang belum diterima | LostandFound',
+                'barangKehilangan'   => $this->barangModel->getBarangKehilanganNotApp($data_korban),
+                'barangPenemuan'     => $this->barangModel->getBarangPenemuanNotApp($data_penemu),
+                'sess'               => $this->session->user_name
+            ];
 
-        return view('pages/lap_acc_user',$data);
+            return view('pages/lap_acc_user',$data);
+        }else{
+
+            $data = [
+                'title'              => 'laporan yang belum diterima | LostandFound',
+                'barangKehilangan'   => '',
+                'barangPenemuan'     => '',
+                'sess'               => $this->session->user_name
+            ];
+
+            return view('pages/lap_acc_user',$data);
+        }
     }
 
     public function success()

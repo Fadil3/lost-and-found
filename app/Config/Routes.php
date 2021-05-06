@@ -38,6 +38,7 @@ $routes->get('/login', 'Pages::login');
 $routes->get('/register', 'Register::index');
 $routes->get('/cari_laporan', 'Pages::cari_laporan' ,['filter' => 'auth']);
 $routes->get('/buat_laporan', 'Pages::buat_laporan' ,['filter' => 'auth']);
+$routes->get('/edit_laporan/(:any)', 'Pages::edit_laporan/$1' ,['filter' => 'auth']);
 $routes->get('/about','Pages::about');
 
 //barang
