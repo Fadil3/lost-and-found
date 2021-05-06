@@ -1,6 +1,3 @@
-<?php 
-    $session = session();
-?>
 <!doctype html>
 <html lang="en">
 
@@ -12,7 +9,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
             integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="style.css">
         <script src="https://kit.fontawesome.com/ea7e5979df.js" crossorigin="anonymous"></script>
         <title><?= $title; ?></title>
     </head>
@@ -20,9 +17,9 @@
     <body>
 
         <?= $this->include('layout/navbar'); ?>
-        <div class="content">
-            <?= $this->renderSection('content'); ?>
-        </div>
+
+        <?= $this->renderSection('content'); ?>
+
         <?= $this->include('layout/footer'); ?>
         <!-- Optional JavaScript; choose one of the two! -->
 
@@ -49,16 +46,6 @@
             fileSampul.onload = function(event) {
                 imgPreview.src = event.target.result;
             }
-        }
-
-        function copyToClipboard(text) {
-            var inputc = document.body.appendChild(document.createElement("input"));
-            inputc.value = window.location.href;
-            inputc.focus();
-            inputc.select();
-            document.execCommand('copy');
-            inputc.parentNode.removeChild(inputc);
-            alert("URL telah dicopy.");
         }
         </script>
 
