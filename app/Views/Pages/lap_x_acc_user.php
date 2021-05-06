@@ -8,8 +8,7 @@
             Laporan Penemuan Saya
         </h4>
         <div class="row mt-3">
-        <?php if($barangPenemuan){ ?>
-        <?php foreach($barangPenemuan as $b) : ?>
+            <?php foreach($barangPenemuan as $b) : ?>
             <div class="col-md-10 mt-5 mx-auto text-center">
                 <div class="card ">
                     <div class="row g-0">
@@ -30,17 +29,18 @@
                     </div>
                 </div>
             </div>
-        <?php endforeach; ?>
-        <?php } ?>  
+            <?php endforeach; ?>
         </div>
+        <?php if($barang == null) : ?>
+        <h3 class="mt-5 text-center text-secondary">Tidak ada data</h3>
+        <?php endif ?>
     </section>
     <section class="hero">
         <h4 class="mt-5 sub-title font-weight-bold text-left">
             Laporan Kehilangan Saya
         </h4>
         <div class="row mt-3">
-        <?php if($barangKehilangan){ ?>
-        <?php foreach($barangKehilangan as $b) : ?>
+            <?php foreach($barangKehilangan as $b) : ?>
             <div class="col-md-10 mt-5 mx-auto text-center">
                 <div class="card ">
                     <div class="row g-0">
@@ -60,10 +60,12 @@
                         </div>
                     </div>
                 </div>
-            </div>\
-        <?php endforeach; ?>
-        <?php } ?>     
+            </div>
+            <?php endforeach; ?>
         </div>
+        <?php if($barang == null) : ?>
+        <h3 class="mt-5 text-center text-secondary">Tidak ada data</h3>
+        <?php endif ?>
     </section>
 </div>
 

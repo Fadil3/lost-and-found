@@ -44,7 +44,9 @@
             </div>
         </div>
         <?php endforeach; ?>
-
+        <?php if($barang == null) : ?>
+        <h3 class="mt-5 text-center text-secondary">Tidak ada data</h3>
+        <?php endif ?>
         <script src="js/search.js"></script>
     </section>
 </div>
