@@ -1,4 +1,4 @@
-<footer id="footer" class="container-fluid section-footer mt-5 p-3" style="background-color: #6C63FF;">
+<footer class="container-fluid section-footer mt-5 p-3" style="background-color: #6C63FF;">
     <div class="text-center text-white">
         <h3>Lost and Found</h3>
         <p>Mempertemukan penemu dan pencari barang yang hilang</p>
