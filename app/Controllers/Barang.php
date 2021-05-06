@@ -72,8 +72,6 @@ class Barang extends BaseController
     {   
         //include helper form
         helper(['form']);
-
-
         if (!$this->validate([
             'name'          => [
                 'rules' => 'required',
@@ -179,7 +177,6 @@ class Barang extends BaseController
             //------------------------CLEAR------------------------
             //murni inputan pasti ditambahkan tidak mungkin ada data yang sama
             //------------------------CLEAR------------------------
-
             
             //memasukan attribut id korban kedalam tabel barang
             if($status_barang == 0)
@@ -263,11 +260,84 @@ class Barang extends BaseController
             // dd($data);
             session()->setFlashdata('msg', 'Data berhasil ditambah');
             return redirect()->to('/pages/buat_laporan');
+    }
+
+    public function updateData($data_id){
+        
+        helper(['form']);
+
+        if (!$this->validate([
+            'name'          => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                ]
+            ],
+            'time'          => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                ]
+            ],
+            'location'          => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                ]
+            ],
+            'description'          => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                ]
+            ],
+        ])) {
+            return redirect()->to('/pages/edit_laporan');
+        }
+
+        //ambil gambar
+        $fileSampul = $this->request->getFile('sampul');
             
+        // apakah tidak ada gamabr yang diupload
+        if ($fileSampul->getError() == 4) {
+            $namaSampul = $this->barangModel->getBarang($data_id);
+        } else {
+        
+            //generate nama sampul random
+            $namaSampul = $fileSampul->getRandomName();
+            
+            //pindah file ke folder img
+            $fileSampul->move('images', $namaSampul);
+        
+        }
+
+        //memasukan setiap data hampir sama seperti buat laporan
+        $data = [
+            'kd_approve'       => 'AP-00',
+            'nama_barang'      => $this->request->getVar('name'),
+            'waktu_barang'     => $this->request->getVar('time'),
+            'lokasi_barang'    => $this->request->getVar('location'),
+            'deskripsi_barang' => $this->request->getVar('description'),
+            'foto_barang'      => $namaSampul['foto_barang']
+        ];
+
+        //memanggil method update barang
+        $this->barangModel->updateBarang($data_id, $data);
+
+        //melempar halaman ke yang lain
+        return redirect()->to('/pages/lap_acc_user');
+    }
+
+    public function deleteData($id){
+        $this->barangModel->where('id_barang', $id)->delete();
+
+        return redirect()->to('/pages/lap_acc_user');
     }
 
     public function delete($id){
         $this->barangModel->deleteBarangPermintaan($id);
+
+        return redirect()->to('/pages/admin_lap_kehilangan');
     }
 
     public function update($data_id){

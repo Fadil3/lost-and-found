@@ -9,13 +9,14 @@
         </h4>
 
         <div class="row mt-3">
+        <?php if($barangPenemuan != '') {?>
         <?php foreach($barangPenemuan as $b) : ?>
             <div class="col-md-12 mt-5 mx-auto text-center">
             
                 <div class="card ">
                     <div class="row g-0">
                         <div class="col-md-3 m-3">
-                            <img src="images/1.jpg" class="align-item-center" alt="..." style="max-width: 200px;">
+                            <img src="images/<?= $b->foto_barang; ?>" class="align-item-center" alt="..." style="max-width: 200px;">
                         </div>
                         <div class="col-md-4">
                             <div class="card-body text-left">
@@ -25,17 +26,18 @@
                             </div>
                         </div>
                         <div class="col-md-2 mt-xl-4 mt-2">
-                            <a href="#" class="btn btn-primary">Details</a>
-                            <a href="#" class="btn btn-success mt-xl-1 mt-md-2">Lihat Klaim</a>
+                            <a href="/barang/detail/<?= $b->id_barang; ?>" class="btn btn-primary">Details</a>
+                            <a href="/pages/daftar_klaim" class="btn btn-success mt-xl-1 mt-md-2">Lihat Klaim</a>
                         </div>
                         <div class="col-md-2 mt-xl-4 mt-2 mb-3">
-                            <a href="#" class="btn btn-warning">Edit Laporan</a>
-                            <a href="#" class="btn btn-danger mt-xl-1 mt-md-2">Hapus Laporan</a>
+                            <a href="/pages/edit_laporan/<?= $b->id_barang; ?>" class="btn btn-warning">Edit Laporan</a>
+                            <a href="/barang/deleteData/<?= $b->id_barang; ?>" class="btn btn-danger mt-xl-1 mt-md-2">Hapus Laporan</a>
                         </div>
                     </div>
                 </div>
             </div>
-        <?php endforeach; ?>    
+        <?php endforeach; ?>
+        <?php } ?>    
         </div>
     </section>
     <section class="hero">
@@ -44,12 +46,13 @@
         </h4>
 
         <div class="row mt-3">
+        <?php if($barangKehilangan != '') {?>
         <?php foreach($barangKehilangan as $b) : ?>
             <div class="col-md-12 mt-5 mx-auto text-center">
                 <div class="card ">
                     <div class="row g-0">
                         <div class="col-md-3 m-3">
-                            <img src="images/1.jpg" class="align-item-center" alt="..." style="max-width: 200px;">
+                            <img src="images/<?= $b->foto_barang; ?>" class="align-item-center" alt="..." style="max-width: 200px;">
                         </div>
                         <div class="col-md-4">
                             <div class="card-body text-left">
@@ -59,17 +62,18 @@
                             </div>
                         </div>
                         <div class="col-md-2 mt-xl-4 mt-2">
-                            <a href="#" class="btn btn-primary">Details</a>
-                            <a href="#" class="btn btn-success mt-xl-1 mt-md-2">Lihat Klaim</a>
+                            <a href="/barang/detail/<?= $b->id_barang; ?>" class="btn btn-primary">Details</a>
+                            <a href="/pages/daftar_klaim" class="btn btn-success mt-xl-1 mt-md-2">Lihat Klaim</a>
                         </div>
                         <div class="col-md-2 mt-xl-4 mt-2 mb-3">
-                            <a href="#" class="btn btn-warning">Edit Laporan</a>
-                            <a href="#" class="btn btn-danger mt-xl-1 mt-md-2">Hapus Laporan</a>
+                            <a href="/pages/edit_laporan/<?= $b->id_barang; ?>" class="btn btn-warning">Edit Laporan</a>
+                            <a href="/barang/deleteData/<?= $b->id_barang; ?>" class="btn btn-danger mt-xl-1 mt-md-2">Hapus Laporan</a>
                         </div>
                     </div>
                 </div>
             </div>
-        <?php endforeach; ?> 
+        <?php endforeach; ?>
+        <?php } ?> 
         </div>
     </section>
 </div>
