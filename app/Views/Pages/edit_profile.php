@@ -98,7 +98,7 @@
                             <img src="/images/foto_profile/default-profile.png" class="img-thumbnail img-preview">
                             <?php endif ?>
                             <?php if($user['user_img'] != "")  :?>
-                            <img src="/images/<?=old('user_img',$user['user_img']); ?>; ?>"
+                            <img src="/images/foto_profile/<?=old('user_img',$user['user_img']); ?>"
                                 class="img-thumbnail img-preview">
                             <?php endif ?>
                         </div>
