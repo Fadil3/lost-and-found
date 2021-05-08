@@ -65,10 +65,50 @@ class Profile extends BaseController
                     'required' => '{field} harus diisi',
                 ]
             ],
+            'sampul' => [
+                'rules' => 'max_size[sampul,1024]|is_image[sampul]|mime_in[sampul,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'max_size' => 'ukuran gambar max 1MB',
+                    'is_image' => 'file yang anda upload bukan gambar',
+                    'mime_in' => 'file yang anda upload bukan gambar'
+                ]
+            ]
         ])) {
-            $validation =  \Config\Services::validation();
-            // return redirect()->to('/pages/edit_profile/'. $id)->withInput()->with('validation', $validation);
             return redirect()->to('/pages/edit_profile/'. $id)->withInput();
         }
+
+        //ambil gambar
+            $fileSampul = $this->request->getFile('sampul');
+            
+            // apakah tidak ada gamabr yang diupload
+            if ($fileSampul->getError() == 4) {
+                $namaSampul = 'default-profile.png';
+            } else {
+            
+                //generate nama sampul random
+                $namaSampul = $fileSampul->getRandomName();
+                
+                //pindah file ke folder img
+                $fileSampul->move('images/foto_profile', $namaSampul);
+            
+            }
+        
+        //memasukan setiap data hampir sama seperti buat laporan
+            $data = [
+                'user_name'      => $this->request->getVar('name'),
+                'user_no_telepon'      => $this->request->getVar('no_telepon'),
+                'user_alamat'     => $this->request->getVar('address'),
+                'user_email'    => $this->request->getVar('email'),
+                'user_instagram' => $this->request->getVar('instagram'),
+                'user_facebook'      => $this->request->getVar('facebook'),
+                'user_img'      => $namaSampul
+            ];
+            //memanggil method update barang
+        $this->user_model->updateUser($id, $data);
+
+        //melempar halaman ke yang lain
+        session()->setFlashdata('msg', 'Profile berhasil diupdate');
+        return redirect()->to('/pages/edit_profile/'. $id);
     }
+
 }

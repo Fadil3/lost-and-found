@@ -5,9 +5,12 @@
 <div class="wrap-container">
     <div class="container">
         <div class="text-center row-padding">
-            <article class="card-body mx-auto" style="max-width: 400px;">
+            <?php if (session()->getFlashdata('msg')) : ?>
+            <div class="alert alert-success"><?= session()->getFlashdata('msg') ?></div>
+            <?php endif; ?>
+            <article class="card-body mx-auto col-md-8">
                 <h4 class="card-title mt-3 text-center">Edit Profile</h4>
-                <form action="/profile/edit/<?= $user['user_id']; ?>" method="post">
+                <form action="/profile/edit/<?= $user['user_id']; ?>" method="post" enctype="multipart/form-data">
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
@@ -86,6 +89,29 @@
                             placeholder="Facebook" type="text" value="<?= old('facebook',$user['user_facebook']); ?>">
                         <div class="invalid-feedback">
                             <?= $validation->getError('facebook'); ?>
+                        </div>
+                    </div>
+                    <p>Foto Profile</p>
+                    <div class="form-group row">
+                        <div class="col-sm-2">
+                            <?php if($user['user_img'] == "")  :?>
+                            <img src="/images/foto_profile/default-profile.png" class="img-thumbnail img-preview">
+                            <?php endif ?>
+                            <?php if($user['user_img'] != "")  :?>
+                            <img src="/images/<?=old('user_img',$user['user_img']); ?>; ?>"
+                                class="img-thumbnail img-preview">
+                            <?php endif ?>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="custom-file">
+                                <input
+                                    class="custom-file-input <?= ($validation->hasError('sampul')) ? 'is-invalid' : ''; ?>"
+                                    type="file" id="sampul" name="sampul" onchange="previewImg()">
+                                <label class="custom-file-label " for="sampul">Upload gambar...</label>
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('sampul'); ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">

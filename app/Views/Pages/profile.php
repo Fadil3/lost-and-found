@@ -9,7 +9,8 @@
             <div class="card">
                 <div class="row g-0">
                     <div class="col-md-3 m-2">
-                        <img src="images/1.jpg" class="align-item-center" alt="..." style="max-width: 200px;">
+                        <img src="/images/foto_profile/<?= $user['user_img']; ?>" class="align-item-center" alt="..."
+                            style="max-width: 200px;">
                     </div>
                     <div class="col-md-3">
                         <div class="card-body text-left">
