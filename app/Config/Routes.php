@@ -61,7 +61,7 @@ $routes->get('/success','Pages::success');
 
 //edit profile
 $routes->get('/edit_profile/(:any)','Pages::edit_profile/$1', ['filter' => 'auth']);
-
+$routes->get('/profile/edit/(:num)','Pages::edit_profile', ['filter' => 'auth']);
 
 /*
  * --------------------------------------------------------------------

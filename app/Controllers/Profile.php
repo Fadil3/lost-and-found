@@ -26,7 +26,49 @@ class Profile extends BaseController
     
     public function edit($id)
     {
-        # code...
+        helper(['form']);
+
+        if (!$this->validate([
+            'name'          => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Fullname harus diisi',
+                ]
+            ],
+            'no_telepon'          => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'No telepon harus diisi',
+                ]
+            ],
+            'address'          => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                ]
+            ],
+            'email'          => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                ]
+            ],
+            'facebook'          => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                ]
+            ],
+            'instagram'          => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                ]
+            ],
+        ])) {
+            $validation =  \Config\Services::validation();
+            // return redirect()->to('/pages/edit_profile/'. $id)->withInput()->with('validation', $validation);
+            return redirect()->to('/pages/edit_profile/'. $id)->withInput();
+        }
     }
- 
 }

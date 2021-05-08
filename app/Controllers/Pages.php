@@ -263,10 +263,11 @@ class Pages extends BaseController
     public function edit_profile($id)
     {
         $data = [
+            'validation' => \Config\Services::validation(),
             'title'      => 'Edit Profile | LostandFound',
-            'data'     => $this->user_model->getUser($id)
+            'user'     => $this->user_model->getUser($id)
         ];
-        dd($data);
-        return view('pages/edit_laporan',$data);
+        // dd($data);
+        return view('pages/edit_profile',$data);
     }
 }
