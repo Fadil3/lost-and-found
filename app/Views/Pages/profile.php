@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="col-md-2 mt-5 mb-3">
-                        <a href="#" class="btn btn-warning">Edit Profile</a>
+                        <a href="/edit_profile/<?= $user['user_id']; ?>" class="btn btn-warning">Edit Profile</a>
                     </div>
                 </div>
             </div>

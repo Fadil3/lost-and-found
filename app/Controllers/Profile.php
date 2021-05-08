@@ -23,5 +23,10 @@ class Profile extends BaseController
         ];
         return view('pages/profile',$data);
     }
+    
+    public function edit($id)
+    {
+        # code...
+    }
  
 }

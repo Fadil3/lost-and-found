@@ -8,6 +8,7 @@ use App\Models\BarangModel;
 use App\Models\StatusBarangModel;
 use App\Models\KorbanModel;
 use App\Models\PenemuModel;
+use App\Models\UserModel;
 
 class Pages extends BaseController
 {   
@@ -16,6 +17,7 @@ class Pages extends BaseController
     protected $korban_model;
     protected $penemu_model;
     protected $statusModel;
+    protected $user_model;
     protected $session;
 
     public function __construct()
@@ -24,6 +26,7 @@ class Pages extends BaseController
         $this->korban_model = new KorbanModel();
         $this->penemu_model = new PenemuModel();
         $this->statusModel  = new StatusBarangModel();
+        $this->user_model = new UserModel();
         $this->session      = session();
     }
     
@@ -255,5 +258,15 @@ class Pages extends BaseController
             'title' => 'Klaim Barang Sukses | LostandFound'
         ];
         return view('pages/success',$data);
+    }
+
+    public function edit_profile($id)
+    {
+        $data = [
+            'title'      => 'Edit Profile | LostandFound',
+            'data'     => $this->user_model->getUser($id)
+        ];
+        dd($data);
+        return view('pages/edit_laporan',$data);
     }
 }
