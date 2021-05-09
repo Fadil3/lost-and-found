@@ -27,7 +27,7 @@
                     <p>Waktu Hilang : <?= $barang['waktu_barang']; ?></p>
                     <p>Lokasi Hilang : <?= $barang['lokasi_barang']; ?></p>
                     <p>Ciri-ciri Barang : <?= $barang['deskripsi_barang']; ?></p>
-                    <p>Pemilik Barang : <?= $penemu['user_name']; ?></p>
+                    <p>Penemu Barang : <?= $penemu['user_name']; ?></p>
                     <p>Hubungi penemu melalui</p>
                     <?php if (session()->has('user_id')) : ?>
                     <a href="https://api.whatsapp.com/send?phone=<?= $penemu['user_no_telepon']; ?>&text=<?= urlencode($formatWA); ?>"
