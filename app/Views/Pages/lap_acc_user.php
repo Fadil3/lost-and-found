@@ -2,7 +2,7 @@
 
 <?= $this->section('content'); ?>
 <div class="container">
-    <h3 class="text-center mt-5">Laporan yang belum diterima</h3>
+    <h3 class="text-center mt-5">Laporan yang sudah diterima</h3>
     <section class="hero">
         <h4 class="mt-5 sub-title font-weight-bold text-left">
             Laporan Penemuan Saya

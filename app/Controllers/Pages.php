@@ -159,7 +159,7 @@ class Pages extends BaseController
             'barang'      => $dataPBarang,
             'id_barang'   => $id_barang,
             'id_status'   => $id_status,
-            'nama_barang' => $nama_barang['nama_barang']
+            'data_barang' => $nama_barang
         ];
         return view('pages/daftar_klaim_kehilangan',$data);
     }
@@ -178,16 +178,18 @@ class Pages extends BaseController
             'barang'      => $dataPBarang,
             'id_barang'   => $id_barang,
             'id_status'   => $id_status,
-            'nama_barang' => $nama_barang['nama_barang']
+            'data_barang' => $nama_barang
         ];
         return view('pages/daftar_klaim_penemuan',$data);
     }
 
     public function admin_lap_selesai()
     {
-        
+        $data_pengajuan = $this->pengajuan_model->getBarangSelesai();
+
         $data = [
-            'title' => 'Admin Laporan Selesai | LostandFound'
+            'title' => 'Admin Laporan Selesai | LostandFound',
+            'barang'=> $data_pengajuan
         ];
         return view('pages/admin_lap_selesai',$data);
     }
@@ -203,6 +205,7 @@ class Pages extends BaseController
 
     public function admin_lap_kehilangan()
     {
+
         $data = [
             'title'              => 'Admin Laporan Kehilangan | LostandFound',
             'barangKehilangan'   => $this->barangModel->getBarangKehilanganAdmin(),
@@ -268,7 +271,7 @@ class Pages extends BaseController
                 'sess'               => $this->session->user_name
             ];
 
-            return view('pages/lap_acc_user',$data);
+            return view('pages/lap_x_acc_user',$data);
         }else{
 
             $data = [
@@ -278,7 +281,7 @@ class Pages extends BaseController
                 'sess'               => $this->session->user_name
             ];
 
-            return view('pages/lap_acc_user',$data);
+            return view('pages/lap_x_acc_user',$data);
         }
     }
 

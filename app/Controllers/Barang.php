@@ -234,7 +234,8 @@ class Barang extends BaseController
             return redirect()->to('/pages/buat_laporan');
     }
 
-    public function updateData($data_id){
+    public function updateData($data_id)
+    {
         
         helper(['form']);
 
@@ -300,19 +301,30 @@ class Barang extends BaseController
         return redirect()->to('/pages/lap_acc_user');
     }
 
-    public function deleteData($id){
-        $this->barangModel->where('id_barang', $id)->delete();
+    public function updateHilang($id)
+    {
+        $update = $this->barangModel->updateKdHilang($id);
 
-        return redirect()->to('/pages/lap_acc_user');
+        if($update)
+        {
+            //flashdata
+        }
     }
 
-    public function delete($id){
+    public function deleteData($id)
+    {
+        $this->barangModel->where('id_barang', $id)->delete();
+    }
+
+    public function delete($id)
+    {
         $this->barangModel->deleteBarangPermintaan($id);
 
         return redirect()->to('/pages/admin_lap_kehilangan');
     }
 
-    public function update($data_id){
+    public function update($data_id)
+    {
         $this->barangModel->updateBarangPermintaan($data_id);
 
         return redirect()->to('/pages/admin_lap_kehilangan');

@@ -21,6 +21,26 @@ class PengajuanBarang extends BaseController
         $this->session        = session();
     }
 
+    //jika barang yang hilang telah ditemukan dan dikembalikan
+    public function konfirmasiKehilangan($id_barang, $id_klaim)
+    {
+        $konfirmasi = $this->pengajuanModel->updateKonfirmasiKehilangan($id_barang, $id_klaim);
+
+        if($konfirmasi){
+            $this->session->set_flashdata('success', "Barang Berhasil Diterima"); 
+        }
+    }
+
+    //jika barang yang ditemukan telah dikembalikan
+    public function konfirmasiPenemuan($id_barang, $id_klaim)
+    {
+        $konfirmasi = $this->pengajuanModel->updateKonfirmasiPenemuan($id_barang, $id_klaim);
+
+        if($konfirmasi){
+            $this->session->set_flashdata('success', "Barang Berhasil Diterima"); 
+        }
+    }
+
     public function pengajuan($id_barang, $id_klaim){
     //method untuk memasukan data ke tabel pengajuan_barang
 
@@ -53,6 +73,16 @@ class PengajuanBarang extends BaseController
 
         }
         
+    }
+
+    public function deletePengajuan($id)
+    {
+        $delete = $this->pengajuanModel->deletePengajuan($id);
+
+        if($delete)
+        {
+            //set flash data
+        }
     }
 
 }
