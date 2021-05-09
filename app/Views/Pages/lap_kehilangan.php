@@ -25,7 +25,7 @@
             <div class="col-md-6 mt-5 text-center mx-auto">
                 <div class="card">
                     <div class="row g-0">
-                        <div class="col-md-4 m-3">
+                        <div class="col-md-4 m-3"> 
                             <img src="images/<?= $b->foto_barang; ?>" class="align-item-center" alt="..."
                                 style="max-width: 150px;">
                         </div>
