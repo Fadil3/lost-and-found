@@ -4,12 +4,12 @@
 <div class="container">
     <section class="hero">
         <div class="row mt-5">
-            <div class="col-md-6 mt-5 ">
+            <div class="col-md-6 mt-5 mb-5">
                 <div class="">
                     <img src="images/banner-home.png" loading="lazy" class="img-fluid def-size" alt=" fe-template" />
                 </div>
             </div>
-            <div class="col-md-6 mt-5 text-center ">
+            <div class="col-md-6 mt-5 text-center mb-5">
                 <h3 class="mt-5 sub-title">
                     Mempertemukan penemu dan pencari barang yang hilang
                 </h3>
