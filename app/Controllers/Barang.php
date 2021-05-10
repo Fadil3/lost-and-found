@@ -305,10 +305,8 @@ class Barang extends BaseController
     {
         $update = $this->barangModel->updateKdHilang($id);
 
-        if($update)
-        {
-            //flashdata
-        }
+            session()->setFlashdata('msg', 'Laporan Berhasil diselesaikan');
+            return redirect()->to('/admin_lap_selesai');
     }
 
     public function deleteData($id)
