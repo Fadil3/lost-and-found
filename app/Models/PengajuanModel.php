@@ -46,7 +46,7 @@ class PengajuanModel extends Model{
     {
         $db      = \Config\Database::connect();
         $builder = $db->table($this->table);
-        $builder->select('pengajuan_barang.id_barang as id_barang, pengajuan_barang.konfirmasi_pengajuan as konfirmasi_pengajuan , barang.nama_barang as nama_barang, barang.lokasi_barang as lokasi_barang, barang.kd_hilang as kd_hilang');
+        $builder->select('pengajuan_barang.id_barang as id_barang, pengajuan_barang.konfirmasi_pengajuan as konfirmasi_pengajuan , barang.nama_barang as nama_barang, barang.lokasi_barang as lokasi_barang, barang.kd_hilang as kd_hilang, barang.foto_barang as foto_barang');
         $builder->join('barang', 'barang.id_barang = pengajuan_barang.id_barang');
 
         $query = $builder->get()->getResult();
