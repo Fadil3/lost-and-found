@@ -59,6 +59,10 @@ $routes->get('/lap_acc_user','Pages::lap_acc_user');
 $routes->get('/lap_x_acc_user','Pages::lap_x_acc_user');
 $routes->get('/success','Pages::success');
 
+//edit profile
+$routes->get('/edit_profile/(:any)','Pages::edit_profile/$1', ['filter' => 'auth']);
+$routes->get('/profile/edit/(:num)','Pages::edit_profile', ['filter' => 'auth']);
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -9,7 +9,15 @@
             <div class="card">
                 <div class="row g-0">
                     <div class="col-md-3 m-2">
-                        <img src="images/1.jpg" class="align-item-center" alt="..." style="max-width: 200px;">
+                        <?php if ( $user['user_img'] != null ) : ?>
+                        <img src="/images/foto_profile/<?= $user['user_img']; ?>" class="align-item-center" alt="..."
+                            style="max-width: 200px;">
+                        <?php  endif?>
+
+                        <?php if ( $user['user_img'] == null ) : ?>
+                        <img src="/images/foto_profile/default-profile.png" class="align-item-center" alt="..."
+                            style="max-width: 200px;">
+                        <?php  endif?>
                     </div>
                     <div class="col-md-3">
                         <div class="card-body text-left">
@@ -28,7 +36,7 @@
                         </div>
                     </div>
                     <div class="col-md-2 mt-5 mb-3">
-                        <a href="#" class="btn btn-warning">Edit Profile</a>
+                        <a href="/edit_profile/<?= $user['user_id']; ?>" class="btn btn-warning">Edit Profile</a>
                     </div>
                 </div>
             </div>

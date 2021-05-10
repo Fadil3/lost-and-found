@@ -60,6 +60,15 @@
             inputc.parentNode.removeChild(inputc);
             alert("URL telah dicopy.");
         }
+
+        $(".reveal").on('click', function() {
+            var $pwd = $(".pwd");
+            if ($pwd.attr('type') === 'password') {
+                $pwd.attr('type', 'text');
+            } else {
+                $pwd.attr('type', 'password');
+            }
+        });
         </script>
 
         <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
