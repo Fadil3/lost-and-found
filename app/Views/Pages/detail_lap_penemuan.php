@@ -17,7 +17,7 @@
         <section class="hero">
             <div class="row mt-5">
                 <div class="col-md-6 mt-5 text-center">
-                    <div class="col-md-4 m-3">
+                    <div class="col-md-4 m-3"> 
                         <img src="/images/<?= $barang['foto_barang']; ?>" class="align-item-center" alt="..."
                             style="max-width: 275px;">
                     </div>
@@ -27,7 +27,7 @@
                     <p>Waktu Hilang : <?= $barang['waktu_barang']; ?></p>
                     <p>Lokasi Hilang : <?= $barang['lokasi_barang']; ?></p>
                     <p>Ciri-ciri Barang : <?= $barang['deskripsi_barang']; ?></p>
-                    <p>Pemilik Barang : <?= $penemu['user_name']; ?></p>
+                    <p>Penemu Barang : <?= $penemu['user_name']; ?></p>
                     <p>Hubungi penemu melalui</p>
                     <?php if (session()->has('user_id')) : ?>
                     <a href="https://api.whatsapp.com/send?phone=<?= $penemu['user_no_telepon']; ?>&text=<?= urlencode($formatWA); ?>"
@@ -60,9 +60,11 @@
 
     <div class="container">
         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-            <button class="btn btn-light mt-2 mb-5 p-2" style="background-color: #8F00FF;" type="button">
-                <span class="text-white">Ini Adalah Barang Saya !</span>
-            </button>
+            <form action="/pengajuanbarang/pengajuan/<?= $barang['id_barang']; ?>/<?= $userKorban['id_korban']; ?>">
+                <button class="btn btn-light mt-2 mb-5 p-2" style="background-color: #8F00FF;" type="submit">
+                    <span class="text-white">Ini Adalah Barang Saya !</span>
+                </button>
+            </form>
         </div>
     </div>
     <?php endif; ?>

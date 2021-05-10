@@ -34,26 +34,31 @@ class Barang extends BaseController
         $this->korban_model = new KorbanModel();
         $this->penemu_model = new PenemuModel();
         $this->statusModel  = new StatusBarangModel();
-        $this->userModel = new UserModel();
+        $this->userModel    = new UserModel();
         $this->session      = session();
     }
 
     public function detail($id)
     {
-        $barang = $this->barangModel->getBarang($id);
-        $penemu = (int)$barang['id_penemu'];
-        $pencari = (int)$barang['id_korban'];
-        $userPencari =  $this->korban_model->getID($pencari);
-        $userPenemu =  $this->penemu_model->getID($penemu);
-        $getPencari = $userPencari !=null ? $this->userModel->getUser($userPencari['id_user']) :   null ;
-        $getPenemu = $userPenemu != null ? $this->userModel->getUser($userPenemu['id_user']) : null;
+        $barang      = $this->barangModel->getBarang($id);
+        $penemu      = (int)$barang['id_penemu'];
+        $pencari     = (int)$barang['id_korban'];
+        $userPencari = $this->korban_model->getID($pencari);
+        $userPenemu  = $this->penemu_model->getID($penemu);
+        $getPencari  = $userPencari != null ? $this->userModel->getUser($userPencari['id_user']):null;
+        $getPenemu   = $userPenemu  != null ? $this->userModel->getUser($userPenemu['id_user']) :null;
+
+        $userkorban  = $this->korban_model->getRowIdUser($this->session->user_id);
+        $id_penemu   = $this->penemu_model->getRowIdUser($this->session->user_id);
         // dd($getPencari);
 
         $data = [
-            'title' => 'Detail Barang ',
-            'barang' => $barang,
-            'pencari' => $getPencari,
-            'penemu' => $getPenemu,
+            'title'     => 'Detail Barang ',
+            'barang'    => $barang,
+            'pencari'   => $getPencari,
+            'penemu'    => $getPenemu,
+            'userKorban'=> $userkorban,
+            'userPenemu'=> $id_penemu
         ];
         
         //jika barang tidak ada
@@ -198,23 +203,6 @@ class Barang extends BaseController
                     //memasukan id_korban ke dalam tabel barang
                     $this->barangModel->updateKP($barang_id, $data);
                 }
-                else
-                {
-                    $data_korban = [
-                        'id_user'      => $this->session->user_id,
-                        'nama_korban'  => $this->session->user_name
-                    ];
-                    //instansiasi objek                   
-                    $korban_model->save($data_korban);
-                    $new_id_korban = $korban_model->getInsertID();
-
-                    $data = [
-                        'id_korban' => $new_id_korban
-                    ];   
-                    //metod buatan sendiri
-                    //pada barangModel
-                    $this->barangModel->updateKP($barang_id, $data); 
-                }
             
             //else untuk memasukan data penemu kedalam tabel penemu
             }
@@ -233,22 +221,6 @@ class Barang extends BaseController
 
                     $this->barangModel->updateKP($barang_id, $data);
                 }
-                else
-                {
-                    $data_penemu = [
-                        'id_user'      => $this->session->user_id,
-                        'nama_penemu'  => $this->session->user_name
-                    ]; 
-                    //instansiasi objek
-                    $penemu_model->save($data_penemu);
-                    $new_id_penemu = $penemu_model->getInsertID();
-                    $data = [
-                        'id_penemu' => $new_id_penemu
-                    ];
-                    //metod buatan sendiri
-                    //pada barangModel
-                    $this->barangModel->updateKP($barang_id, $data);      
-                }
             }
             
             $row_korban = $this->korban_model->getRowIdUser($this->session->user_id);
@@ -262,7 +234,8 @@ class Barang extends BaseController
             return redirect()->to('/pages/buat_laporan');
     }
 
-    public function updateData($data_id){
+    public function updateData($data_id)
+    {
         
         helper(['form']);
 
@@ -313,7 +286,6 @@ class Barang extends BaseController
 
         //memasukan setiap data hampir sama seperti buat laporan
         $data = [
-            'kd_approve'       => 'AP-00',
             'nama_barang'      => $this->request->getVar('name'),
             'waktu_barang'     => $this->request->getVar('time'),
             'lokasi_barang'    => $this->request->getVar('location'),
@@ -325,22 +297,34 @@ class Barang extends BaseController
         $this->barangModel->updateBarang($data_id, $data);
 
         //melempar halaman ke yang lain
+        session()->setFlashdata('msg', 'Data berhasil diupdate');
         return redirect()->to('/pages/lap_acc_user');
     }
 
-    public function deleteData($id){
+    public function updateHilang($id)
+    {
+        $update = $this->barangModel->updateKdHilang($id);
+
+        if($update)
+        {
+            //flashdata
+        }
+    }
+
+    public function deleteData($id)
+    {
         $this->barangModel->where('id_barang', $id)->delete();
-
-        return redirect()->to('/pages/lap_acc_user');
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         $this->barangModel->deleteBarangPermintaan($id);
 
         return redirect()->to('/pages/admin_lap_kehilangan');
     }
 
-    public function update($data_id){
+    public function update($data_id)
+    {
         $this->barangModel->updateBarangPermintaan($data_id);
 
         return redirect()->to('/pages/admin_lap_kehilangan');

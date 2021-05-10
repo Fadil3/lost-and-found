@@ -13,12 +13,23 @@ class BarangModel extends Model
     protected $table = 'barang';
     protected $allowedFields = ['id_barang', 'id_korban','kd_hilang','kd_approve', 'id_penemu', 'nama_barang', 'kategori_barang', 'jenis_barang','waktu_barang','lokasi_barang','deskripsi_barang','foto_barang'];
 
+    public function updateKdHilang($id)
+    {
+        $db      = \Config\Database::connect();
+        $builder = $db->table($this->table);
+
+        $builder->set('kd_hilang', 'ST-01');
+        $builder->where('id_barang', $id);
+        $builder->update();
+    }
+
     public function updateKP($id, $data)
     {
         return $this->db->table('barang')->where(["id_barang" => $id])->set($data)->update();
     }
 
-    public function deleteBarangPermintaan($id){
+    public function deleteBarangPermintaan($id)
+    {
         $db      = \Config\Database::connect();
         $builder = $db->table($this->table);
 
