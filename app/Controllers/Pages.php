@@ -188,7 +188,7 @@ class Pages extends BaseController
 
     public function admin_lap_selesai()
     {
-        $data_pengajuan = $this->pengajuan_model->getBarangSelesai();
+        $data_pengajuan = $this->pengajuan_model->getBarangSelesai(); 
 
         $data = [
             'title' => 'Admin Laporan Selesai | LostandFound',
