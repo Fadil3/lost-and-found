@@ -298,7 +298,7 @@ class Barang extends BaseController
 
         //melempar halaman ke yang lain
         session()->setFlashdata('msg', 'Data berhasil diupdate');
-        return redirect()->to('/pages/lap_acc_user');
+        return redirect()->to('/pages/edit_laporan/'.$data_id);
     }
 
     public function updateHilang($id)

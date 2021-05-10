@@ -7,7 +7,6 @@
         <h4 class="mt-5 sub-title font-weight-bold text-left">
             Laporan Penemuan Saya
         </h4>
-
         <div class="row mt-3">
             <?php foreach($barangPenemuan as $b) : ?>
             <div class="col-md-12 mt-5 mx-auto text-center">
@@ -27,7 +26,8 @@
                         </div>
                         <div class="col-md-2 mt-xl-4 mt-2">
                             <a href="/barang/detail/<?= $b->id_barang; ?>" class="btn btn-primary">Details</a>
-                            <a href="/pages/daftar_klaim_penemuan/<?= $b->id_barang;?>/<?= $b->id_penemu;?>" class="btn btn-success mt-xl-1 mt-md-2">Lihat Klaim</a>
+                            <a href="/pages/daftar_klaim_penemuan/<?= $b->id_barang;?>/<?= $b->id_penemu;?>"
+                                class="btn btn-success mt-xl-1 mt-md-2">Lihat Klaim</a>
                         </div>
                         <div class="col-md-2 mt-xl-4 mt-2 mb-3">
                             <a href="/pages/edit_laporan/<?= $b->id_barang; ?>" class="btn btn-warning">Edit
@@ -67,7 +67,8 @@
                         </div>
                         <div class="col-md-2 mt-xl-4 mt-2">
                             <a href="/barang/detail/<?= $b->id_barang; ?>" class="btn btn-primary">Details</a>
-                            <a href="/pages/daftar_klaim_kehilangan/<?= $b->id_barang; ?>/<?= $b->id_korban; ?>" class="btn btn-success mt-xl-1 mt-md-2">Lihat Klaim</a>
+                            <a href="/pages/daftar_klaim_kehilangan/<?= $b->id_barang; ?>/<?= $b->id_korban; ?>"
+                                class="btn btn-success mt-xl-1 mt-md-2">Lihat Klaim</a>
                         </div>
                         <div class="col-md-2 mt-xl-4 mt-2 mb-3">
                             <a href="/pages/edit_laporan/<?= $b->id_barang; ?>" class="btn btn-warning">Edit Laporan</a>
