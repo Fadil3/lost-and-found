@@ -23,9 +23,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/buat_laporan">Buat Laporan</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="/cari_laporan">Cari Laporan</a>
-                </li>
+                </li> -->
             </ul>
             <div class="navbar-nav ml-auto">
                 <?php if (session()->has('user_id')) : ?>
