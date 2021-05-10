@@ -314,6 +314,9 @@ class Barang extends BaseController
     public function deleteData($id)
     {
         $this->barangModel->where('id_barang', $id)->delete();
+        //melempar halaman ke yang lain
+        session()->setFlashdata('msg', 'Data berhasil dihapus');
+        return redirect()->to('/lap_acc_user');
     }
 
     public function delete($id)

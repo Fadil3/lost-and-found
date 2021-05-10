@@ -4,6 +4,9 @@
 <div class="container">
     <h3 class="text-center mt-5">Laporan yang sudah diterima</h3>
     <section class="hero">
+        <?php if (session()->getFlashdata('msg')) : ?>
+        <div class="alert alert-success"><?= session()->getFlashdata('msg') ?></div>
+        <?php endif; ?>
         <h4 class="mt-5 sub-title font-weight-bold text-left">
             Laporan Penemuan Saya
         </h4>
