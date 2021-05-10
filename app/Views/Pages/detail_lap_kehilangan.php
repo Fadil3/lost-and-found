@@ -1,6 +1,6 @@
 <?= $this->extend('layout/template'); ?>
 
-<?= $this->section('content'); ?>
+<?= $this->section('content'); ?> 
 <?php  
     $twitter ="[DICARI] ".$barang['nama_barang']."\nLokasi hilang : ".$barang['lokasi_barang']."\nCiri-ciri : ".$barang['deskripsi_barang'];
     $url = current_url();
@@ -58,9 +58,11 @@
 
     <div class="container">
         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-            <button class="btn btn-light mt-2 mb-5 p-2" style="background-color: #8F00FF;" type="button">
+        <form action="/pengajuanbarang/pengajuan/<?= $barang['id_barang']; ?>/<?= $userPenemu['id_penemu']; ?>">
+            <button class="btn btn-light mt-2 mb-5 p-2" style="background-color: #8F00FF;" type="submit">
                 <span class="text-white">Saya telah menemukan barang Ini!</span>
-            </button>
+            </button> 
+        </form>
         </div>
     </div>
     <?php endif; ?>

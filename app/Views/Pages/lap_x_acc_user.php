@@ -23,15 +23,17 @@
                             </div>
                         </div>
                         <div class="col-md-4 mt-xl-5 mt-4 mb-3">
-                            <a href="#" class="btn btn-warning">Edit Laporan</a>
-                            <a href="#" class="btn btn-danger mt-xl-1 mt-md-2">Hapus Laporan</a>
+                            <a href="/pages/edit_laporan/<?= $b->id_barang; ?>" class="btn btn-warning">Edit
+                                Laporan</a>
+                            <a href="/barang/deleteData/<?= $b->id_barang; ?>"
+                                class="btn btn-danger mt-xl-1 mt-md-2">Hapus Laporan</a>
                         </div>
                     </div>
                 </div>
             </div>
             <?php endforeach; ?>
         </div>
-        <?php if($barang == null) : ?>
+        <?php if($barangPenemuan == null) : ?>
         <h3 class="mt-5 text-center text-secondary">Tidak ada data</h3>
         <?php endif ?>
     </section>
@@ -55,15 +57,17 @@
                             </div>
                         </div>
                         <div class="col-md-4 mt-xl-5 mt-4 mb-3">
-                            <a href="#" class="btn btn-warning">Edit Laporan</a>
-                            <a href="#" class="btn btn-danger mt-xl-1 mt-md-2">Hapus Laporan</a>
+                            <a href="/pages/edit_laporan/<?= $b->id_barang; ?>" class="btn btn-warning">Edit
+                                Laporan</a>
+                            <a href="/barang/deleteData/<?= $b->id_barang; ?>"
+                                class="btn btn-danger mt-xl-1 mt-md-2">Hapus Laporan</a>
                         </div>
                     </div>
                 </div>
             </div>
             <?php endforeach; ?>
         </div>
-        <?php if($barang == null) : ?>
+        <?php if($barangKehilangan == null) : ?>
         <h3 class="mt-5 text-center text-secondary">Tidak ada data</h3>
         <?php endif ?>
     </section>

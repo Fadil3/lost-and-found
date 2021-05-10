@@ -21,11 +21,11 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
                         </div>
-                        <select class="custom-select" style="max-width: 120px;">
-                            <option value="1">+62</option>
-                            <option value="1">+63</option>
-                            <option value="2">+64</option>
-                            <option value="3">+65</option>
+                        <select name="noAwal" class="custom-select" style="max-width: 120px;">
+                            <option value="+62">+62</option>
+                            <option value="+63">+63</option>
+                            <option value="+64">+64</option>
+                            <option value="+65">+65</option>
                         </select>
                         <input name="no_telepon" class="form-control" placeholder="Phone number" type="text">
                     </div> <!-- form-group// -->

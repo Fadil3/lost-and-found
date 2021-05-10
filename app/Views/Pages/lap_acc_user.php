@@ -2,7 +2,7 @@
 
 <?= $this->section('content'); ?>
 <div class="container">
-    <h3 class="text-center mt-5">Laporan yang belum diterima</h3>
+    <h3 class="text-center mt-5">Laporan yang sudah diterima</h3>
     <section class="hero">
         <h4 class="mt-5 sub-title font-weight-bold text-left">
             Laporan Penemuan Saya
@@ -27,7 +27,7 @@
                         </div>
                         <div class="col-md-2 mt-xl-4 mt-2">
                             <a href="/barang/detail/<?= $b->id_barang; ?>" class="btn btn-primary">Details</a>
-                            <a href="/pages/daftar_klaim" class="btn btn-success mt-xl-1 mt-md-2">Lihat Klaim</a>
+                            <a href="/pages/daftar_klaim_penemuan/<?= $b->id_barang;?>/<?= $b->id_penemu;?>" class="btn btn-success mt-xl-1 mt-md-2">Lihat Klaim</a>
                         </div>
                         <div class="col-md-2 mt-xl-4 mt-2 mb-3">
                             <a href="/pages/edit_laporan/<?= $b->id_barang; ?>" class="btn btn-warning">Edit
@@ -67,7 +67,7 @@
                         </div>
                         <div class="col-md-2 mt-xl-4 mt-2">
                             <a href="/barang/detail/<?= $b->id_barang; ?>" class="btn btn-primary">Details</a>
-                            <a href="/pages/daftar_klaim" class="btn btn-success mt-xl-1 mt-md-2">Lihat Klaim</a>
+                            <a href="/pages/daftar_klaim_kehilangan/<?= $b->id_barang; ?>/<?= $b->id_korban; ?>" class="btn btn-success mt-xl-1 mt-md-2">Lihat Klaim</a>
                         </div>
                         <div class="col-md-2 mt-xl-4 mt-2 mb-3">
                             <a href="/pages/edit_laporan/<?= $b->id_barang; ?>" class="btn btn-warning">Edit Laporan</a>

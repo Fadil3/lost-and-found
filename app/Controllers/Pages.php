@@ -8,6 +8,7 @@ use App\Models\BarangModel;
 use App\Models\StatusBarangModel;
 use App\Models\KorbanModel;
 use App\Models\PenemuModel;
+use App\Models\PengajuanModel;
 
 class Pages extends BaseController
 {   
@@ -16,15 +17,17 @@ class Pages extends BaseController
     protected $korban_model;
     protected $penemu_model;
     protected $statusModel;
+    protected $pengajuan_model;
     protected $session;
 
     public function __construct()
     {
-        $this->barangModel  = new BarangModel();
-        $this->korban_model = new KorbanModel();
-        $this->penemu_model = new PenemuModel();
-        $this->statusModel  = new StatusBarangModel();
-        $this->session      = session();
+        $this->barangModel     = new BarangModel();
+        $this->korban_model    = new KorbanModel();
+        $this->penemu_model    = new PenemuModel();
+        $this->statusModel     = new StatusBarangModel();
+        $this->pengajuan_model = new PengajuanModel();
+        $this->session         = session();
     }
     
     public function index()
@@ -140,20 +143,53 @@ class Pages extends BaseController
         return view('pages/detail_lap_penemuan',$data);
     }
 
-    public function daftar_klaim()
+    public function daftar_klaim_kehilangan($id_barang, $id_status)
     {
+    //id status di sini ia sebagai korban
+    //jadi ketika dia membuka halaman ini
+    //maka akan memperlihatkan daftar nama orang yang kehilangan
         
+        //data akan dimasukan ke tabel pengajuan
+        $dataPBarang = $this->pengajuan_model->getBarangPengajuanKehilangan($id_barang, $id_status);
+        $nama_barang = $this->barangModel->getBarang($id_barang);
+
+        //isi data yang akan dilempar nantinya
         $data = [
-            'title' => 'Daftar Klaim | LostandFound'
+            'title'       => 'Daftar Klaim | LostandFound',
+            'barang'      => $dataPBarang,
+            'id_barang'   => $id_barang,
+            'id_status'   => $id_status,
+            'data_barang' => $nama_barang
         ];
-        return view('pages/daftar_klaim',$data);
+        return view('pages/daftar_klaim_kehilangan',$data);
+    }
+
+    public function daftar_klaim_penemuan($id_barang, $id_status)
+    {
+    //id status di sini ia sebagai korban
+    //jadi ketika dia membuka halaman ini
+    //maka akan memperlihatkan daftar nama orang yang menyatakan bahwa dia menemukan barang tersebut
+
+        $dataPBarang = $this->pengajuan_model->getBarangPengajuanPenemuan($id_barang, $id_status);
+        $nama_barang = $this->barangModel->getBarang($id_barang);
+
+        $data = [
+            'title'       => 'Daftar Klaim | LostandFound',
+            'barang'      => $dataPBarang,
+            'id_barang'   => $id_barang,
+            'id_status'   => $id_status,
+            'data_barang' => $nama_barang
+        ];
+        return view('pages/daftar_klaim_penemuan',$data);
     }
 
     public function admin_lap_selesai()
     {
-        
+        $data_pengajuan = $this->pengajuan_model->getBarangSelesai();
+
         $data = [
-            'title' => 'Admin Laporan Selesai | LostandFound'
+            'title' => 'Admin Laporan Selesai | LostandFound',
+            'barang'=> $data_pengajuan
         ];
         return view('pages/admin_lap_selesai',$data);
     }
@@ -169,6 +205,7 @@ class Pages extends BaseController
 
     public function admin_lap_kehilangan()
     {
+
         $data = [
             'title'              => 'Admin Laporan Kehilangan | LostandFound',
             'barangKehilangan'   => $this->barangModel->getBarangKehilanganAdmin(),
@@ -234,7 +271,7 @@ class Pages extends BaseController
                 'sess'               => $this->session->user_name
             ];
 
-            return view('pages/lap_acc_user',$data);
+            return view('pages/lap_x_acc_user',$data);
         }else{
 
             $data = [
@@ -244,7 +281,7 @@ class Pages extends BaseController
                 'sess'               => $this->session->user_name
             ];
 
-            return view('pages/lap_acc_user',$data);
+            return view('pages/lap_x_acc_user',$data);
         }
     }
 

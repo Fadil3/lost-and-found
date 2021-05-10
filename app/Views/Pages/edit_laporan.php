@@ -12,7 +12,7 @@
     <h2 class="text-center mb-5">Buat Laporan</h2>
     <form action="/barang/updateData/<?= $barang['id_barang']; ?>" method="post" enctype="multipart/form-data">
         
-        <div class="form-group row">
+        <div class="form-group row"> 
             <label for="inputJenis" class="col-sm-2 col-form-label">Jenis Laporan :</label>
             <div class="col-sm-10">
                 <div class="input-group mb-3">

@@ -1,6 +1,6 @@
 <?= $this->extend('layout/template'); ?>
 
-<?= $this->section('content'); ?>
+<?= $this->section('content'); ?> 
 
 <div class="container mt-5">
     <?php if (session()->getFlashdata('msg')) : ?>

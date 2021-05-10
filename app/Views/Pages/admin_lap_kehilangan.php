@@ -15,9 +15,9 @@
             </div>
             <div class="col-md-6 mt-5 text-center">
                 <div class="card">
-                    <div class="row g-0">
+                    <div class="row g-0"> 
                         <div class="col-md-4 m-3">
-                            <img src="images/1.jpg" class="align-item-center" alt="..." style="max-width: 200px;">
+                            <img src="images/<?= $b->foto_barang; ?>" class="align-item-center" alt="..." style="max-width: 200px;">
                         </div>
                         <div class="col-md-4">
                             <div class="card-body">
