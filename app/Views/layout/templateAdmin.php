@@ -1,6 +1,6 @@
 <?php 
     $session = session();
-    if (isset($_SESSION['user_id']) == null || isset($_SESSION['user_id']) == 1  ) {
+    if ($_SESSION['role'] == null || $_SESSION['role'] == 1  ) {
         echo '<script>window.location.href = "/";</script>';
     }
 ?>
