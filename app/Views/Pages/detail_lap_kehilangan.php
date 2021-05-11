@@ -58,11 +58,13 @@
 
     <div class="container">
         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+        <?php if($_SESSION['role'] == 1) :?>
         <form action="/pengajuanbarang/pengajuan/<?= $barang['id_barang']; ?>/<?= $userPenemu['id_penemu']; ?>">
             <button class="btn btn-light mt-2 mb-5 p-2" style="background-color: #8F00FF;" type="submit">
                 <span class="text-white">Saya telah menemukan barang Ini!</span>
-            </button> 
+            </button>
         </form>
+        <?php endif; ?>
         </div>
     </div>
     <?php endif; ?>
