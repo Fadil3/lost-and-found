@@ -1,10 +1,4 @@
-<?php if ( $_SESSION['role'] == 0) : ?>
-<?= $this->extend('layout/templateAdmin'); ?>
-<?php endif ?>
-
-<?php if ( $_SESSION['role'] !=0) : ?>
 <?= $this->extend('layout/template'); ?>
-<?php endif ?>
 
 <?= $this->section('content'); ?>
 <div class="container">
@@ -15,14 +9,14 @@
         Berikut ini adalah daftar klaim dari laporan yang anda buat.
     </p>
     <p class="text-center">
-        Apakah yang bersangkutan telah menghubungi Anda dan mengkonfirmasi barang miliknya ?
+        Apakah yang bersangkutan telah menghubungi Anda dan mengkonfirmasi barang miliknya ?  
     </p>
     <p class="text-center">
-        Jika <span class="font-weight-bold">Iya</span>, Silahkan melakukan konfirmasi !
+        Jika <span class="font-weight-bold">Iya</span>, Silahkan melakukan konfirmasi !  
     </p>
     <section class="hero">
-        <?php foreach($barang as $b) :?>
-        <?php if($id_barang == $b->id_barang && $id_status == $b->id_penemu && $b->konfirmasi_pengajuan != 1) : ?>
+    <?php foreach($barang as $b) :?>
+    <?php if($id_barang == $b->id_barang && $id_status == $b->id_penemu && $b->konfirmasi_pengajuan != 1) : ?>
         <div class="row mt-5">
             <div class="col-md-3 mt-5 text-center">
             </div>
@@ -40,17 +34,16 @@
                             </div>
                         </div>
                         <div class="col-md-2 mt-4">
-                            <form
-                                action="/pengajuanbarang/konfirmasipenemuan/<?= $b->id_barang; ?>/<?= $b->id_korban; ?>">
-                                <button class="btn btn-success" type="submit">
-                                    <span class="text-white">Terima</span>
-                                </button>
-                            </form>
-                            <form action="/pengajuanbarang/deletepengajuan/<?= $b->id_pengajuan; ?>">
-                                <button class="btn btn-danger mt-3" type="submit">
-                                    <span class="text-white">Tolak</span>
-                                </button>
-                            </form>
+                        <form action="/pengajuanbarang/konfirmasipenemuan/<?= $b->id_barang; ?>/<?= $b->id_korban; ?>">
+                            <button class="btn btn-success" type="submit">
+                                <span class="text-white">Terima</span>
+                            </button> 
+                        </form>
+                        <form action="/pengajuanbarang/deletepengajuan/<?= $b->id_pengajuan; ?>">
+                            <button class="btn btn-danger mt-3" type="submit">
+                                <span class="text-white">Tolak</span>
+                            </button>
+                        </form>  
                         </div>
                     </div>
                 </div>
@@ -58,8 +51,8 @@
             <div class="col-md-3 mt-5 text-center">
             </div>
         </div>
-        <?php endif; ?>
-        <?php endforeach; ?>
+    <?php endif; ?>
+    <?php endforeach; ?>  
     </section>
 </div>
 <?= $this->endSection(); ?>
