@@ -1,6 +1,12 @@
-<?= $this->extend('layout/template'); ?>
+<?php if ( $_SESSION['role'] == 0) : ?>
+<?= $this->extend('layout/templateAdmin'); ?>
+<?php endif ?>
 
-<?= $this->section('content'); ?> 
+<?php if ( $_SESSION['role'] !=0) : ?>
+<?= $this->extend('layout/template'); ?>
+<?php endif ?>
+
+<?= $this->section('content'); ?>
 <?php  
     $twitter ="[DICARI] ".$barang['nama_barang']."\nLokasi hilang : ".$barang['lokasi_barang']."\nCiri-ciri : ".$barang['deskripsi_barang'];
     $url = current_url();
@@ -8,7 +14,7 @@
     $formatEmail_subject = "Penemuan ".$barang['nama_barang'];
     $formatEmail_body = "Halo, saya menemukan barang yang anda cari.\n Nama Barang : ".$barang['nama_barang'];
     $tes = "http://mrayhanfadil.cehiji.com/";
-?>
+    ?>
 <div class="container">
     <div class="container">
         <h3 class="mt-5 sub-title font-weight-bold text-center">
@@ -58,13 +64,13 @@
 
     <div class="container">
         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-        <?php if($_SESSION['role'] == 1) :?>
-        <form action="/pengajuanbarang/pengajuan/<?= $barang['id_barang']; ?>/<?= $userPenemu['id_penemu']; ?>">
-            <button class="btn btn-light mt-2 mb-5 p-2" style="background-color: #8F00FF;" type="submit">
-                <span class="text-white">Saya telah menemukan barang Ini!</span>
-            </button>
-        </form>
-        <?php endif; ?>
+            <?php if($_SESSION['role'] == 1) :?>
+            <form action="/pengajuanbarang/pengajuan/<?= $barang['id_barang']; ?>/<?= $userPenemu['id_penemu']; ?>">
+                <button class="btn btn-light mt-2 mb-5 p-2" style="background-color: #8F00FF;" type="submit">
+                    <span class="text-white">Saya telah menemukan barang Ini!</span>
+                </button>
+            </form>
+            <?php endif; ?>
         </div>
     </div>
     <?php endif; ?>
