@@ -5,6 +5,9 @@
     <h3 class="mt-5 sub-title font-weight-bold">
         Admin Panel
     </h3>
+    <?php if (session()->getFlashdata('msg')) : ?>
+    <div class="alert alert-success"><?= session()->getFlashdata('msg') ?></div>
+    <?php endif; ?>
     <h3 class="mt-5 sub-title font-weight-bold text-center">
         Laporan Kehilangan
     </h3>
