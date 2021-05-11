@@ -320,15 +320,15 @@ class Barang extends BaseController
     public function delete($id)
     {
         $this->barangModel->deleteBarangPermintaan($id);
-
-        return redirect()->to('/pages/admin_lap_kehilangan');
+        session()->setFlashdata('msg', 'Laporan berhasil ditolak');
+        return redirect()->to('/admin_lap_kehilangan');
     }
 
     public function update($data_id)
     {
         $this->barangModel->updateBarangPermintaan($data_id);
 
-        return redirect()->to('/pages/admin_lap_kehilangan');
+        return redirect()->to('/admin_lap_kehilangan');
     }
 }
 ?>
