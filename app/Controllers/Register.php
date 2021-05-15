@@ -34,16 +34,20 @@ class Register extends Controller
         ];
          
         if($this->validate($rules)){
-            $model = new UserModel();
+            $model        = new UserModel();
             $korban_model = new KorbanModel();
             $penemu_model = new PenemuModel();
 
-            $nomor = $this->request->getVar('noAwal');
+            $nomor  = $this->request->getVar('noAwal');
+            //menjumlahkan nomor dengan pilihan yang dipilih
             $nomor .= $this->request->getVar('no_telepon');
 
+            //nama dan nomor telepon akan ditampung dua kali
+            $nama_user  = $this->request->getVar('name');
+
             $data = [
-                'user_name'      => $this->request->getVar('name'),
-                'user_alamat'   => $this->request->getVar('address'),
+                'user_name'      => $nama_user,
+                'user_alamat'    => $this->request->getVar('address'),
                 'user_email'     => $this->request->getVar('email'),
                 'user_password'  => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
                 'user_no_telepon'=> $nomor,
@@ -52,14 +56,18 @@ class Register extends Controller
             ];
             $model->save($data); 
 
-            $user_id = $model->getInsertID();
+            $user_id  = $model->getInsertID();
+
             $data = [
-                'id_user'   => $user_id
+                'id_user'   => $user_id,
+                'nama_user' => $nama_user,
+                'no_telepon'=> $nomor
             ];
 
             $korban_model->save($data);
             $penemu_model->save($data);
 
+            session()->setFlashdata('msg_register', 'Akun berhasil didaftarkan, silahkan login!');
             return redirect()->to('/pages/login');
         
         }else{

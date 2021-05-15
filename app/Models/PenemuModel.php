@@ -6,7 +6,7 @@ use CodeIgniter\Database\ConnectionInterface;
 class PenemuModel extends Model{
     
     protected $table = 'penemu';
-    protected $allowedFields = ['id_user','nama_penemu','id_penemu'];
+    protected $allowedFields = ['id_user','nama_user','id_penemu', 'no_telepon', 'img'];
 
     public function getRowIdUser($id_user){
         return $this->where(['id_user' => $id_user])->first();
@@ -14,5 +14,13 @@ class PenemuModel extends Model{
 
     public function getID($id){
         return $this->where(['id_penemu' => $id])->first();
+    }
+
+    public function updateUser($id,$data){
+        $db      = \Config\Database::connect();
+        $builder = $db->table($this->table);
+
+        $builder->where('id_user', $id);
+        $builder->update($data);
     }
 }

@@ -41,6 +41,30 @@ class PengajuanModel extends Model{
         $builder->delete();
     }
 
+    public function deleteBarangKehilanganInPengajuan($id_barang, $id_klaim)
+    {
+        //id_klaim ini berisi antara barang ini dilaporkan sebgai kehilangan atau penemuan
+
+        $db      = \Config\Database::connect();
+        $builder = $db->table($this->table);
+
+        $builder->where('id_barang', $id_barang);
+        $builder->where('id_korban', $id_klaim);
+        $builder->delete();
+    }
+
+    public function deleteBarangPenemuanInPengajuan($id_barang, $id_klaim)
+    {
+        //id_klaim ini berisi antara barang ini dilaporkan sebgai kehilangan atau penemuan
+
+        $db      = \Config\Database::connect();
+        $builder = $db->table($this->table);
+
+        $builder->where('id_barang', $id_barang);
+        $builder->where('id_penemu', $id_klaim);
+        $builder->delete();
+    }
+
     //mengget semua data yang berstatus konfirmasi 1
     public function getBarangSelesai()
     {
@@ -53,6 +77,19 @@ class PengajuanModel extends Model{
         return $query;
     }
 
+    public function checkBarangPengajuan($id)
+    {
+        $db      = \Config\Database::connect();
+        $builder = $db->table($this->table);
+
+        $where = [
+            'id_barang' => $id
+        ];
+
+        $query = $builder->getWhere($where);
+        return $query->getResult();
+    }
+
     public function getBarangPengajuanKehilangan($id_barang, $id_status)
     {
     //id_status adalah kode yang menentukan apakah barang tersebut penemuan atau kehilangan
@@ -60,7 +97,7 @@ class PengajuanModel extends Model{
         //mengget menggunakan join table
         //di sini adalah hubungan penemu dengang pengajuan barang
         //mengambil data orang yang mengakui kehilangan barang tersebut
-        $db      = \Config\Database::connect();
+        $db      = \Config\Database::connect(); 
         $builder = $db->table($this->table);
         $builder->select('pengajuan_barang.id_pengajuan as id_pengajuan ,pengajuan_barang.id_barang as id_barang, pengajuan_barang.id_korban as id_korban, pengajuan_barang.id_penemu as id_penemu , pengajuan_barang.konfirmasi_pengajuan as konfirmasi_pengajuan ,penemu.nama_user as nama_user, penemu.no_telepon as no_telepon, pengajuan_barang.waktu_diajukan as waktu_diajukan');
         $builder->join('penemu', 'penemu.id_penemu = pengajuan_barang.id_penemu');

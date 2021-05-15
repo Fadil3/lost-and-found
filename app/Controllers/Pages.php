@@ -20,7 +20,7 @@ class Pages extends BaseController
     protected $statusModel;
     protected $user_model;
     protected $pengajuan_model;
-    protected $session;
+    protected $session; 
 
     public function __construct()
     {
@@ -156,6 +156,7 @@ class Pages extends BaseController
         $dataPBarang = $this->pengajuan_model->getBarangPengajuanKehilangan($id_barang, $id_status);
         $nama_barang = $this->barangModel->getBarang($id_barang);
 
+
         //isi data yang akan dilempar nantinya
         $data = [
             'title'       => 'Daftar Klaim | LostandFound',
@@ -169,20 +170,21 @@ class Pages extends BaseController
 
     public function daftar_klaim_penemuan($id_barang, $id_status)
     {
-    //id status di sini ia sebagai korban
+    //id status di sini ia sebagai penemu
     //jadi ketika dia membuka halaman ini
     //maka akan memperlihatkan daftar nama orang yang menyatakan bahwa dia menemukan barang tersebut
 
         $dataPBarang = $this->pengajuan_model->getBarangPengajuanPenemuan($id_barang, $id_status);
         $nama_barang = $this->barangModel->getBarang($id_barang);
 
-        $data = [
+        $data = [ 
             'title'       => 'Daftar Klaim | LostandFound',
             'barang'      => $dataPBarang,
             'id_barang'   => $id_barang,
             'id_status'   => $id_status,
             'data_barang' => $nama_barang
         ];
+        
         return view('pages/daftar_klaim_penemuan',$data);
     }
 

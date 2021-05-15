@@ -2,6 +2,12 @@
 
 <?= $this->section('content'); ?>
 <div class="container">
+<?php if (session()->getFlashdata('msg_tolak')) : ?>
+    <div class="alert alert-danger"><?= session()->getFlashdata('msg_tolak') ?></div>
+<?php endif; ?>
+<?php if (session()->getFlashdata('msg_konfirmasi')) : ?>
+    <div class="alert alert-success"><?= session()->getFlashdata('msg_konfirmasi') ?></div>
+<?php endif; ?>
     <h3 class="mt-5 sub-title font-weight-bold text-center">
         Klaim Barang <?= $data_barang['nama_barang']; ?>
     </h3>
@@ -34,12 +40,12 @@
                             </div>
                         </div>
                         <div class="col-md-2 mt-4">
-                        <form action="/pengajuanbarang/konfirmasikehilangan/<?= $b->id_barang; ?>/<?= $b->id_penemu; ?>">
+                        <form action="/pengajuanbarang/konfirmasikehilangan/<?= $b->id_barang; ?>/<?= $b->id_penemu; ?>/<?= $b->id_korban;?>">
                             <button class="btn btn-success" type="submit">
                                 <span class="text-white">Terima</span>
                             </button>
                         </form>
-                        <form action="/pengajuanbarang/deletepengajuan/<?= $b->id_pengajuan; ?>"> 
+                        <form action="/pengajuanbarang/deletepengajuankehilangan/<?= $b->id_pengajuan;?>/<?= $b->id_korban;?>/<?= $b->id_barang;?>"> 
                             <button class="btn btn-danger mt-3" type="submit">
                                 <span class="text-white">Tolak</span>
                             </button>
