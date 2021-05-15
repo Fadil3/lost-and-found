@@ -9,6 +9,7 @@ use App\Models\StatusBarangModel;
 use App\Models\KorbanModel;
 use App\Models\PenemuModel;
 use App\Models\UserModel;
+use App\Models\PengajuanModel;
 
 /**
  * Class Controller
@@ -26,31 +27,56 @@ class Barang extends BaseController
     protected $penemu_model;
     protected $statusModel;
     protected $userModel;
+    protected $pengajuan_model;
     protected $session;
 
     public function __construct()
     {
-        $this->barangModel  = new BarangModel();
-        $this->korban_model = new KorbanModel();
-        $this->penemu_model = new PenemuModel();
-        $this->statusModel  = new StatusBarangModel();
-        $this->userModel    = new UserModel();
-        $this->session      = session();
+        $this->barangModel     = new BarangModel();
+        $this->korban_model    = new KorbanModel();
+        $this->penemu_model    = new PenemuModel();
+        $this->statusModel     = new StatusBarangModel();
+        $this->userModel       = new UserModel();
+        $this->pengajuan_model = new PengajuanModel();
+        $this->session         = session();
     }
 
     public function detail($id)
     {
-        $barang      = $this->barangModel->getBarang($id);
+        $barang      = $this->barangModel->getBarang($id); 
         $penemu      = (int)$barang['id_penemu'];
         $pencari     = (int)$barang['id_korban'];
         $userPencari = $this->korban_model->getID($pencari);
         $userPenemu  = $this->penemu_model->getID($penemu);
         $getPencari  = $userPencari != null ? $this->userModel->getUser($userPencari['id_user']):null;
         $getPenemu   = $userPenemu  != null ? $this->userModel->getUser($userPenemu['id_user']) :null;
-
+         
+        //koneksi ke database
         $userkorban  = $this->korban_model->getRowIdUser($this->session->user_id);
         $id_penemu   = $this->penemu_model->getRowIdUser($this->session->user_id);
         // dd($getPencari);
+
+        $isbutton = 1;
+        if($penemu)
+        {
+            $row_pengajuan = $this->pengajuan_model->checkBarangPengajuan($id);
+            foreach($row_pengajuan as $row) :
+                if($row->id_korban == $userkorban['id_korban']):
+                    $isbutton = 0;
+                    break;
+                endif;
+            endforeach;
+        }
+        else
+        {
+            $row_pengajuan = $this->pengajuan_model->checkBarangPengajuan($id);
+            foreach($row_pengajuan as $row) :
+                if($row->id_penemu == $id_penemu['id_penemu']):
+                    $isbutton = 0;
+                    break;
+                endif;
+            endforeach;
+        }
 
         $data = [
             'title'     => 'Detail Barang ',
@@ -58,7 +84,8 @@ class Barang extends BaseController
             'pencari'   => $getPencari,
             'penemu'    => $getPenemu,
             'userKorban'=> $userkorban,
-            'userPenemu'=> $id_penemu
+            'userPenemu'=> $id_penemu,
+            'button'    => $isbutton
         ];
         
         //jika barang tidak ada
@@ -304,9 +331,20 @@ class Barang extends BaseController
     public function updateHilang($id)
     {
         $update = $this->barangModel->updateKdHilang($id);
+        $row    = $this->barangModel->getBarang($id);
 
-            session()->setFlashdata('msg', 'Laporan Berhasil diselesaikan');
-            return redirect()->to('/admin_lap_selesai');
+        if($row['id_korban'])
+        {
+            $this->pengajuan_model->deleteBarangKehilanganInPengajuan($id, $row['id_korban']);
+        }
+        else
+        {
+            $this->pengajuan_model->deleteBarangPenemuanInPengajuan($id, $row['id_penemu']);
+        }
+
+        session()->setFlashdata('msg', 'Laporan Berhasil diselesaikan');
+        
+        return redirect()->to('/admin_lap_selesai');
     }
 
     public function deleteData($id)

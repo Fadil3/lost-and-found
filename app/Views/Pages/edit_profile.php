@@ -4,7 +4,7 @@
 
 <div class="wrap-container">
     <div class="container">
-        <div class="text-center row-padding">
+        <div class="text-center row-padding"> 
             <?php if (session()->getFlashdata('msg')) : ?>
             <div class="alert alert-success"><?= session()->getFlashdata('msg') ?></div>
             <?php endif; ?>

@@ -10,9 +10,12 @@
     $tes = "http://mrayhanfadil.cehiji.com/";
 ?>
 <div class="container">
+<?php if (session()->getFlashdata('msg_pengajuan')) : ?>
+    <div class="alert alert-success"><?= session()->getFlashdata('msg_pengajuan') ?></div>
+<?php endif; ?>
     <div class="container">
         <h3 class="mt-5 sub-title font-weight-bold text-center">
-            Laporan Penemuan
+            Laporan Penemuan 
         </h3>
         <section class="hero">
             <div class="row mt-5">
@@ -61,11 +64,13 @@
     <div class="container">
         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
         <?php if($_SESSION['role'] == 1) :?>
-            <form action="/pengajuanbarang/pengajuan/<?= $barang['id_barang']; ?>/<?= $userKorban['id_korban']; ?>">
-                <button class="btn btn-light mt-2 mb-5 p-2" style="background-color: #8F00FF;" type="submit">
-                    <span class="text-white">Ini Adalah Barang Saya !</span>
-                </button>
-            </form>
+            <?php if($button != 0): ?>
+                <form action="/pengajuanbarang/pengajuan/<?= $barang['id_barang']; ?>/<?= $userKorban['id_korban']; ?>">
+                    <button class="btn btn-light mt-2 mb-5 p-2" style="background-color: #8F00FF;" type="submit">
+                        <span class="text-white">Ini Adalah Barang Saya !</span>
+                    </button>
+                </form>
+            <?php endif; ?>  
         <?php endif; ?>    
         </div>
     </div>

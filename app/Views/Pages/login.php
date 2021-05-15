@@ -3,6 +3,9 @@
 <?= $this->section('content'); ?>
 <div class="wrap-container mt-5">
     <div class="container">
+            <?php if (session()->getFlashdata('msg_register')) : ?>
+            <div class="alert alert-success"><?= session()->getFlashdata('msg_register') ?></div>
+            <?php endif; ?>
         <div class="row row-padding justify-content-center">
             <div class="col-md-4 text-center">
                 <form action="/login/auth" method="post" class="form-signin">

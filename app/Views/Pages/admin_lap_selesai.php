@@ -34,7 +34,7 @@
                         <div class="col-md-2 mt-4">
                             <form action="/barang/updateHilang/<?= $b->id_barang; ?>">
                                 <button class="btn btn-success mt-3" type="submit">
-                                    <span class="text-white">Selesai</span>
+                                    <span class="text-white">Selesai</span> 
                                 </button>
                             </form>
                         </div>

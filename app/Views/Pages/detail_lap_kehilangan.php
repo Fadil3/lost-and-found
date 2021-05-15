@@ -11,6 +11,9 @@
 ?>
 <div class="container">
     <div class="container">
+    <?php if (session()->getFlashdata('msg_pengajuan')) : ?>
+        <div class="alert alert-success"><?= session()->getFlashdata('msg_pengajuan') ?></div>
+    <?php endif; ?>
         <h3 class="mt-5 sub-title font-weight-bold text-center">
             Laporan Kehilangan
         </h3>
@@ -44,7 +47,7 @@
                     <?php if(isset($_SESSION['user_id']) == null) : ?>
                     <p class="font-weight-bold">Silahkan <a href="/login">Login</a> untuk melihat kontak pencari barang
                     </p>
-                    <?php endif; ?>
+                    <?php endif; ?> 
                 </div>
             </div>
         </section>
@@ -58,12 +61,14 @@
 
     <div class="container">
         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-        <?php if($_SESSION['role'] == 1) :?>
-        <form action="/pengajuanbarang/pengajuan/<?= $barang['id_barang']; ?>/<?= $userPenemu['id_penemu']; ?>">
-            <button class="btn btn-light mt-2 mb-5 p-2" style="background-color: #8F00FF;" type="submit">
-                <span class="text-white">Saya telah menemukan barang Ini!</span>
-            </button>
-        </form>
+        <?php if($_SESSION['role'] == 1) :?> 
+            <?php if($button != 0): ?>
+                <form action="/pengajuanbarang/pengajuan/<?= $barang['id_barang']; ?>/<?= $userPenemu['id_penemu']; ?>">
+                    <button class="btn btn-light mt-2 mb-5 p-2" style="background-color: #8F00FF;" type="submit">
+                        <span class="text-white">Saya telah menemukan barang Ini!</span>
+                    </button>
+                </form>
+            <?php endif; ?>
         <?php endif; ?>
         </div>
     </div>

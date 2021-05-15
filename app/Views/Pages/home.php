@@ -13,9 +13,9 @@
                 <h3 class="mt-5 sub-title">
                     Mempertemukan penemu dan pencari barang yang hilang
                 </h3>
-                <div class="mt-3">
-                    <a href="#why" class="btn btn-primary mt-1">Saya Menemukan Barang</a>
-                    <a href="#why" class="btn btn-success mt-1 ml-2">Saya Kehilangan Barang</a>
+                <div class="mt-3"> 
+                    <a href="/lap_kehilangan" class="btn btn-primary mt-1">Saya Menemukan Barang</a>
+                    <a href="/lap_penemuan" class="btn btn-success mt-1 ml-2">Saya Kehilangan Barang</a>
                 </div>
             </div>
         </div>
