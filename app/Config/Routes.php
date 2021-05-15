@@ -49,7 +49,7 @@ $routes->get('/lap_penemuan','Pages::lap_penemuan');
 $routes->get('/barang/detail/(:any)', 'Barang::detail/$1'); 
 
 $routes->get('/detail_lap_kehilangan','Pages::detail_lap_kehilangan');
-$routes->get('/profile','Profile::index');
+$routes->get('/profile','Profile::index',['filter' => 'auth']);
 $routes->get('/detail_lap_penemuan','Pages::detail_lap_penemuan');
 
 $routes->get('/admin_lap_selesai','Pages::admin_lap_selesai');
