@@ -60,16 +60,27 @@ class Barang extends BaseController
             'userKorban'=> $userkorban,
             'userPenemu'=> $id_penemu
         ];
-        
+        // dd($this->session->role);
         //jika barang tidak ada
         if (empty($data['barang'])) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Barang tidak ditemukan');
         }
         if($data['barang']['id_penemu'] == null && $data['barang']['id_korban'] != null){
-            return view('Pages/detail_lap_kehilangan', $data);
+            if ($this->session->role == 0 && $this->session->role !=null) {
+                return view('Pages/detail_lap_kehilangan_admin', $data);
+            }
+            else {
+                return view('Pages/detail_lap_kehilangan', $data);
+            }
+
         }
         else if ($data['barang']['id_penemu'] != null && $data['barang']['id_korban'] == null) {
-            return view('Pages/detail_lap_penemuan', $data);
+            if ($this->session->role == 0 && $this->session->role !=null) {
+                return view('Pages/detail_lap_penemuan_admin', $data);
+            }else {
+                return view('Pages/detail_lap_penemuan', $data);
+            }
+           
         }
     }
 
