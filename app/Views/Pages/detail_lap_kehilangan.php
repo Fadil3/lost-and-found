@@ -15,7 +15,7 @@
         <div class="alert alert-success"><?= session()->getFlashdata('msg_pengajuan') ?></div>
     <?php endif; ?>
         <h3 class="mt-5 sub-title font-weight-bold text-center">
-            Laporan Kehilangan
+            Laporan Kehilangan 
         </h3>
         <section class="hero">
             <div class="row mt-5">
@@ -72,7 +72,7 @@
         <?php endif; ?>
         </div>
     </div>
-    <?php endif; ?>
+    <?php endif; ?> 
 
     <div class="container">
         <div class="col-md-8 mx-auto text-center">

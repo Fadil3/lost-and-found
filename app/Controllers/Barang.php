@@ -57,26 +57,30 @@ class Barang extends BaseController
         // dd($getPencari);
 
         $isbutton = 1;
-        if($penemu)
+
+        if($this->session->user_id != null)
         {
-            $row_pengajuan = $this->pengajuan_model->checkBarangPengajuan($id);
-            foreach($row_pengajuan as $row) :
-                if($row->id_korban == $userkorban['id_korban']):
-                    $isbutton = 0;
-                    break;
-                endif;
-            endforeach;
-        }
-        else
-        {
-            $row_pengajuan = $this->pengajuan_model->checkBarangPengajuan($id);
-            foreach($row_pengajuan as $row) :
-                if($row->id_penemu == $id_penemu['id_penemu']):
-                    $isbutton = 0;
-                    break;
-                endif;
-            endforeach;
-        }
+            if($penemu)
+            {
+                $row_pengajuan = $this->pengajuan_model->checkBarangPengajuan($id);
+                foreach($row_pengajuan as $row) :
+                    if($row->id_korban == $userkorban['id_korban']):
+                        $isbutton = 0;
+                        break;
+                    endif;
+                endforeach;
+            }
+            else
+            {
+                $row_pengajuan = $this->pengajuan_model->checkBarangPengajuan($id);
+                foreach($row_pengajuan as $row) :
+                    if($row->id_penemu == $id_penemu['id_penemu']):
+                        $isbutton = 0;
+                        break;
+                    endif;
+                endforeach;
+            }
+        }    
 
         $data = [
             'title'     => 'Detail Barang ',
