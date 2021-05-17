@@ -43,11 +43,11 @@ class Login extends Controller
 
             }else{
                 $session->setFlashdata('msg', 'Wrong Password');
-                return redirect()->to('/pages/login');
+                return redirect()->to('/login');
             }
         }else{
             $session->setFlashdata('msg', 'Email not Found');
-            return redirect()->to('/pages/login');
+            return redirect()->to('/login');
         }
     }
  

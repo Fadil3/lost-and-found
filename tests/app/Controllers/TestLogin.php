@@ -25,6 +25,37 @@ class TestLogin extends FeatureTestCase
 
     }
 
+    public function testSubmitFalseEmailLoginUser()
+    {
+        // Submit a form
+        $data = [
+            'email' => 'jontakapor@rocketmail.com',
+            'password' => 'jontakp'
+        ];
+        //post auth
+        $result = $this->post('/login/auth',$data);
+        
+        //cek redirect kemana
+        $url = $result->getRedirectUrl();
+        $this->assertEquals('http://localhost:8080/login', $url);
+    }
+
+    public function testSubmitFalsePasswordLoginUser()
+    {
+        // Submit a form
+        $data = [
+            'email' => 'jontakpor@rocketmail.com',
+            'password' => 'jontakwwp'
+        ];
+         //post auth
+        $result = $this->post('/login/auth',$data);
+        
+        //cek redirect kemana
+        $url = $result->getRedirectUrl();
+        $this->assertEquals('http://localhost:8080/login', $url);
+        
+    }
+
     public function testSubmitLoginUser()
     {
         // Submit a form
