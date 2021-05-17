@@ -1,0 +1,26 @@
+Health
+ [x] Is defined app path
+ [x] Base url has been set
+
+About (App\About)
+ [x] About
+
+Detail (App\Detail)
+ [x] Detail penemuan
+ [x] Detail kehilangan
+
+Get Laporan (CodeIgniter\GetLaporan)
+ [x] Get kehilangan
+ [x] Get penemuan
+
+Home (App\Home)
+ [x] Home
+
+Login (App\Login)
+ [x] Login page
+ [x] Submit login user
+ [x] Submit login admin
+
+Register (App\Register)
+ [x] Register
+
