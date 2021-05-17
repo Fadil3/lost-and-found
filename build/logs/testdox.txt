@@ -5,6 +5,10 @@ Health
 About (App\About)
  [x] About
 
+Admin (App\Admin)
+ [x] Submit login admin
+ [x] Selesai laporan
+
 Detail (App\Detail)
  [x] Detail penemuan
  [x] Detail kehilangan
@@ -21,7 +25,6 @@ Login (App\Login)
  [x] Submit false email login user
  [x] Submit false password login user
  [x] Submit login user
- [x] Submit login admin
 
 Register (App\Register)
  [x] Register

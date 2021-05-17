@@ -85,22 +85,4 @@ class TestLogin extends FeatureTestCase
         $this->assertEquals('http://localhost:8080/login', $url);
     }
 
-    public function testSubmitLoginAdmin()
-    {
-        // Submit a form
-        $data = [
-            'email' => 'Fadilfadil@gmail.com',
-            'password' => 'fadilfadil'
-        ];
-        //post auth
-        $result = $this->post('/login/auth',$data);
-        // cek apakah session berhasil dibuat
-        $result->assertSessionHas('logged_in',true);
-        $result->assertSessionHas('role',0);
-
-        //cek redirect kemana
-        $url = $result->getRedirectUrl();
-        $this->assertEquals('http://localhost:8080/admin_lap_selesai', $url);
-        
-    }
 }
