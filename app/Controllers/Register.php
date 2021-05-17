@@ -68,7 +68,7 @@ class Register extends Controller
             $penemu_model->save($data);
 
             session()->setFlashdata('msg_register', 'Akun berhasil didaftarkan, silahkan login!');
-            return redirect()->to('/pages/login');
+            return redirect()->to('/login');
         
         }else{
 

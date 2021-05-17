@@ -25,4 +25,5 @@ Login (App\Login)
 
 Register (App\Register)
  [x] Register
+ [x] Submit register
 
