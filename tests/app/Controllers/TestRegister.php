@@ -25,6 +25,7 @@ class TestRegister extends FeatureTestCase
 
     }
 
+    
     public function testSubmitRegister()
     {
         
@@ -44,6 +45,23 @@ class TestRegister extends FeatureTestCase
         //cek redirect kalau benar
         $url = $result->getRedirectUrl();
         $this->assertEquals('http://localhost:8080/login', $url);
-
+    }
+    
+    public function testSubmitRegisterError()
+    {
+        
+        $data =[
+            'name'          => 'Muhammad Rayhan Fadillah',
+            'email'         => 'rayhanfadil10@gmail.com',
+            'password'      => '',
+            'no_telepon'    => '+6282233131',
+            'instagram'     => 'fadiil',
+            'facebook'      => '',
+            'address'       => ''
+        ];
+        
+        //post auth
+        $result = $this->post('/register/save',$data);
+        $result->assertSee('The password field is required.');
     }
 }

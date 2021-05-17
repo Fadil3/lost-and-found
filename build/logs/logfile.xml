@@ -1,37 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="" tests="15" assertions="29" errors="0" warnings="0" failures="0" skipped="0" time="1.048345">
-    <testsuite name="App" tests="2" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.036820">
-      <testsuite name="HealthTest" file="C:\xampp\htdocs\lost-and-found\tests\unit\HealthTest.php" tests="2" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.036820">
-        <testcase name="testIsDefinedAppPath" class="HealthTest" classname="HealthTest" file="C:\xampp\htdocs\lost-and-found\tests\unit\HealthTest.php" line="10" assertions="1" time="0.034169"/>
-        <testcase name="testBaseUrlHasBeenSet" class="HealthTest" classname="HealthTest" file="C:\xampp\htdocs\lost-and-found\tests\unit\HealthTest.php" line="17" assertions="1" time="0.002651"/>
+  <testsuite name="" tests="16" assertions="30" errors="0" warnings="0" failures="0" skipped="0" time="1.051595">
+    <testsuite name="App" tests="2" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.039852">
+      <testsuite name="HealthTest" file="C:\xampp\htdocs\lost-and-found\tests\unit\HealthTest.php" tests="2" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.039852">
+        <testcase name="testIsDefinedAppPath" class="HealthTest" classname="HealthTest" file="C:\xampp\htdocs\lost-and-found\tests\unit\HealthTest.php" line="10" assertions="1" time="0.037539"/>
+        <testcase name="testBaseUrlHasBeenSet" class="HealthTest" classname="HealthTest" file="C:\xampp\htdocs\lost-and-found\tests\unit\HealthTest.php" line="17" assertions="1" time="0.002313"/>
       </testsuite>
     </testsuite>
-    <testsuite name="myApp" tests="13" assertions="27" errors="0" warnings="0" failures="0" skipped="0" time="1.011525">
-      <testsuite name="App\TestAbout" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestAbout.php" tests="1" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.109592">
-        <testcase name="testAbout" class="App\TestAbout" classname="App.TestAbout" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestAbout.php" line="19" assertions="2" time="0.109592"/>
+    <testsuite name="myApp" tests="14" assertions="28" errors="0" warnings="0" failures="0" skipped="0" time="1.011743">
+      <testsuite name="App\TestAbout" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestAbout.php" tests="1" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.116313">
+        <testcase name="testAbout" class="App\TestAbout" classname="App.TestAbout" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestAbout.php" line="19" assertions="2" time="0.116313"/>
       </testsuite>
-      <testsuite name="App\TestDetail" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestDetail.php" tests="2" assertions="4" errors="0" warnings="0" failures="0" skipped="0" time="0.104832">
-        <testcase name="testDetailPenemuan" class="App\TestDetail" classname="App.TestDetail" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestDetail.php" line="19" assertions="2" time="0.054192"/>
-        <testcase name="testDetailKehilangan" class="App\TestDetail" classname="App.TestDetail" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestDetail.php" line="27" assertions="2" time="0.050641"/>
+      <testsuite name="App\TestDetail" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestDetail.php" tests="2" assertions="4" errors="0" warnings="0" failures="0" skipped="0" time="0.098157">
+        <testcase name="testDetailPenemuan" class="App\TestDetail" classname="App.TestDetail" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestDetail.php" line="19" assertions="2" time="0.047172"/>
+        <testcase name="testDetailKehilangan" class="App\TestDetail" classname="App.TestDetail" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestDetail.php" line="27" assertions="2" time="0.050984"/>
       </testsuite>
-      <testsuite name="CodeIgniter\TestGetLaporan" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestGetLaporan.php" tests="2" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.099967">
-        <testcase name="testGetKehilangan" class="CodeIgniter\TestGetLaporan" classname="CodeIgniter.TestGetLaporan" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestGetLaporan.php" line="12" assertions="1" time="0.048600"/>
-        <testcase name="testGetPenemuan" class="CodeIgniter\TestGetLaporan" classname="CodeIgniter.TestGetLaporan" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestGetLaporan.php" line="20" assertions="1" time="0.051366"/>
+      <testsuite name="CodeIgniter\TestGetLaporan" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestGetLaporan.php" tests="2" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.096908">
+        <testcase name="testGetKehilangan" class="CodeIgniter\TestGetLaporan" classname="CodeIgniter.TestGetLaporan" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestGetLaporan.php" line="12" assertions="1" time="0.051206"/>
+        <testcase name="testGetPenemuan" class="CodeIgniter\TestGetLaporan" classname="CodeIgniter.TestGetLaporan" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestGetLaporan.php" line="20" assertions="1" time="0.045703"/>
       </testsuite>
-      <testsuite name="App\TestHome" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestHome.php" tests="1" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.045090">
-        <testcase name="testHome" class="App\TestHome" classname="App.TestHome" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestHome.php" line="19" assertions="2" time="0.045090"/>
+      <testsuite name="App\TestHome" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestHome.php" tests="1" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.050900">
+        <testcase name="testHome" class="App\TestHome" classname="App.TestHome" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestHome.php" line="19" assertions="2" time="0.050900"/>
       </testsuite>
-      <testsuite name="App\TestLogin" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestLogin.php" tests="5" assertions="14" errors="0" warnings="0" failures="0" skipped="0" time="0.430130">
-        <testcase name="testLoginPage" class="App\TestLogin" classname="App.TestLogin" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestLogin.php" line="19" assertions="2" time="0.048685"/>
-        <testcase name="testSubmitFalseEmailLoginUser" class="App\TestLogin" classname="App.TestLogin" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestLogin.php" line="28" assertions="1" time="0.049565"/>
-        <testcase name="testSubmitFalsePasswordLoginUser" class="App\TestLogin" classname="App.TestLogin" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestLogin.php" line="43" assertions="1" time="0.110938"/>
-        <testcase name="testSubmitLoginUser" class="App\TestLogin" classname="App.TestLogin" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestLogin.php" line="59" assertions="5" time="0.113979"/>
-        <testcase name="testSubmitLoginAdmin" class="App\TestLogin" classname="App.TestLogin" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestLogin.php" line="88" assertions="5" time="0.106963"/>
+      <testsuite name="App\TestLogin" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestLogin.php" tests="5" assertions="14" errors="0" warnings="0" failures="0" skipped="0" time="0.436723">
+        <testcase name="testLoginPage" class="App\TestLogin" classname="App.TestLogin" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestLogin.php" line="19" assertions="2" time="0.047543"/>
+        <testcase name="testSubmitFalseEmailLoginUser" class="App\TestLogin" classname="App.TestLogin" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestLogin.php" line="28" assertions="1" time="0.048865"/>
+        <testcase name="testSubmitFalsePasswordLoginUser" class="App\TestLogin" classname="App.TestLogin" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestLogin.php" line="43" assertions="1" time="0.110508"/>
+        <testcase name="testSubmitLoginUser" class="App\TestLogin" classname="App.TestLogin" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestLogin.php" line="59" assertions="5" time="0.107197"/>
+        <testcase name="testSubmitLoginAdmin" class="App\TestLogin" classname="App.TestLogin" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestLogin.php" line="88" assertions="5" time="0.122612"/>
       </testsuite>
-      <testsuite name="App\TestRegister" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestRegister.php" tests="2" assertions="3" errors="0" warnings="0" failures="0" skipped="0" time="0.221913">
-        <testcase name="testRegister" class="App\TestRegister" classname="App.TestRegister" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestRegister.php" line="19" assertions="2" time="0.098145"/>
-        <testcase name="testSubmitRegister" class="App\TestRegister" classname="App.TestRegister" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestRegister.php" line="28" assertions="1" time="0.123768"/>
+      <testsuite name="App\TestRegister" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestRegister.php" tests="3" assertions="4" errors="0" warnings="0" failures="0" skipped="0" time="0.212742">
+        <testcase name="testRegister" class="App\TestRegister" classname="App.TestRegister" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestRegister.php" line="19" assertions="2" time="0.045285"/>
+        <testcase name="testSubmitRegister" class="App\TestRegister" classname="App.TestRegister" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestRegister.php" line="29" assertions="1" time="0.118418"/>
+        <testcase name="testSubmitRegisterError" class="App\TestRegister" classname="App.TestRegister" file="C:\xampp\htdocs\lost-and-found\tests\app\Controllers\TestRegister.php" line="50" assertions="1" time="0.049039"/>
       </testsuite>
     </testsuite>
   </testsuite>
