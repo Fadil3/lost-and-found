@@ -117,7 +117,8 @@ class Profile extends BaseController
 
         $data = [
             'nama_user' => $nama_user,
-            'no_telepon'=> $nomor
+            'no_telepon'=> $nomor,
+            'img'       => $namaSampul
         ];
 
         $this->korban_model->updateUser($id, $data);
