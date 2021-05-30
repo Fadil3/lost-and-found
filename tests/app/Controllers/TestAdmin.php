@@ -37,32 +37,46 @@ class TestAdmin extends FeatureTestCase
     public function testSelesaiLaporan()
     {
         $params=null;
-        $result = $this->get('/barang/updateHilang/50056',$params);
+        $result = $this->get('/barang/updateHilang/50058',$params);
         $url = $result->getRedirectUrl();
         $this->assertEquals('http://localhost:8080/admin_lap_selesai', $url);
+        $criteria = [
+            'id_barang'  => '50058',
+            'kd_hilang' => 'ST-01'
+        ];
+        $this->seeInDatabase('db_barang', $criteria);
     }
 
-    // public function testDetailLaporan()
-    // {
-    //     $params=null;
-    //     $result = $this->get('/barang/updateHilang/50056',$params);
-    //     $url = $result->getRedirectUrl();
-    //     $this->assertEquals('http://localhost:8080/admin_lap_selesai', $url);
-    // }
+    public function testDetailLaporan()
+    {
+       // Get a simple page
+        $result = $this->call('get', '/barang/detail/50062');
+        $result->assertSee("Hubungi penemu melalui");
+        $result->assertOK();
+    }
 
-    // public function testTerimaLaporan()
-    // {
-    //     $params=null;
-    //     $result = $this->get('/barang/updateHilang/50056',$params);
-    //     $url = $result->getRedirectUrl();
-    //     $this->assertEquals('http://localhost:8080/admin_lap_selesai', $url);
-    // }
+    public function testTerimaLaporan()
+    {
+        
+        $result = $this->call('get', '/barang/update/50063');
+        $url = $result->getRedirectUrl();
+        $this->assertEquals('http://localhost:8080/admin_lap_kehilangan', $url);
+        $criteria = [
+            'id_barang'  => '50063',
+            'kd_approve' => 'AP-01'
+        ];
+        $this->seeInDatabase('db_barang', $criteria);
+    }
 
-    // public function testTolakLaporan()
-    // {
-    //     $params=null;
-    //     $result = $this->get('/barang/updateHilang/50056',$params);
-    //     $url = $result->getRedirectUrl();
-    //     $this->assertEquals('http://localhost:8080/admin_lap_selesai', $url);
-    // }
+    public function testTolakLaporan()
+    {
+        $params=null;
+        $result = $this->get('/barang/delete/50062',$params);
+        $url = $result->getRedirectUrl();
+        $this->assertEquals('http://localhost:8080/admin_lap_kehilangan', $url);
+        $criteria = [
+            'id_barang'  => '50062',
+        ];
+        $this->dontSeeInDatabase('db_barang', $criteria);
+    }
 }

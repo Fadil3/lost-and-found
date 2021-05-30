@@ -1,11 +1,17 @@
 <?php
 
 namespace App;
+namespace App\Database;
 
 use CodeIgniter\Test\FeatureTestCase;
+use CodeIgniter\Test\CIDatabaseTestCase;
+use CodeIgniter\Test\ControllerTester;
 
-class TestLogin extends FeatureTestCase
+
+class TestLogin extends FeatureTestCase 
 {
+    use ControllerTester;
+    
     public function setUp(): void
     {
         parent::setUp();
@@ -73,6 +79,61 @@ class TestLogin extends FeatureTestCase
         $url = $result->getRedirectUrl();
         $this->assertEquals('http://localhost:8080/profile', $url);
         
+    }
+
+    public function testLihatProfile()
+    {
+        // Get a simple page
+        $result = $this->call('get', '/profile');
+        $result->assertOK();
+    }
+
+
+    public function testLihatKlaim()
+    {
+         // Get a simple page
+        $result = $this->call('get', '/pages/daftar_klaim_penemuan/50061/30009');
+        $result->assertSee("Klaim Barang Akta kelahiran");
+        $result->assertOK();
+    }
+
+    public function testTerimaKlaim()
+    {
+         // Get a simple page
+        $result = $this->call('get', '/pengajuanbarang/konfirmasipenemuan/50061/10021/30009');
+        $result->assertOK();
+        $criteria = [
+            'id_barang'  => '50061',
+            'id_korban'  => '10021',
+            'id_penemu'  => '30009',
+            'konfirmasi_pengajuan' => '1'
+        ];
+        $this->seeInDatabase('db_pengajuan_barang', $criteria);
+    }
+
+    public function testTolakKlaim()
+    {
+         // Get a simple page
+        $result = $this->call('get', '/pengajuanbarang/deletepengajuanpenemuan/123039/30009/50061');
+        $result->assertOK();
+        $criteria = [
+            'id_pengajuan'  => '123039',
+        ];
+        $this->dontSeeInDatabase('db_pengajuan_barang', $criteria);
+    }
+    
+
+    public function testKlaimBarang()
+    {
+         // Get a simple page
+        $result = $this->call('get', '/pengajuanbarang/pengajuan/50059/30009');
+        $result->assertOK();
+        $criteria = [
+            'id_barang'  => '50059',
+            'id_penemu'  => '30009',
+            'konfirmasi_pengajuan' => '0'
+        ];
+        $this->seeInDatabase('db_pengajuan_barang', $criteria);
     }
 
     public function logout()

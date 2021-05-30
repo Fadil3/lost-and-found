@@ -45,6 +45,12 @@ class TestRegister extends FeatureTestCase
         //cek redirect kalau benar
         $url = $result->getRedirectUrl();
         $this->assertEquals('http://localhost:8080/login', $url);
+
+        $criteria = [
+            'user_name'  => 'Muhammad Rayhan Fadillah',
+            'user_email' => 'rayhanfadil10@gmail.com'
+        ];
+        $this->seeInDatabase('db_user', $criteria);
     }
     
     public function testSubmitRegisterError()

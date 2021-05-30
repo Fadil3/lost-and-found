@@ -24,20 +24,4 @@ class TestGetLaporan extends CIDatabaseTestCase
                        ->execute('lap_Penemuan');
         $this->assertTrue($result->isOK());
     }
-
-    //  public function testGetDetailKehilangan()
-    // {
-    //     $result = $this->withURI('http://localhost:8080/barang/detail/50054')
-    //                    ->controller(\App\Controllers\Pages::class)
-    //                    ->execute('lap_kehilangan');
-    //     $this->assertTrue($result->isOK());
-    // }
-
-    // public function testGetDetailPenemuan()
-    // {
-    //     $result = $this->withURI('http://localhost:8080/barang/detail/50054')
-    //                    ->controller(\App\Controllers\Barang::class)
-    //                    ->execute('detail');
-    //     $this->assertTrue($result->isOK());
-    // }
 }

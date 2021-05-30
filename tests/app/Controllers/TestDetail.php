@@ -19,8 +19,9 @@ class TestDetail extends FeatureTestCase
     public function testDetailPenemuan()
     {
        // Get a simple page
-        $result = $this->call('get', '/barang/detail/50054');
+        $result = $this->call('get', '/barang/detail/50061');
         $result->assertSee("Hubungi penemu melalui");
+        $result->assertDontSee("Ini Adalah Barang Saya !");
         $result->assertOK();
     }
 
@@ -29,6 +30,7 @@ class TestDetail extends FeatureTestCase
        // Get a simple page
         $result = $this->call('get', '/barang/detail/50058');
         $result->assertSee("Hubungi Pencari melalui");
+        $result->assertDontSee("Saya telah menemukan barang Ini!");
         $result->assertOK();
     }
 }

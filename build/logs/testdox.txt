@@ -8,6 +8,9 @@ About (App\About)
 Admin (App\Admin)
  [x] Submit login admin
  [x] Selesai laporan
+ [x] Detail laporan
+ [x] Terima laporan
+ [x] Tolak laporan
 
 Detail (App\Detail)
  [x] Detail penemuan
@@ -20,11 +23,16 @@ Get Laporan (CodeIgniter\GetLaporan)
 Home (App\Home)
  [x] Home
 
-Login (App\Login)
+Login (App\Database\Login)
  [x] Login page
  [x] Submit false email login user
  [x] Submit false password login user
  [x] Submit login user
+ [x] Lihat profile
+ [x] Lihat klaim
+ [x] Terima klaim
+ [x] Tolak klaim
+ [x] Klaim barang
 
 Register (App\Register)
  [x] Register
