@@ -75,7 +75,8 @@ class PengajuanBarang extends BaseController
         }
 
         $this->session->setFlashdata('msg_pengajuan', 'Pengajuan berhasil dikirmkan!');
-        return redirect()->to('/barang/detail/'. $id_barang);
+        // return redirect()->to('/barang/detail/'. $id_barang);
+        return redirect()->to('/success');
         
     }
 

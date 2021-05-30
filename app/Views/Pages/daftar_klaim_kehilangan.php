@@ -30,7 +30,13 @@
                 <div class="card">
                     <div class="row g-0">
                         <div class="col-md-4 m-3">
-                            <img src="images/1.jpg" class="align-item-center" alt="..." style="max-width: 200px;">
+                            <?php if($b->img == "")  :?>
+                            <img src="/images/foto_profile/default-profile.png" class="img-thumbnail img-preview">
+                            <?php endif ?>
+                            <?php if($b->img != "")  :?>
+                            <img src="/images/foto_profile/<?= $b->img; ?>"
+                                class="img-thumbnail img-preview">
+                            <?php endif ?>
                         </div>
                         <div class="col-md-4">
                             <div class="card-body">

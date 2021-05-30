@@ -99,7 +99,7 @@ class PengajuanModel extends Model{
         //mengambil data orang yang mengakui kehilangan barang tersebut
         $db      = \Config\Database::connect(); 
         $builder = $db->table($this->table);
-        $builder->select('pengajuan_barang.id_pengajuan as id_pengajuan ,pengajuan_barang.id_barang as id_barang, pengajuan_barang.id_korban as id_korban, pengajuan_barang.id_penemu as id_penemu , pengajuan_barang.konfirmasi_pengajuan as konfirmasi_pengajuan ,penemu.nama_user as nama_user, penemu.no_telepon as no_telepon, pengajuan_barang.waktu_diajukan as waktu_diajukan');
+        $builder->select('pengajuan_barang.id_pengajuan as id_pengajuan ,pengajuan_barang.id_barang as id_barang, pengajuan_barang.id_korban as id_korban, pengajuan_barang.id_penemu as id_penemu , pengajuan_barang.konfirmasi_pengajuan as konfirmasi_pengajuan ,penemu.nama_user as nama_user, penemu.no_telepon as no_telepon, penemu.img as img ,pengajuan_barang.waktu_diajukan as waktu_diajukan');
         $builder->join('penemu', 'penemu.id_penemu = pengajuan_barang.id_penemu');
 
         $query = $builder->get()->getResult();
@@ -114,7 +114,7 @@ class PengajuanModel extends Model{
         //mengambil data untuk orang yang mengakui bahwa dia menemukan barang tersebut
         $db      = \Config\Database::connect();
         $builder = $db->table($this->table);
-        $builder->select('pengajuan_barang.id_pengajuan as id_pengajuan, pengajuan_barang.id_barang as id_barang, pengajuan_barang.id_penemu as id_penemu, pengajuan_barang.id_korban as id_korban , pengajuan_barang.konfirmasi_pengajuan as konfirmasi_pengajuan , korban.nama_user as nama_user, korban.no_telepon as no_telepon, pengajuan_barang.waktu_diajukan as waktu_diajukan');
+        $builder->select('pengajuan_barang.id_pengajuan as id_pengajuan, pengajuan_barang.id_barang as id_barang, pengajuan_barang.id_penemu as id_penemu, pengajuan_barang.id_korban as id_korban , pengajuan_barang.konfirmasi_pengajuan as konfirmasi_pengajuan , korban.nama_user as nama_user, korban.no_telepon as no_telepon, korban.img as img , pengajuan_barang.waktu_diajukan as waktu_diajukan');
         $builder->join('korban', 'korban.id_korban = pengajuan_barang.id_korban');
 
         $query = $builder->get()->getResult();
