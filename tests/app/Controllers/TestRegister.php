@@ -18,18 +18,17 @@ class TestRegister extends FeatureTestCase
 
     public function testRegister()
     {
-       // Get a simple page
+        // Get a simple page
         $result = $this->call('get', '/register');
         $result->assertSee("Create Account");
         $result->assertOK();
-
     }
 
-    
+
     public function testSubmitRegister()
     {
-        
-        $data =[
+
+        $data = [
             'name'          => 'Muhammad Rayhan Fadillah',
             'email'         => 'rayhanfadil10@gmail.com',
             'password'      => '123',
@@ -38,10 +37,10 @@ class TestRegister extends FeatureTestCase
             'facebook'      => 'fadiil',
             'address'       => 'Kab. Bandung Barat'
         ];
-        
+
         //post auth
-        $result = $this->post('/register/save',$data);
-        
+        $result = $this->post('/register/save', $data);
+
         //cek redirect kalau benar
         $url = $result->getRedirectUrl();
         $this->assertEquals('http://localhost:8080/login', $url);
@@ -52,11 +51,11 @@ class TestRegister extends FeatureTestCase
         ];
         $this->seeInDatabase('db_user', $criteria);
     }
-    
+
     public function testSubmitRegisterError()
     {
-        
-        $data =[
+
+        $data = [
             'name'          => 'Muhammad Rayhan Fadillah',
             'email'         => 'rayhanfadil10@gmail.com',
             'password'      => '',
@@ -65,9 +64,9 @@ class TestRegister extends FeatureTestCase
             'facebook'      => '',
             'address'       => ''
         ];
-        
+
         //post auth
-        $result = $this->post('/register/save',$data);
+        $result = $this->post('/register/save', $data);
         $result->assertSee('The password field is required.');
     }
 }

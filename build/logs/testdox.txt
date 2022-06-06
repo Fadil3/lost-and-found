@@ -29,6 +29,7 @@ Login (App\Database\Login)
  [x] Submit false password login user
  [x] Submit login user
  [x] Lihat profile
+ [x] Update profile
  [x] Lihat klaim
  [x] Terima klaim
  [x] Tolak klaim
@@ -36,6 +37,6 @@ Login (App\Database\Login)
 
 Register (App\Register)
  [x] Register
- [x] Submit register
+ [ ] Submit register
  [x] Submit register error
 

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for C:\xampp\htdocs\lost-and-found\app\Controllers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../_css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="../_css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href="../_css/style.css" rel="stylesheet" type="text/css">
+  <link href="../_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="../index.html">C:\xampp\htdocs\lost-and-found\app</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Controllers</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Dashboard.php.html#5">App\Controllers\Dashboard</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Home.php.html#5">App\Controllers\Home</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Profile.php.html#8">App\Controllers\Profile</a></td><td class="text-right">23%</td></tr>
+       <tr><td><a href="Pages.php.html#14">App\Controllers\Pages</a></td><td class="text-right">26%</td></tr>
+       <tr><td><a href="Register.php.html#9">App\Controllers\Register</a></td><td class="text-right">29%</td></tr>
+       <tr><td><a href="Barang.php.html#17">App\Controllers\Barang</a></td><td class="text-right">34%</td></tr>
+       <tr><td><a href="PengajuanBarang.php.html#11">App\Controllers\PengajuanBarang</a></td><td class="text-right">59%</td></tr>
+       <tr><td><a href="Login.php.html#6">App\Controllers\Login</a></td><td class="text-right">78%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Barang.php.html#17">App\Controllers\Barang</a></td><td class="text-right">377</td></tr>
+       <tr><td><a href="Pages.php.html#14">App\Controllers\Pages</a></td><td class="text-right">294</td></tr>
+       <tr><td><a href="Profile.php.html#8">App\Controllers\Profile</a></td><td class="text-right">16</td></tr>
+       <tr><td><a href="PengajuanBarang.php.html#11">App\Controllers\PengajuanBarang</a></td><td class="text-right">14</td></tr>
+       <tr><td><a href="Login.php.html#6">App\Controllers\Login</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Register.php.html#9">App\Controllers\Register</a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Barang.php.html#118"><abbr title="App\Controllers\Barang::add">add</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Barang.php.html#279"><abbr title="App\Controllers\Barang::updateData">updateData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Barang.php.html#365"><abbr title="App\Controllers\Barang::deleteData">deleteData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dashboard.php.html#7"><abbr title="App\Controllers\Dashboard::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Home.php.html#7"><abbr title="App\Controllers\Home::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Login.php.html#8"><abbr title="App\Controllers\Login::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Login.php.html#54"><abbr title="App\Controllers\Login::logout">logout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Pages.php.html#54"><abbr title="App\Controllers\Pages::register">register</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Pages.php.html#63"><abbr title="App\Controllers\Pages::cari_laporan">cari_laporan</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Pages.php.html#72"><abbr title="App\Controllers\Pages::buat_laporan">buat_laporan</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Pages.php.html#82"><abbr title="App\Controllers\Pages::edit_laporan">edit_laporan</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Pages.php.html#121"><abbr title="App\Controllers\Pages::detail_lap_kehilangan">detail_lap_kehilangan</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Pages.php.html#130"><abbr title="App\Controllers\Pages::profile">profile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Pages.php.html#140"><abbr title="App\Controllers\Pages::detail_lap_penemuan">detail_lap_penemuan</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Pages.php.html#171"><abbr title="App\Controllers\Pages::daftar_klaim_penemuan">daftar_klaim_penemuan</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Pages.php.html#191"><abbr title="App\Controllers\Pages::admin_lap_selesai">admin_lap_selesai</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Pages.php.html#202"><abbr title="App\Controllers\Pages::admin_lap_penemuan">admin_lap_penemuan</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Pages.php.html#211"><abbr title="App\Controllers\Pages::admin_lap_kehilangan">admin_lap_kehilangan</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Pages.php.html#221"><abbr title="App\Controllers\Pages::lap_acc_user">lap_acc_user</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Pages.php.html#258"><abbr title="App\Controllers\Pages::lap_x_acc_user">lap_x_acc_user</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Pages.php.html#293"><abbr title="App\Controllers\Pages::success">success</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Pages.php.html#302"><abbr title="App\Controllers\Pages::edit_profile">edit_profile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PengajuanBarang.php.html#25"><abbr title="App\Controllers\PengajuanBarang::konfirmasiKehilangan">konfirmasiKehilangan</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PengajuanBarang.php.html#83"><abbr title="App\Controllers\PengajuanBarang::deletePengajuanKehilangan">deletePengajuanKehilangan</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PengajuanBarang.php.html#101"><abbr title="App\Controllers\PengajuanBarang::deletePengajuanSelesai">deletePengajuanSelesai</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Profile.php.html#22"><abbr title="App\Controllers\Profile::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Profile.php.html#33"><abbr title="App\Controllers\Profile::edit">edit</abbr></a></td><td class="text-right">14%</td></tr>
+       <tr><td><a href="Register.php.html#21"><abbr title="App\Controllers\Register::save">save</abbr></a></td><td class="text-right">22%</td></tr>
+       <tr><td><a href="PengajuanBarang.php.html#45"><abbr title="App\Controllers\PengajuanBarang::pengajuan">pengajuan</abbr></a></td><td class="text-right">60%</td></tr>
+       <tr><td><a href="Barang.php.html#44"><abbr title="App\Controllers\Barang::detail">detail</abbr></a></td><td class="text-right">63%</td></tr>
+       <tr><td><a href="Barang.php.html#346"><abbr title="App\Controllers\Barang::updateHilang">updateHilang</abbr></a></td><td class="text-right">85%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Barang.php.html#118"><abbr title="App\Controllers\Barang::add">add</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Barang.php.html#44"><abbr title="App\Controllers\Barang::detail">detail</abbr></a></td><td class="text-right">33</td></tr>
+       <tr><td><a href="Barang.php.html#279"><abbr title="App\Controllers\Barang::updateData">updateData</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Pages.php.html#221"><abbr title="App\Controllers\Pages::lap_acc_user">lap_acc_user</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Pages.php.html#258"><abbr title="App\Controllers\Pages::lap_x_acc_user">lap_x_acc_user</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Profile.php.html#33"><abbr title="App\Controllers\Profile::edit">edit</abbr></a></td><td class="text-right">8</td></tr>
+       <tr><td><a href="Register.php.html#21"><abbr title="App\Controllers\Register::save">save</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="PengajuanBarang.php.html#45"><abbr title="App\Controllers\PengajuanBarang::pengajuan">pengajuan</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Barang.php.html#346"><abbr title="App\Controllers\Barang::updateHilang">updateHilang</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 9.2.6</a> using <a href="https://secure.php.net/" target="_top">PHP 8.0.7</a> with <a href="https://xdebug.org/">Xdebug 3.1.4</a> and <a href="https://phpunit.de/">PHPUnit 9.5.4</a> at Mon Jun 6 1:42:56 CDT 2022.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../_js/jquery.min.js" type="text/javascript"></script>
+  <script src="../_js/d3.min.js" type="text/javascript"></script>
+  <script src="../_js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([2,0,0,3,1,0,1,0,1,0,0,1], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([26,0,1,1,0,0,0,2,0,1,0,17], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[34.61538461538461,35,"<a href=\"Barang.php.html#17\">App\\Controllers\\Barang<\/a>"],[100,1,"<a href=\"BaseController.php.html#21\">App\\Controllers\\BaseController<\/a>"],[0,1,"<a href=\"Dashboard.php.html#5\">App\\Controllers\\Dashboard<\/a>"],[0,1,"<a href=\"Home.php.html#5\">App\\Controllers\\Home<\/a>"],[78.57142857142857,6,"<a href=\"Login.php.html#6\">App\\Controllers\\Login<\/a>"],[26.495726495726498,26,"<a href=\"Pages.php.html#14\">App\\Controllers\\Pages<\/a>"],[59.375,9,"<a href=\"PengajuanBarang.php.html#11\">App\\Controllers\\PengajuanBarang<\/a>"],[23.684210526315788,5,"<a href=\"Profile.php.html#8\">App\\Controllers\\Profile<\/a>"],[29.411764705882355,3,"<a href=\"Register.php.html#9\">App\\Controllers\\Register<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"Barang.php.html#33\">App\\Controllers\\Barang::__construct<\/a>"],[63.41463414634146,18,"<a href=\"Barang.php.html#44\">App\\Controllers\\Barang::detail<\/a>"],[0,8,"<a href=\"Barang.php.html#118\">App\\Controllers\\Barang::add<\/a>"],[0,3,"<a href=\"Barang.php.html#279\">App\\Controllers\\Barang::updateData<\/a>"],[85.71428571428571,2,"<a href=\"Barang.php.html#346\">App\\Controllers\\Barang::updateHilang<\/a>"],[0,1,"<a href=\"Barang.php.html#365\">App\\Controllers\\Barang::deleteData<\/a>"],[100,1,"<a href=\"Barang.php.html#373\">App\\Controllers\\Barang::delete<\/a>"],[100,1,"<a href=\"Barang.php.html#380\">App\\Controllers\\Barang::update<\/a>"],[100,1,"<a href=\"BaseController.php.html#39\">App\\Controllers\\BaseController::initController<\/a>"],[0,1,"<a href=\"Dashboard.php.html#7\">App\\Controllers\\Dashboard::index<\/a>"],[0,1,"<a href=\"Home.php.html#7\">App\\Controllers\\Home::index<\/a>"],[0,1,"<a href=\"Login.php.html#8\">App\\Controllers\\Login::index<\/a>"],[100,4,"<a href=\"Login.php.html#14\">App\\Controllers\\Login::auth<\/a>"],[0,1,"<a href=\"Login.php.html#54\">App\\Controllers\\Login::logout<\/a>"],[100,1,"<a href=\"Pages.php.html#25\">App\\Controllers\\Pages::__construct<\/a>"],[100,1,"<a href=\"Pages.php.html#36\">App\\Controllers\\Pages::index<\/a>"],[100,1,"<a href=\"Pages.php.html#45\">App\\Controllers\\Pages::login<\/a>"],[0,1,"<a href=\"Pages.php.html#54\">App\\Controllers\\Pages::register<\/a>"],[0,1,"<a href=\"Pages.php.html#63\">App\\Controllers\\Pages::cari_laporan<\/a>"],[0,1,"<a href=\"Pages.php.html#72\">App\\Controllers\\Pages::buat_laporan<\/a>"],[0,1,"<a href=\"Pages.php.html#82\">App\\Controllers\\Pages::edit_laporan<\/a>"],[100,1,"<a href=\"Pages.php.html#93\">App\\Controllers\\Pages::about<\/a>"],[100,1,"<a href=\"Pages.php.html#102\">App\\Controllers\\Pages::lap_kehilangan<\/a>"],[100,1,"<a href=\"Pages.php.html#111\">App\\Controllers\\Pages::lap_penemuan<\/a>"],[0,1,"<a href=\"Pages.php.html#121\">App\\Controllers\\Pages::detail_lap_kehilangan<\/a>"],[0,1,"<a href=\"Pages.php.html#130\">App\\Controllers\\Pages::profile<\/a>"],[0,1,"<a href=\"Pages.php.html#140\">App\\Controllers\\Pages::detail_lap_penemuan<\/a>"],[100,1,"<a href=\"Pages.php.html#149\">App\\Controllers\\Pages::daftar_klaim_kehilangan<\/a>"],[0,1,"<a href=\"Pages.php.html#171\">App\\Controllers\\Pages::daftar_klaim_penemuan<\/a>"],[0,1,"<a href=\"Pages.php.html#191\">App\\Controllers\\Pages::admin_lap_selesai<\/a>"],[0,1,"<a href=\"Pages.php.html#202\">App\\Controllers\\Pages::admin_lap_penemuan<\/a>"],[0,1,"<a href=\"Pages.php.html#211\">App\\Controllers\\Pages::admin_lap_kehilangan<\/a>"],[0,3,"<a href=\"Pages.php.html#221\">App\\Controllers\\Pages::lap_acc_user<\/a>"],[0,3,"<a href=\"Pages.php.html#258\">App\\Controllers\\Pages::lap_x_acc_user<\/a>"],[0,1,"<a href=\"Pages.php.html#293\">App\\Controllers\\Pages::success<\/a>"],[0,1,"<a href=\"Pages.php.html#302\">App\\Controllers\\Pages::edit_profile<\/a>"],[100,1,"<a href=\"PengajuanBarang.php.html#18\">App\\Controllers\\PengajuanBarang::__construct<\/a>"],[0,1,"<a href=\"PengajuanBarang.php.html#25\">App\\Controllers\\PengajuanBarang::konfirmasiKehilangan<\/a>"],[100,1,"<a href=\"PengajuanBarang.php.html#36\">App\\Controllers\\PengajuanBarang::konfirmasiPenemuan<\/a>"],[60,3,"<a href=\"PengajuanBarang.php.html#45\">App\\Controllers\\PengajuanBarang::pengajuan<\/a>"],[0,1,"<a href=\"PengajuanBarang.php.html#83\">App\\Controllers\\PengajuanBarang::deletePengajuanKehilangan<\/a>"],[100,1,"<a href=\"PengajuanBarang.php.html#92\">App\\Controllers\\PengajuanBarang::deletePengajuanPenemuan<\/a>"],[0,1,"<a href=\"PengajuanBarang.php.html#101\">App\\Controllers\\PengajuanBarang::deletePengajuanSelesai<\/a>"],[100,1,"<a href=\"Profile.php.html#15\">App\\Controllers\\Profile::__construct<\/a>"],[0,1,"<a href=\"Profile.php.html#22\">App\\Controllers\\Profile::index<\/a>"],[14.285714285714285,3,"<a href=\"Profile.php.html#33\">App\\Controllers\\Profile::edit<\/a>"],[100,1,"<a href=\"Register.php.html#11\">App\\Controllers\\Register::index<\/a>"],[22.58064516129032,2,"<a href=\"Register.php.html#21\">App\\Controllers\\Register::save<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>
