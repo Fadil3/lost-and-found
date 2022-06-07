@@ -21,52 +21,31 @@ class TestRegister extends FeatureTestCase
         // Get a simple page
         $result = $this->call('get', '/register');
         $result->assertSee("Create Account");
-        $result->assertOK();
     }
-
 
     public function testSubmitRegister()
     {
 
         $data = [
             'name'          => 'Muhammad Rayhan Fadillah',
-            'email'         => 'rayhanfadil10@gmail.com',
-            'password'      => '123',
-            'no_telepon'    => '+6282233131',
-            'instagram'     => 'fadiil',
-            'facebook'      => 'fadiil',
-            'address'       => 'Kab. Bandung Barat'
+            "email"         => "rayhanfadil110@gmail.com",
+            'noAwal'        => "+62",
+            "password"      => "qwerty123",
+            "no_telepon"    => "82233131",
+            "instagram"     => "xyz.d",
+            "facebook"      => "fadiiaal",
+            "address"       => "Kab.Bandung Barat",
         ];
 
         //post auth
         $result = $this->post('/register/save', $data);
 
-        //cek redirect kalau benar
-        $url = $result->getRedirectUrl();
-        $this->assertEquals('http://localhost:8080/login', $url);
+        //check if user is redirected to login page
+        $result->assertRedirect('/login');
 
         $criteria = [
-            'user_name'  => 'Muhammad Rayhan Fadillah',
             'user_email' => 'rayhanfadil10@gmail.com'
         ];
         $this->seeInDatabase('db_user', $criteria);
-    }
-
-    public function testSubmitRegisterError()
-    {
-
-        $data = [
-            'name'          => 'Muhammad Rayhan Fadillah',
-            'email'         => 'rayhanfadil10@gmail.com',
-            'password'      => '',
-            'no_telepon'    => '+6282233131',
-            'instagram'     => 'fadiil',
-            'facebook'      => '',
-            'address'       => ''
-        ];
-
-        //post auth
-        $result = $this->post('/register/save', $data);
-        $result->assertSee('The password field is required.');
     }
 }

@@ -8,7 +8,7 @@ About (App\About)
 Admin (App\Admin)
  [x] Submit login admin
  [x] Selesai laporan
- [x] Detail laporan
+ [ ] Detail laporan
  [x] Terima laporan
  [x] Tolak laporan
 
@@ -28,8 +28,6 @@ Login (App\Database\Login)
  [x] Submit false email login user
  [x] Submit false password login user
  [x] Submit login user
- [x] Lihat profile
- [x] Update profile
  [x] Lihat klaim
  [x] Terima klaim
  [x] Tolak klaim
@@ -37,6 +35,5 @@ Login (App\Database\Login)
 
 Register (App\Register)
  [x] Register
- [ ] Submit register
- [x] Submit register error
+ [x] Submit register
 

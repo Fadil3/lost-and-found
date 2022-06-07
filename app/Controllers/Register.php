@@ -1,5 +1,7 @@
-<?php namespace App\Controllers;
- 
+<?php
+
+namespace App\Controllers;
+
 use CodeIgniter\Controller;
 use App\Models\UserModel;
 use App\Models\KorbanModel;
@@ -15,9 +17,9 @@ class Register extends Controller
         $data = [
             'title' => 'Register | LostandFound'
         ];
-        return view('pages/register',$data);
+        return view('pages/register', $data);
     }
- 
+
     public function save()
     {
         //include helper form
@@ -32,8 +34,8 @@ class Register extends Controller
             'facebook'      => 'required',
             'address'       => 'required'
         ];
-         
-        if($this->validate($rules)){
+
+        if ($this->validate($rules)) {
             $model        = new UserModel();
             $korban_model = new KorbanModel();
             $penemu_model = new PenemuModel();
@@ -50,18 +52,18 @@ class Register extends Controller
                 'user_alamat'    => $this->request->getVar('address'),
                 'user_email'     => $this->request->getVar('email'),
                 'user_password'  => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
-                'user_no_telepon'=> $nomor,
+                'user_no_telepon' => $nomor,
                 'user_instagram' => $this->request->getVar('instagram'),
                 'user_facebook'  => $this->request->getVar('facebook')
             ];
-            $model->save($data); 
+            $model->save($data);
 
             $user_id  = $model->getInsertID();
 
             $data = [
                 'id_user'   => $user_id,
                 'nama_user' => $nama_user,
-                'no_telepon'=> $nomor
+                'no_telepon' => $nomor
             ];
 
             $korban_model->save($data);
@@ -69,8 +71,7 @@ class Register extends Controller
 
             session()->setFlashdata('msg_register', 'Akun berhasil didaftarkan, silahkan login!');
             return redirect()->to('/login');
-        
-        }else{
+        } else {
 
             $data = [
                 'title' => 'Register | LostandFound',
@@ -78,6 +79,5 @@ class Register extends Controller
             ];
             return view('/pages/register', $data);
         }
-         
     }
 }
