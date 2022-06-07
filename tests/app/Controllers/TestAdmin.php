@@ -24,20 +24,20 @@ class TestAdmin extends FeatureTestCase
             'password' => 'fadilfadil'
         ];
         //post auth
-        $result = $this->post('/login/auth',$data);
+        $result = $this->post('/login/auth', $data);
         // cek apakah session berhasil dibuat
-        $result->assertSessionHas('logged_in',true);
-        $result->assertSessionHas('role',0);
+        $result->assertSessionHas('logged_in', true);
+        $result->assertSessionHas('role', 0);
 
         //cek redirect kemana
         $url = $result->getRedirectUrl();
-        $this->assertEquals('http://localhost:8080/admin_lap_selesai', $url);        
+        $this->assertEquals('http://localhost:8080/admin_lap_selesai', $url);
     }
 
     public function testSelesaiLaporan()
     {
-        $params=null;
-        $result = $this->get('/barang/updateHilang/50058',$params);
+        $params = null;
+        $result = $this->get('/barang/updateHilang/50058', $params);
         $url = $result->getRedirectUrl();
         $this->assertEquals('http://localhost:8080/admin_lap_selesai', $url);
         $criteria = [
@@ -49,7 +49,7 @@ class TestAdmin extends FeatureTestCase
 
     public function testDetailLaporan()
     {
-       // Get a simple page
+        // Get a simple page
         $result = $this->call('get', '/barang/detail/50062');
         $result->assertSee("Hubungi penemu melalui");
         $result->assertOK();
@@ -57,7 +57,7 @@ class TestAdmin extends FeatureTestCase
 
     public function testTerimaLaporan()
     {
-        
+
         $result = $this->call('get', '/barang/update/50063');
         $url = $result->getRedirectUrl();
         $this->assertEquals('http://localhost:8080/admin_lap_kehilangan', $url);
@@ -70,8 +70,8 @@ class TestAdmin extends FeatureTestCase
 
     public function testTolakLaporan()
     {
-        $params=null;
-        $result = $this->get('/barang/delete/50062',$params);
+        $params = null;
+        $result = $this->get('/barang/delete/50062', $params);
         $url = $result->getRedirectUrl();
         $this->assertEquals('http://localhost:8080/admin_lap_kehilangan', $url);
         $criteria = [
