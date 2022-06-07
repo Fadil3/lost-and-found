@@ -44,7 +44,7 @@ class TestRegister extends FeatureTestCase
         $result->assertRedirect('/login');
 
         $criteria = [
-            'user_email' => 'rayhanfadil10@gmail.com'
+            'user_email' => 'rayhanfadil110@gmail.com', "user_name" => "Muhammad Rayhan Fadillah"
         ];
         $this->seeInDatabase('db_user', $criteria);
     }
